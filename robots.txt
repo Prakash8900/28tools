@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://prakash8900.github.io/28tools/sitemap.xml
+
+# Disallow draft or non-public paths
+Disallow: /draft/
+Disallow: /scratch/
