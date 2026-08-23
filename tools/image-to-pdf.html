@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Image to PDF Converter – Convert JPG & PNG to PDF Online | 28Tools</title>
+  <meta name="description" content="Combine multiple JPG, PNG, and WebP images into a single high-quality PDF document locally in your browser. Rearrange page order and download instantly."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/image-to-pdf.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/image-to-pdf.html"/>
+  <meta property="og:title" content="Image to PDF Converter – Convert JPG & PNG to PDF Online | 28Tools"/>
+  <meta property="og:description" content="Combine multiple JPG, PNG, and WebP images into a single high-quality PDF document locally in your browser. Rearrange page order and download instantly."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image to PDF Converter",
+    "url":"https://prakash8900.github.io/28tools/tools/image-to-pdf.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Combine multiple JPG, PNG, and WebP images into a single high-quality PDF document locally in your browser. Rearrange page order and download instantly.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=pdf">PDF & Image</a><span aria-hidden="true">â€º</span><span aria-current="page">Image to PDF Converter</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-pdf" aria-hidden="true">📄</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Image to PDF Converter</h1>
+          <p class="tool-hero__desc">Combine multiple photos and images into a single multi-page PDF file locally.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-pdf">PDF & Image</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="tool-card-panel mb-lg">
+      <div class="upload-zone" id="i2p-drop" role="button" tabindex="0" aria-label="Drop images or click to select multiple">
+        <input type="file" id="i2p-file" accept="image/jpeg,image/png,image/webp" multiple aria-label="Select images"/>
+        <div class="upload-zone__icon">📸</div>
+        <p class="upload-zone__title">Drop images here or click to select</p>
+        <p class="upload-zone__sub">JPEG · PNG · WebP · Multiple files allowed · Max 50 MB each</p>
+      </div>
+    </div>
+
+    <div id="i2p-preview-section" class="hidden">
+      <div class="section-header">
+        <h2 class="section-title">Selected Images (<span id="i2p-count">0</span>)</h2>
+        <button class="btn btn-ghost btn-sm" id="i2p-clear">Clear All</button>
+      </div>
+      <div id="i2p-thumbs" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:var(--space-sm);margin-bottom:var(--space-lg)"></div>
+
+      <div class="tool-card-panel">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="i2p-page">Page Size</label>
+            <select id="i2p-page" class="form-select">
+              <option value="a4">A4 (210×297mm)</option>
+              <option value="letter">Letter (8.5×11in)</option>
+              <option value="a3">A3 (297×420mm)</option>
+              <option value="fit">Fit to Image</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="i2p-orient">Orientation</label>
+            <select id="i2p-orient" class="form-select">
+              <option value="portrait">Portrait</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="i2p-margin">Margin (mm)</label>
+          <input id="i2p-margin" class="form-input" type="number" min="0" max="50" value="10"/>
+        </div>
+        <button class="btn btn-primary btn-lg btn-full mt-lg" id="i2p-convert-btn">📄 Convert to PDF</button>
+      </div>
+    </div>
+
+    <div id="i2p-progress" class="hidden mt-md">
+      <div class="alert alert-info"><span class="spinner"></span> &nbsp; <span id="i2p-prog-txt">Processing…</span></div>
+    </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Image to PDF Converter</h2>
+        <p>Follow these quick and easy steps to use our free online Image to PDF Converter directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Upload Images</div>
+          <div class="step-card__desc">Choose one or multiple JPG, PNG, or WebP files.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Reorder Pages</div>
+          <div class="step-card__desc">Arrange the order of image pages as desired.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Convert to PDF</div>
+          <div class="step-card__desc">Click Convert to merge images into a PDF document.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">4</div>
+          <div class="step-card__title">Download PDF</div>
+          <div class="step-card__desc">Save your completed PDF file.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">📑</div>
+          <div>
+            <div class="feature-item__title">Multi-Image Support</div>
+            <div class="feature-item__desc">Merge dozens of photos into one organized PDF.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">100% Browser Processing</div>
+            <div class="feature-item__desc">Your private documents are never sent over the web.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">⚡</div>
+          <div>
+            <div class="feature-item__title">Instant Generation</div>
+            <div class="feature-item__desc">Builds PDFs locally using pdf-lib.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Image to PDF Converter</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">Can I convert multiple JPGs into one PDF?</div>
+          <div class="faq-card__a">Yes, you can upload multiple images and combine them into a single PDF document.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="pdf-to-image.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">🖼️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">PDF to Image</div>
+            <div class="related-tool-card__desc">Extract PDF pages to images.</div>
+          </div>
+        </a>
+        <a href="pdf-merge-split.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📑</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">PDF Merge & Split</div>
+            <div class="related-tool-card__desc">Combine & split PDFs.</div>
+          </div>
+        </a>
+        <a href="image-compressor.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">🗜️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image Compressor</div>
+            <div class="related-tool-card__desc">Compress images.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  let fileList=[];
+
+  function renderThumbs(){
+    const wrap=document.getElementById('i2p-thumbs');
+    document.getElementById('i2p-count').textContent=fileList.length;
+    wrap.innerHTML='';
+    fileList.forEach((f,i)=>{
+      const url=URL.createObjectURL(f);
+      const div=document.createElement('div');
+      div.style.cssText='position:relative;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;aspect-ratio:1';
+      div.innerHTML=`<img src="${url}" alt="Page ${i+1}" style="width:100%;height:100%;object-fit:cover"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:hsl(222,47%,5%,0.8);padding:2px 4px;font-size:0.625rem;color:var(--text-300);text-align:center">Page ${i+1}</div>
+        <button style="position:absolute;top:2px;right:2px;background:var(--danger);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:0.625rem;cursor:pointer" onclick="removeImg(${i})" aria-label="Remove image ${i+1}">✕</button>`;
+      wrap.appendChild(div);
+    });
+    document.getElementById('i2p-preview-section').classList.toggle('hidden',fileList.length===0);
+  }
+
+  window.removeImg=i=>{ fileList.splice(i,1); renderThumbs(); };
+
+  function addFiles(files){
+    for(const f of files){
+      if(validateFile(f,['image/jpeg','image/png','image/webp'])) continue;
+      if(fileList.length>=20){alert('Max 20 images allowed.');break;}
+      fileList.push(f);
+    }
+    renderThumbs();
+  }
+
+  const dropZone=document.getElementById('i2p-drop');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');addFiles(e.dataTransfer.files);});
+  document.getElementById('i2p-file').addEventListener('change',e=>addFiles(e.target.files));
+  document.getElementById('i2p-clear').addEventListener('click',()=>{fileList=[];renderThumbs();});
+
+  document.getElementById('i2p-convert-btn').addEventListener('click',async()=>{
+    if(!fileList.length){alert('Please add at least one image.');return;}
+    const prog=document.getElementById('i2p-progress');
+    const progTxt=document.getElementById('i2p-prog-txt');
+    prog.classList.remove('hidden');
+
+    const pageSize=document.getElementById('i2p-page').value;
+    const orient=document.getElementById('i2p-orient').value;
+    const margin=parseInt(document.getElementById('i2p-margin').value)||10;
+
+    const sizeMap={a4:[210,297],letter:[215.9,279.4],a3:[297,420]};
+    const [pw,ph]=sizeMap[pageSize]||[210,297];
+
+    const {jsPDF}=window.jspdf;
+    let pdf=null;
+    for(let i=0;i<fileList.length;i++){
+      progTxt.textContent=`Processing image ${i+1} of ${fileList.length}…`;
+      const img=await loadImageOnCanvas(fileList[i]);
+      const canvas=document.createElement('canvas');
+      canvas.width=img.naturalWidth; canvas.height=img.naturalHeight;
+      canvas.getContext('2d').drawImage(img,0,0);
+      const dataURL=canvas.toDataURL('image/jpeg',0.92);
+      const imgW=img.naturalWidth, imgH=img.naturalHeight;
+      let docW,docH;
+      if(pageSize==='fit'){
+        docW=imgW*0.264583; docH=imgH*0.264583;
+      } else {
+        [docW,docH]=orient==='landscape'?[ph,pw]:[pw,ph];
+      }
+      if(!pdf){ pdf=new jsPDF({orientation:orient==='landscape'?'l':'p',unit:'mm',format:pageSize==='fit'?[docW,docH]:pageSize}); }
+      else { pdf.addPage(pageSize==='fit'?[docW,docH]:pageSize,orient==='landscape'?'l':'p'); }
+      const availW=docW-margin*2, availH=docH-margin*2;
+      const scale=Math.min(availW/(imgW*0.264583),availH/(imgH*0.264583));
+      const drawW=(imgW*0.264583)*scale, drawH=(imgH*0.264583)*scale;
+      const offX=margin+(availW-drawW)/2, offY=margin+(availH-drawH)/2;
+      pdf.addImage(dataURL,'JPEG',offX,offY,drawW,drawH);
+    }
+    prog.classList.add('hidden');
+    pdf.save('28tools-images.pdf');
+  });
+})();
+</script>
+</body>
+</html>

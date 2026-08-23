@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>PDF to Image Converter – Extract PDF Pages as PNG & JPG | 28Tools</title>
+  <meta name="description" content="Convert and extract PDF document pages into high-resolution PNG or JPG images individually or as a batch ZIP archive without uploading files."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/pdf-to-image.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/pdf-to-image.html"/>
+  <meta property="og:title" content="PDF to Image Converter – Extract PDF Pages as PNG & JPG | 28Tools"/>
+  <meta property="og:description" content="Convert and extract PDF document pages into high-resolution PNG or JPG images individually or as a batch ZIP archive without uploading files."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"PDF to Image Converter",
+    "url":"https://prakash8900.github.io/28tools/tools/pdf-to-image.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Convert and extract PDF document pages into high-resolution PNG or JPG images individually or as a batch ZIP archive without uploading files.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=pdf">PDF & Image</a><span aria-hidden="true">â€º</span><span aria-current="page">PDF to Image Converter</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-pdf" aria-hidden="true">🖼️</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">PDF to Image Converter</h1>
+          <p class="tool-hero__desc">Extract PDF document pages into high-resolution PNG or JPEG images locally.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-pdf">PDF & Image</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="upload-zone" id="p2i-drop" role="button" tabindex="0">
+      <input type="file" id="p2i-file" accept="application/pdf"/>
+      <div class="upload-zone__icon">📄</div>
+      <p class="upload-zone__title">Drop PDF here or click to select</p>
+      <p class="upload-zone__sub">PDF only · Max 50 MB · Processed locally</p>
+    </div>
+    <div class="tool-card-panel mt-md hidden" id="p2i-controls">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:var(--space-md);align-items:flex-end">
+        <div class="form-group">
+          <label class="form-label" for="p2i-format">Format</label>
+          <select id="p2i-format" class="form-select">
+            <option value="image/png" selected>PNG</option>
+            <option value="image/jpeg">JPEG</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="p2i-scale">Scale / Resolution</label>
+          <select id="p2i-scale" class="form-select">
+            <option value="1">1× (Standard - 72 dpi)</option>
+            <option value="2" selected>2× (High Res - 144 dpi)</option>
+            <option value="3">3× (Ultra HD - 216 dpi)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-full" id="p2i-convert-btn">🖼️ Convert All Pages</button>
+        </div>
+      </div>
+    </div>
+    <div id="p2i-status" class="text-sm text-muted mt-md hidden"></div>
+    <div id="p2i-pages" class="mt-lg" style="display:grid;gap:var(--space-md)"></div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use PDF to Image Converter</h2>
+        <p>Follow these quick and easy steps to use our free online PDF to Image Converter directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Upload PDF</div>
+          <div class="step-card__desc">Select the PDF document you want to extract.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Choose Image Format</div>
+          <div class="step-card__desc">Select PNG (lossless) or JPEG.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Render & Download</div>
+          <div class="step-card__desc">Download individual pages or complete ZIP archive.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">🖼️</div>
+          <div>
+            <div class="feature-item__title">High-Res Extraction</div>
+            <div class="feature-item__desc">Renders sharp images from PDF pages.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">📦</div>
+          <div>
+            <div class="feature-item__title">Batch ZIP Download</div>
+            <div class="feature-item__desc">Download all pages in a single ZIP file.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">Client-Side PDF Rendering</div>
+            <div class="feature-item__desc">Your documents are never uploaded to any server.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>PDF to Image Converter</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">Can I convert multi-page PDFs?</div>
+          <div class="faq-card__a">Yes, all pages are rendered and can be downloaded individually or in a ZIP archive.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="image-to-pdf.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📄</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image to PDF</div>
+            <div class="related-tool-card__desc">Convert images to PDF.</div>
+          </div>
+        </a>
+        <a href="pdf-merge-split.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📑</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">PDF Merge & Split</div>
+            <div class="related-tool-card__desc">Merge & split PDFs.</div>
+          </div>
+        </a>
+        <a href="pdf-compressor.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📦</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">PDF Compressor</div>
+            <div class="related-tool-card__desc">Compress PDF files.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  var pdfDoc=null, origFile=null;
+  if(typeof pdfjsLib !== 'undefined') pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  function handleFile(file){
+    if(!file.name.endsWith('.pdf')){alert('Please select a PDF file.');return;}
+    if(file.size>50*1024*1024){alert('File too large (max 50 MB)');return;}
+    origFile=file;
+    document.getElementById('p2i-controls').classList.remove('hidden');
+    document.getElementById('p2i-pages').innerHTML='';
+    document.getElementById('p2i-status').classList.add('hidden');
+  }
+  var dz=document.getElementById('p2i-drop');
+  dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('drag-over');});
+  dz.addEventListener('dragleave',function(){dz.classList.remove('drag-over');});
+  dz.addEventListener('drop',function(e){e.preventDefault();dz.classList.remove('drag-over');var f=e.dataTransfer.files[0];if(f)handleFile(f);});
+  document.getElementById('p2i-file').addEventListener('change',function(e){if(e.target.files[0])handleFile(e.target.files[0]);});
+
+  document.getElementById('p2i-convert-btn').addEventListener('click',function(){
+    if(!origFile){alert('Please select a PDF first.');return;}
+    if(typeof pdfjsLib==='undefined'){alert('PDF.js failed to load. Please check your internet connection.');return;}
+    var status=document.getElementById('p2i-status');
+    status.classList.remove('hidden');
+    status.textContent='Loading PDF...';
+    var fmt=document.getElementById('p2i-format').value;
+    var scale=parseFloat(document.getElementById('p2i-scale').value);
+    var pagesDiv=document.getElementById('p2i-pages');
+    pagesDiv.innerHTML='';
+    var reader=new FileReader();
+    reader.onload=function(e){
+      pdfjsLib.getDocument({data:e.target.result}).promise.then(function(pdf){
+        pdfDoc=pdf;
+        status.textContent='Rendering '+pdf.numPages+' page(s)...';
+        var promises=[];
+        for(var i=1;i<=pdf.numPages;i++){promises.push(renderPage(pdf,i,fmt,scale,pagesDiv));}
+        Promise.all(promises).then(function(){status.textContent='Done! '+pdf.numPages+' image(s) ready.';});
+      }).catch(function(err){status.textContent='Error: '+err.message;});
+    };
+    reader.readAsArrayBuffer(origFile);
+  });
+
+  function renderPage(pdf,num,fmt,scale,container){
+    return pdf.getPage(num).then(function(page){
+      var vp=page.getViewport({scale:scale});
+      var canvas=document.createElement('canvas');
+      canvas.width=vp.width; canvas.height=vp.height;
+      var ctx=canvas.getContext('2d');
+      return page.render({canvasContext:ctx,viewport:vp}).promise.then(function(){
+        var ext=fmt==='image/jpeg'?'jpg':'png';
+        var wrapper=document.createElement('div');
+        wrapper.style.cssText='background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-md)';
+        var label=document.createElement('p');
+        label.className='text-sm text-muted mb-sm';
+        label.textContent='Page '+num;
+        var img=document.createElement('img');
+        img.src=canvas.toDataURL(fmt,0.92);
+        img.style.cssText='max-width:100%;border-radius:var(--radius-sm);margin-bottom:var(--space-sm)';
+        var btn=document.createElement('button');
+        btn.className='btn btn-primary btn-sm';
+        btn.textContent='⬇ Download Page '+num;
+        btn.onclick=(function(dataUrl,n,e){return function(){
+          downloadDataURL(dataUrl,'page_'+n+'.'+e);
+        };})(img.src,num,ext);
+        wrapper.appendChild(label);
+        wrapper.appendChild(img);
+        wrapper.appendChild(btn);
+        container.appendChild(wrapper);
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>

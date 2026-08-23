@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Date & Time Utilities – Date Difference & Countdown Calculator | 28Tools</title>
+  <meta name="description" content="Comprehensive date and time tool: calculate exact duration between two dates, add or subtract days/weeks/months from a date, and set live event countdown timers."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/date-time-utilities.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/date-time-utilities.html"/>
+  <meta property="og:title" content="Date & Time Utilities – Date Difference & Countdown Calculator | 28Tools"/>
+  <meta property="og:description" content="Comprehensive date and time tool: calculate exact duration between two dates, add or subtract days/weeks/months from a date, and set live event countdown timers."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Date & Time Utilities",
+    "url":"https://prakash8900.github.io/28tools/tools/date-time-utilities.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Comprehensive date and time tool: calculate exact duration between two dates, add or subtract days/weeks/months from a date, and set live event countdown timers.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=health">Health & Utility</a><span aria-hidden="true">â€º</span><span aria-current="page">Date & Time Utilities</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-health" aria-hidden="true">📅</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Date & Time Utilities</h1>
+          <p class="tool-hero__desc">Calculate days between dates, add or subtract duration, and create countdowns.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-health">Health & Utility</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="tabs mb-lg" style="max-width:700px" role="tablist">
+      <button class="tab active" data-dttab="diff" role="tab" aria-selected="true">Date Difference</button>
+      <button class="tab" data-dttab="add" role="tab" aria-selected="false">Add/Subtract</button>
+      <button class="tab" data-dttab="countdown" role="tab" aria-selected="false">Countdown</button>
+      <button class="tab" data-dttab="format" role="tab" aria-selected="false">Format</button>
+    </div>
+
+    <div style="max-width:640px">
+      <!-- Difference -->
+      <div class="tool-card-panel" id="dtp-diff">
+        <h2 class="text-lg font-bold mb-md" style="margin-bottom:var(--space-md)">Date Difference</h2>
+        <div class="form-grid-2">
+          <div class="form-group"><label class="form-label" for="dt-start">Start Date</label><input id="dt-start" class="form-input" type="date"/></div>
+          <div class="form-group"><label class="form-label" for="dt-end">End Date</label><input id="dt-end" class="form-input" type="date"/></div>
+        </div>
+        <button class="btn btn-primary mt-md" onclick="calcDiff()">Calculate Difference</button>
+        <div id="diff-result" class="hidden mt-md">
+          <div class="result-grid" style="grid-template-columns:repeat(4,1fr)">
+            <div class="result-card success"><div class="result-value text-2xl" id="dr-years"></div><div class="result-label">Years</div></div>
+            <div class="result-card"><div class="result-value text-2xl" id="dr-months"></div><div class="result-label">Months</div></div>
+            <div class="result-card"><div class="result-value text-2xl" id="dr-weeks"></div><div class="result-label">Weeks</div></div>
+            <div class="result-card"><div class="result-value text-2xl" id="dr-days"></div><div class="result-label">Days</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add/Subtract -->
+      <div class="tool-card-panel hidden" id="dtp-add">
+        <h2 class="text-lg font-bold mb-md" style="margin-bottom:var(--space-md)">Add / Subtract from Date</h2>
+        <div class="form-group mb-md"><label class="form-label" for="as-date">Base Date</label><input id="as-date" class="form-input" type="date"/></div>
+        <div class="form-grid-2 mb-md">
+          <div class="form-group"><label class="form-label" for="as-num">Amount</label><input id="as-num" class="form-input" type="number" placeholder="e.g. 30"/></div>
+          <div class="form-group"><label class="form-label" for="as-unit">Unit</label>
+            <select id="as-unit" class="form-select"><option value="days">Days</option><option value="weeks">Weeks</option><option value="months">Months</option><option value="years">Years</option></select>
+          </div>
+        </div>
+        <div class="flex gap-md">
+          <button class="btn btn-primary" onclick="calcAdd()">Add</button>
+          <button class="btn btn-secondary" onclick="calcSub()">Subtract</button>
+        </div>
+        <div id="as-result" class="result-card success hidden mt-md"><div class="result-value" id="as-ans"></div><div class="result-label" id="as-lbl"></div></div>
+      </div>
+
+      <!-- Countdown -->
+      <div class="tool-card-panel hidden" id="dtp-countdown">
+        <h2 class="text-lg font-bold mb-md" style="margin-bottom:var(--space-md)">Event Countdown</h2>
+        <div class="form-grid-2 mb-md">
+          <div class="form-group"><label class="form-label" for="cd-name">Event Name</label><input id="cd-name" class="form-input" type="text" placeholder="e.g. New Year 2025" value="New Year 2026"/></div>
+          <div class="form-group"><label class="form-label" for="cd-date">Event Date</label><input id="cd-date" class="form-input" type="datetime-local"/></div>
+        </div>
+        <button class="btn btn-primary" id="cd-start-btn">Start Countdown</button>
+        <div id="cd-display" class="hidden mt-lg" style="text-align:center">
+          <p class="text-muted text-sm mb-md" id="cd-title-lbl"></p>
+          <div style="display:flex;gap:var(--space-lg);justify-content:center;flex-wrap:wrap">
+            <div class="result-card" style="min-width:80px"><div class="result-value" id="cd-days">0</div><div class="result-label">Days</div></div>
+            <div class="result-card" style="min-width:80px"><div class="result-value" id="cd-hours">0</div><div class="result-label">Hours</div></div>
+            <div class="result-card" style="min-width:80px"><div class="result-value" id="cd-mins">0</div><div class="result-label">Mins</div></div>
+            <div class="result-card" style="min-width:80px"><div class="result-value" id="cd-secs">0</div><div class="result-label">Secs</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Format -->
+      <div class="tool-card-panel hidden" id="dtp-format">
+        <h2 class="text-lg font-bold mb-md" style="margin-bottom:var(--space-md)">Date Formatter</h2>
+        <div class="form-group mb-md"><label class="form-label" for="fmt-date">Date/Time</label><input id="fmt-date" class="form-input" type="datetime-local"/></div>
+        <button class="btn btn-primary mb-md" onclick="calcFormat()">Format Date</button>
+        <div id="fmt-result" class="hidden">
+          <div style="display:flex;flex-direction:column;gap:var(--space-sm)">
+            <div id="fmt-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Date & Time Utilities</h2>
+        <p>Follow these quick and easy steps to use our free online Date & Time Utilities directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Choose Tool Mode</div>
+          <div class="step-card__desc">Select Date Difference, Add/Subtract Duration, or Countdown.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Enter Dates</div>
+          <div class="step-card__desc">Pick start and end dates from the calendar selectors.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Get Instant Duration</div>
+          <div class="step-card__desc">View days, weeks, months, and working day breakdowns.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">📅</div>
+          <div>
+            <div class="feature-item__title">Date Difference</div>
+            <div class="feature-item__desc">Calculate exact number of days, weeks, and months between any two dates.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">➕</div>
+          <div>
+            <div class="feature-item__title">Add/Subtract Days</div>
+            <div class="feature-item__desc">Find what date will be X days or weeks in the future or past.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">⏱️</div>
+          <div>
+            <div class="feature-item__title">Event Countdown</div>
+            <div class="feature-item__desc">Live ticking countdown to birthdays, holidays, or project deadlines.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Date & Time Utilities</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">How do I count days between two dates?</div>
+          <div class="faq-card__a">Select the start and end dates in the 'Date Difference' tab to see total calendar days.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="age-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">🎂</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Age Calculator</div>
+            <div class="related-tool-card__desc">Calculate exact age.</div>
+          </div>
+        </a>
+        <a href="bmi-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">⚕️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">BMI Calculator</div>
+            <div class="related-tool-card__desc">Calculate body mass index.</div>
+          </div>
+        </a>
+        <a href="word-counter.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">📝</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Word Counter</div>
+            <div class="related-tool-card__desc">Count text words.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  // Set defaults
+  const now=new Date();
+  document.getElementById('dt-start').value=now.toISOString().split('T')[0];
+  document.getElementById('dt-end').value=new Date(now.getTime()+30*864e5).toISOString().split('T')[0];
+  document.getElementById('as-date').value=now.toISOString().split('T')[0];
+  document.getElementById('cd-date').value=new Date(2026,0,1).toISOString().slice(0,16);
+  document.getElementById('fmt-date').value=now.toISOString().slice(0,16);
+
+  // Tab switching
+  document.querySelectorAll('.tab[data-dttab]').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab[data-dttab]').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      ['diff','add','countdown','format'].forEach(p=>document.getElementById('dtp-'+p).classList.add('hidden'));
+      document.getElementById('dtp-'+tab.dataset.dttab).classList.remove('hidden');
+    });
+  });
+
+  window.calcDiff=()=>{
+    const s=new Date(document.getElementById('dt-start').value);
+    const e=new Date(document.getElementById('dt-end').value);
+    if(isNaN(s)||isNaN(e)) return;
+    const diff=Math.abs(e-s);
+    const totalDays=Math.floor(diff/864e5);
+    let yrs=0,mnths=0,days=totalDays;
+    let tmp=new Date(Math.min(s,e));
+    while(true){ const nx=new Date(tmp); nx.setFullYear(nx.getFullYear()+1); if(nx>Math.max(s,e)) break; yrs++; tmp=nx; }
+    while(true){ const nx=new Date(tmp); nx.setMonth(nx.getMonth()+1); if(nx>Math.max(s,e)) break; mnths++; tmp=nx; }
+    days=Math.floor((Math.max(s,e)-tmp)/864e5);
+    document.getElementById('dr-years').textContent=yrs;
+    document.getElementById('dr-months').textContent=mnths;
+    document.getElementById('dr-weeks').textContent=Math.floor(totalDays/7);
+    document.getElementById('dr-days').textContent=totalDays;
+    document.getElementById('diff-result').classList.remove('hidden');
+  };
+
+  function doAddSub(sign){
+    const base=new Date(document.getElementById('as-date').value);
+    const num=parseInt(document.getElementById('as-num').value)*sign;
+    const unit=document.getElementById('as-unit').value;
+    if(isNaN(base)||isNaN(num)) return;
+    const res=new Date(base);
+    if(unit==='days') res.setDate(res.getDate()+num);
+    else if(unit==='weeks') res.setDate(res.getDate()+num*7);
+    else if(unit==='months') res.setMonth(res.getMonth()+num);
+    else if(unit==='years') res.setFullYear(res.getFullYear()+num);
+    const fmt=res.toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    document.getElementById('as-ans').textContent=fmt;
+    document.getElementById('as-lbl').textContent=`After ${sign>0?'adding':'subtracting'} ${Math.abs(num)} ${unit}`;
+    document.getElementById('as-result').classList.remove('hidden');
+  }
+  window.calcAdd=()=>doAddSub(1);
+  window.calcSub=()=>doAddSub(-1);
+
+  // Countdown
+  let cdInterval=null;
+  document.getElementById('cd-start-btn').addEventListener('click',()=>{
+    const target=new Date(document.getElementById('cd-date').value);
+    if(isNaN(target)) return;
+    const name=document.getElementById('cd-name').value||'Event';
+    document.getElementById('cd-title-lbl').textContent='⏳ Countdown to: '+name;
+    document.getElementById('cd-display').classList.remove('hidden');
+    if(cdInterval) clearInterval(cdInterval);
+    function tick(){
+      const diff=target-new Date();
+      if(diff<=0){ clearInterval(cdInterval); document.getElementById('cd-days').textContent='🎉'; document.getElementById('cd-hours').textContent='0'; document.getElementById('cd-mins').textContent='0'; document.getElementById('cd-secs').textContent='0'; return; }
+      document.getElementById('cd-days').textContent=Math.floor(diff/864e5);
+      document.getElementById('cd-hours').textContent=Math.floor((diff%864e5)/36e5);
+      document.getElementById('cd-mins').textContent=Math.floor((diff%36e5)/6e4);
+      document.getElementById('cd-secs').textContent=Math.floor((diff%6e4)/1e3);
+    }
+    tick(); cdInterval=setInterval(tick,1000);
+  });
+
+  // Format
+  window.calcFormat=()=>{
+    const d=new Date(document.getElementById('fmt-date').value);
+    if(isNaN(d)) return;
+    const formats=[
+      ['ISO 8601',d.toISOString()],
+      ['US Format',d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})],
+      ['Indian Format',d.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'})],
+      ['Short (DD/MM/YYYY)',d.toLocaleDateString('en-GB')],
+      ['Day of Week',d.toLocaleDateString('en-US',{weekday:'long'})],
+      ['Time (12h)',d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'})],
+      ['Time (24h)',d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit'})],
+      ['Unix Timestamp',Math.floor(d.getTime()/1000)],
+      ['Week Number',Math.ceil((((d-new Date(d.getFullYear(),0,1))/864e5)+new Date(d.getFullYear(),0,1).getDay()+1)/7)],
+    ];
+    document.getElementById('fmt-list').innerHTML=formats.map(([lbl,val])=>`
+      <div class="flex items-center gap-md" style="padding:var(--space-sm) var(--space-md);background:var(--bg-900);border-radius:var(--radius-sm);margin-bottom:var(--space-xs)">
+        <span style="min-width:140px;font-size:0.75rem;color:var(--text-400)">${lbl}</span>
+        <code style="flex:1;font-size:0.875rem;color:var(--text-200)">${val}</code>
+        <button class="btn btn-ghost btn-sm copy-btn" onclick="copyText('${val}',this)">📋</button>
+      </div>`).join('');
+    document.getElementById('fmt-result').classList.remove('hidden');
+  };
+})();
+</script>
+</body>
+</html>

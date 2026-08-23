@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Image Compressor Online – Compress JPG, PNG & WebP Locally | 28Tools</title>
+  <meta name="description" content="Compress and reduce image file sizes (JPEG, PNG, WebP) without losing visual quality. Runs 100% locally in browser memory with zero server uploads."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/image-compressor.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/image-compressor.html"/>
+  <meta property="og:title" content="Image Compressor Online – Compress JPG, PNG & WebP Locally | 28Tools"/>
+  <meta property="og:description" content="Compress and reduce image file sizes (JPEG, PNG, WebP) without losing visual quality. Runs 100% locally in browser memory with zero server uploads."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Compressor",
+    "url":"https://prakash8900.github.io/28tools/tools/image-compressor.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Compress and reduce image file sizes (JPEG, PNG, WebP) without losing visual quality. Runs 100% locally in browser memory with zero server uploads.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=pdf">PDF & Image</a><span aria-hidden="true">â€º</span><span aria-current="page">Image Compressor</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-pdf" aria-hidden="true">🗜️</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Image Compressor</h1>
+          <p class="tool-hero__desc">Compress JPG, PNG, and WebP images locally in your browser with zero server uploads.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-pdf">PDF & Image</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:start;max-width:1000px" id="ic-layout">
+      <!-- Controls -->
+      <div>
+        <div class="upload-zone" id="ic-drop" role="button" tabindex="0" aria-label="Drop image or click to select">
+          <input type="file" id="ic-file" accept="image/jpeg,image/png,image/webp,image/gif" aria-label="Select image file"/>
+          <div class="upload-zone__icon" aria-hidden="true">🖼️</div>
+          <p class="upload-zone__title">Drop image here or click to select</p>
+          <p class="upload-zone__sub">JPEG · PNG · WebP · Max 50 MB</p>
+        </div>
+
+        <div class="tool-card-panel mt-md hidden" id="ic-controls">
+          <div class="form-group mb-md">
+            <label class="form-label" for="ic-quality">Quality: <span id="ic-q-val">80</span>%</label>
+            <input type="range" class="slider" id="ic-quality" min="1" max="100" step="1" value="80"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="ic-format">Output Format</label>
+            <select id="ic-format" class="form-select">
+              <option value="image/jpeg">JPEG (best compression)</option>
+              <option value="image/png">PNG (lossless)</option>
+              <option value="image/webp">WebP (modern, best)</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-full" id="ic-compress-btn">🗜️ Compress Image</button>
+        </div>
+      </div>
+
+      <!-- Preview + Result -->
+      <div id="ic-result-panel" class="hidden">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm);margin-bottom:var(--space-md)">
+          <div>
+            <p class="text-sm text-muted mb-sm">Original</p>
+            <div class="canvas-container"><img id="ic-orig-img" alt="Original image" style="max-height:220px;width:100%;object-fit:contain"/></div>
+            <p class="text-xs text-dim mt-sm" id="ic-orig-size"></p>
+          </div>
+          <div>
+            <p class="text-sm text-muted mb-sm">Compressed</p>
+            <div class="canvas-container"><img id="ic-comp-img" alt="Compressed image" style="max-height:220px;width:100%;object-fit:contain"/></div>
+            <p class="text-xs text-dim mt-sm" id="ic-comp-size"></p>
+          </div>
+        </div>
+        <div class="result-card success mb-md">
+          <div class="result-value" id="ic-savings"></div>
+          <div class="result-label">Size Reduction</div>
+        </div>
+        <div class="progress-bar mb-md"><div class="progress-bar__fill" id="ic-size-bar"></div></div>
+        <button class="btn btn-primary btn-full" id="ic-download-btn">⬇ Download Compressed Image</button>
+      </div>
+    </div>
+  </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Image Compressor</h2>
+        <p>Follow these quick and easy steps to use our free online Image Compressor directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Upload Image</div>
+          <div class="step-card__desc">Drag and drop or browse any JPG, PNG, or WebP file.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Adjust Quality</div>
+          <div class="step-card__desc">Use the compression slider to balance file size and visual fidelity.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Compare & Download</div>
+          <div class="step-card__desc">Review reduced file size and download your compressed image.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">100% Private & Local</div>
+            <div class="feature-item__desc">Images are processed strictly in browser memory. Nothing is uploaded.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🗜️</div>
+          <div>
+            <div class="feature-item__title">High Compression Ratio</div>
+            <div class="feature-item__desc">Reduce image weight by up to 80% without noticeable quality loss.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">⚡</div>
+          <div>
+            <div class="feature-item__title">Instant Output</div>
+            <div class="feature-item__desc">No server queue or waiting times.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Image Compressor</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">Are my photos uploaded to a server?</div>
+          <div class="faq-card__a">No! All image compression executes locally inside your browser using HTML5 Canvas APIs.</div>
+        </div>
+        <div class="faq-card">
+          <div class="faq-card__q">What formats are supported?</div>
+          <div class="faq-card__a">JPG, JPEG, PNG, and WebP images.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="image-resizer.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">↔️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image Resizer</div>
+            <div class="related-tool-card__desc">Resize photo dimensions.</div>
+          </div>
+        </a>
+        <a href="photo-crop.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">✂️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Photo Crop</div>
+            <div class="related-tool-card__desc">Crop image aspect ratios.</div>
+          </div>
+        </a>
+        <a href="image-to-pdf.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📄</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image to PDF</div>
+            <div class="related-tool-card__desc">Convert images to PDF.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ const l=document.getElementById('ic-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  const qualSlider=document.getElementById('ic-quality');
+  const qualVal=document.getElementById('ic-q-val');
+  qualSlider.addEventListener('input',()=>qualVal.textContent=qualSlider.value);
+
+  let origFile=null, origImg=null;
+
+  function fmtSize(bytes){ if(bytes<1024) return bytes+'B'; if(bytes<1048576) return (bytes/1024).toFixed(1)+'KB'; return (bytes/1048576).toFixed(2)+'MB'; }
+
+  function handleFile(file){
+    const err=validateFile(file,['image/jpeg','image/png','image/webp','image/gif']);
+    if(err){ alert(err); return; }
+    origFile=file;
+    const url=URL.createObjectURL(file);
+    const img=document.getElementById('ic-orig-img');
+    img.src=url;
+    document.getElementById('ic-orig-size').textContent=file.name+' · '+fmtSize(file.size);
+    document.getElementById('ic-controls').classList.remove('hidden');
+  }
+
+  const dropZone=document.getElementById('ic-drop');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f) handleFile(f);});
+  document.getElementById('ic-file').addEventListener('change',e=>{if(e.target.files[0]) handleFile(e.target.files[0]);});
+
+  document.getElementById('ic-compress-btn').addEventListener('click',async()=>{
+    if(!origFile) return;
+    const quality=parseInt(qualSlider.value)/100;
+    const format=document.getElementById('ic-format').value;
+    const img=await loadImageOnCanvas(origFile);
+    const canvas=document.createElement('canvas');
+    canvas.width=img.naturalWidth;
+    canvas.height=img.naturalHeight;
+    const ctx=canvas.getContext('2d');
+    ctx.drawImage(img,0,0);
+    canvas.toBlob(blob=>{
+      if(!blob){alert('Compression failed. Try a different format.');return;}
+      const url=URL.createObjectURL(blob);
+      document.getElementById('ic-comp-img').src=url;
+      const ext=format.split('/')[1];
+      document.getElementById('ic-comp-size').textContent=`Compressed · ${fmtSize(blob.size)}`; 
+      const savings=((1-blob.size/origFile.size)*100).toFixed(1);
+      document.getElementById('ic-savings').textContent=savings+'% smaller';
+      document.getElementById('ic-size-bar').style.width=Math.max(5,100-parseFloat(savings))+'%';
+      document.getElementById('ic-result-panel').classList.remove('hidden');
+      document.getElementById('ic-download-btn').onclick=()=>downloadBlob(blob,origFile.name.replace(/\.[^.]+$/,'_compressed.'+ext));
+    },format,quality);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Loan Comparison Calculator – Compare Bank Offers Side by Side | 28Tools</title>
+  <meta name="description" content="Compare two loan offers side by side to evaluate differences in monthly EMIs, total interest paid, processing fees, and overall cost of borrowing."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/loan-comparison.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/loan-comparison.html"/>
+  <meta property="og:title" content="Loan Comparison Calculator – Compare Bank Offers Side by Side | 28Tools"/>
+  <meta property="og:description" content="Compare two loan offers side by side to evaluate differences in monthly EMIs, total interest paid, processing fees, and overall cost of borrowing."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Loan Comparison Calculator",
+    "url":"https://prakash8900.github.io/28tools/tools/loan-comparison.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Compare two loan offers side by side to evaluate differences in monthly EMIs, total interest paid, processing fees, and overall cost of borrowing.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=calculators">Finance</a><span aria-hidden="true">â€º</span><span aria-current="page">Loan Comparison Calculator</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-calc" aria-hidden="true">⚖️</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Loan Comparison Calculator</h1>
+          <p class="tool-hero__desc">Compare two loan quotes side-by-side to find the lowest interest rate and maximum savings.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-calc">Finance</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div style="overflow-x:auto">
+      <table style="width:100%;min-width:600px;border-collapse:separate;border-spacing:var(--space-md)">
+        <thead>
+          <tr>
+            <th style="text-align:left;color:var(--text-400);font-size:0.8125rem;padding:0 var(--space-md)">Field</th>
+            <th><div class="tool-card-panel" style="padding:var(--space-sm) var(--space-md);text-align:center;background:hsl(252,87%,68%,0.08);border-color:hsl(252,87%,68%,0.3)">🏠 Home Loan</div></th>
+            <th><div class="tool-card-panel" style="padding:var(--space-sm) var(--space-md);text-align:center;background:hsl(190,80%,55%,0.08);border-color:hsl(190,80%,55%,0.3)">🚗 Car Loan</div></th>
+            <th><div class="tool-card-panel" style="padding:var(--space-sm) var(--space-md);text-align:center;background:hsl(142,65%,50%,0.08);border-color:hsl(142,65%,50%,0.3)">💳 Personal Loan</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--text-400);font-size:0.8125rem;padding:var(--space-xs) var(--space-md)">Amount (₹)</td>
+            <td><input class="form-input loan-amount" id="la1" type="number" placeholder="e.g. 5000000" value="5000000"/></td>
+            <td><input class="form-input loan-amount" id="la2" type="number" placeholder="e.g. 700000" value="700000"/></td>
+            <td><input class="form-input loan-amount" id="la3" type="number" placeholder="e.g. 200000" value="200000"/></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-400);font-size:0.8125rem;padding:var(--space-xs) var(--space-md)">Rate (%)</td>
+            <td><input class="form-input loan-rate" id="lr1" type="number" min="0.1" max="50" step="0.05" placeholder="e.g. 8.5" value="8.5"/></td>
+            <td><input class="form-input loan-rate" id="lr2" type="number" min="0.1" max="50" step="0.05" placeholder="e.g. 9.5" value="9.5"/></td>
+            <td><input class="form-input loan-rate" id="lr3" type="number" min="0.1" max="50" step="0.05" placeholder="e.g. 14" value="14"/></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-400);font-size:0.8125rem;padding:var(--space-xs) var(--space-md)">Tenure (Years)</td>
+            <td><input class="form-input loan-tenure" id="lt1" type="number" min="1" max="30" step="1" placeholder="e.g. 20" value="20"/></td>
+            <td><input class="form-input loan-tenure" id="lt2" type="number" min="1" max="10" step="1" placeholder="e.g. 5" value="5"/></td>
+            <td><input class="form-input loan-tenure" id="lt3" type="number" min="1" max="7" step="1" placeholder="e.g. 3" value="3"/></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex justify-between items-center mt-lg" style="max-width:800px">
+      <button class="btn btn-primary btn-lg" id="compare-btn">Compare Loans</button>
+      <button class="btn btn-secondary" id="compare-reset">Reset</button>
+    </div>
+
+    <div id="compare-result" class="hidden mt-xl">
+      <div class="section-header"><h2 class="section-title">Comparison Results</h2></div>
+      <div style="overflow-x:auto">
+        <table class="data-table" style="min-width:500px">
+          <thead><tr><th>Metric</th><th>🏠 Home Loan</th><th>🚗 Car Loan</th><th>💳 Personal</th></tr></thead>
+          <tbody id="compare-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Loan Comparison Calculator</h2>
+        <p>Follow these quick and easy steps to use our free online Loan Comparison Calculator directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Enter Loan A Details</div>
+          <div class="step-card__desc">Input principal, interest rate, and tenure for the first loan offer.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Enter Loan B Details</div>
+          <div class="step-card__desc">Input the parameters for the second loan option.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Compare Differences</div>
+          <div class="step-card__desc">Review differences in monthly EMI, total interest, and total payable amount.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">⚖️</div>
+          <div>
+            <div class="feature-item__title">Side-by-Side View</div>
+            <div class="feature-item__desc">Direct comparative metrics showing monthly and total savings.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">💰</div>
+          <div>
+            <div class="feature-item__title">Interest Savings Highlight</div>
+            <div class="feature-item__desc">Instantly identifies which loan saves you the most money.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">Private</div>
+            <div class="feature-item__desc">No bank account or credit check information is collected.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Loan Comparison Calculator</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">How do minor interest rate differences affect total cost?</div>
+          <div class="faq-card__a">Even a 0.5% interest rate difference on a long-term home loan can result in significant interest savings.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="loan-emi-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">🏦</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Loan EMI Calculator</div>
+            <div class="related-tool-card__desc">Calculate monthly EMI.</div>
+          </div>
+        </a>
+        <a href="compound-interest.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">💹</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Compound Interest</div>
+            <div class="related-tool-card__desc">Calculate interest growth.</div>
+          </div>
+        </a>
+        <a href="gst-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">🧾</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">GST Calculator</div>
+            <div class="related-tool-card__desc">Calculate tax breakdowns.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function calcEMI(P,r,n){ const mr=r/12/100; return P*mr*Math.pow(1+mr,n)/(Math.pow(1+mr,n)-1); }
+  document.getElementById('compare-btn').addEventListener('click',()=>{
+    const loans=[1,2,3].map(i=>({
+      P:validNum(document.getElementById('la'+i).value,1),
+      r:validNum(document.getElementById('lr'+i).value,0.1,50),
+      n:(validNum(document.getElementById('lt'+i).value,1)??0)*12,
+    }));
+    const results=loans.map(l=>{
+      if(!l.P||!l.r||!l.n) return null;
+      const emi=calcEMI(l.P,l.r,l.n);
+      return {emi,total:emi*l.n,interest:emi*l.n-l.P};
+    });
+    const tbody=document.getElementById('compare-tbody');
+    const rows=[
+      ['Monthly EMI', r=>r?fmtINR(r.emi):'-'],
+      ['Total Payment', r=>r?fmtINR(r.total):'-'],
+      ['Total Interest', r=>r?fmtINR(r.interest):'-'],
+    ];
+    tbody.innerHTML=rows.map(([lbl,fn])=>
+      `<tr><td>${lbl}</td>${results.map(r=>`<td>${fn(r)}</td>`).join('')}</tr>`
+    ).join('');
+    document.getElementById('compare-result').classList.remove('hidden');
+  });
+  document.getElementById('compare-reset').addEventListener('click',()=>{ document.getElementById('compare-result').classList.add('hidden'); });
+})();
+</script>
+</body>
+</html>

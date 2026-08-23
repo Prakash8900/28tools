@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>BMI Calculator – Body Mass Index & Healthy Weight Range | 28Tools</title>
+  <meta name="description" content="Compute your Body Mass Index (BMI) using metric or imperial measurements, understand WHO weight category classifications, and find your healthy weight range."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/bmi-calculator.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/bmi-calculator.html"/>
+  <meta property="og:title" content="BMI Calculator – Body Mass Index & Healthy Weight Range | 28Tools"/>
+  <meta property="og:description" content="Compute your Body Mass Index (BMI) using metric or imperial measurements, understand WHO weight category classifications, and find your healthy weight range."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"BMI Calculator",
+    "url":"https://prakash8900.github.io/28tools/tools/bmi-calculator.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Compute your Body Mass Index (BMI) using metric or imperial measurements, understand WHO weight category classifications, and find your healthy weight range.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=health">Health & Utility</a><span aria-hidden="true">â€º</span><span aria-current="page">BMI Calculator</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-health" aria-hidden="true">⚕️</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">BMI Calculator</h1>
+          <p class="tool-hero__desc">Calculate Body Mass Index (BMI) and discover your ideal healthy weight range.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-health">Health & Utility</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="tool-card-panel">
+      <div class="tabs mb-lg" role="tablist">
+        <button class="tab active" role="tab" data-unit="metric" aria-selected="true">Metric (kg/cm)</button>
+        <button class="tab" role="tab" data-unit="imperial" aria-selected="false">Imperial (lb/in)</button>
+      </div>
+      <form id="bmi-form" novalidate>
+        <div id="metric-fields">
+          <div class="form-grid-2">
+            <div class="form-group"><label class="form-label" for="bmi-weight-kg">Weight (kg)</label><input id="bmi-weight-kg" class="form-input" type="number" min="1" max="500" step="0.1" placeholder="e.g. 70"/></div>
+            <div class="form-group"><label class="form-label" for="bmi-height-cm">Height (cm)</label><input id="bmi-height-cm" class="form-input" type="number" min="50" max="300" step="0.1" placeholder="e.g. 170"/></div>
+          </div>
+        </div>
+        <div id="imperial-fields" class="hidden">
+          <div class="form-grid-2">
+            <div class="form-group"><label class="form-label" for="bmi-weight-lb">Weight (lbs)</label><input id="bmi-weight-lb" class="form-input" type="number" min="1" step="0.1" placeholder="e.g. 154"/></div>
+            <div class="form-group"><label class="form-label" for="bmi-height-ft">Height (ft & in)</label>
+              <div class="flex gap-sm">
+                <input id="bmi-height-ft" class="form-input" type="number" min="1" max="9" placeholder="ft" style="width:60px"/>
+                <input id="bmi-height-in" class="form-input" type="number" min="0" max="11" step="0.1" placeholder="in"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="bmi-age">Age (years) <span class="optional">For context</span></label>
+          <input id="bmi-age" class="form-input" type="number" min="2" max="120" placeholder="e.g. 30"/>
+        </div>
+        <div class="flex gap-md mt-lg">
+          <button type="submit" class="btn btn-primary btn-lg" style="flex:1">Calculate BMI</button>
+          <button type="button" class="btn btn-secondary" id="bmi-reset">Reset</button>
+        </div>
+      </form>
+
+      <div id="bmi-result" class="hidden mt-lg">
+        <div class="result-grid" style="grid-template-columns:1fr 1fr">
+          <div class="result-card" id="bmi-card"><div class="result-value" id="bmi-val"></div><div class="result-label">Your BMI</div></div>
+          <div class="result-card"><div class="result-value text-xl" id="bmi-cat"></div><div class="result-label">Category</div></div>
+        </div>
+        <!-- Scale -->
+        <div class="tool-card-panel mt-md" style="padding:var(--space-md)">
+          <p class="form-label mb-sm" style="margin-bottom:var(--space-sm)">BMI Scale</p>
+          <div style="height:14px;border-radius:7px;overflow:hidden;display:flex">
+            <div style="background:hsl(200,80%,55%);flex:1.5"></div>
+            <div style="background:hsl(142,65%,50%);flex:1.5"></div>
+            <div style="background:hsl(38,92%,55%);flex:1.5"></div>
+            <div style="background:hsl(0,72%,60%);flex:2"></div>
+            <div style="background:hsl(0,72%,40%);flex:1"></div>
+          </div>
+          <div class="flex" style="font-size:0.6875rem;color:var(--text-400);justify-content:space-between;margin-top:4px">
+            <span>Under 18.5</span><span>18.5–24.9</span><span>25–29.9</span><span>30–39.9</span><span>40+</span>
+          </div>
+          <div class="flex" style="font-size:0.6875rem;color:var(--text-400);justify-content:space-between;margin-top:2px">
+            <span>Underweight</span><span>Normal</span><span>Overweight</span><span>Obese</span><span>Extreme</span>
+          </div>
+        </div>
+        <div class="alert alert-info mt-md" id="bmi-healthy-range"></div>
+        <div class="alert mt-sm" id="bmi-advice-box"></div>
+        <p class="text-xs text-dim mt-md">⚠️ BMI is a screening tool, not a diagnostic measure. Consult a healthcare professional for medical advice.</p>
+      </div>
+    </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use BMI Calculator</h2>
+        <p>Follow these quick and easy steps to use our free online BMI Calculator directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Select Unit System</div>
+          <div class="step-card__desc">Choose Metric (cm / kg) or Imperial (feet, inches / lbs).</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Enter Height & Weight</div>
+          <div class="step-card__desc">Type your height and current body weight.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">View BMI & Category</div>
+          <div class="step-card__desc">See your score, WHO category classification, and healthy weight recommendations.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">⚖️</div>
+          <div>
+            <div class="feature-item__title">Metric & Imperial</div>
+            <div class="feature-item__desc">Seamlessly switch between cm/kg and feet/inches/lbs.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🏥</div>
+          <div>
+            <div class="feature-item__title">WHO Standards</div>
+            <div class="feature-item__desc">Categorized into Underweight, Normal weight, Overweight, and Obese.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🎯</div>
+          <div>
+            <div class="feature-item__title">Ideal Weight Range</div>
+            <div class="feature-item__desc">Calculates your recommended target healthy weight span.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>BMI Calculator</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">What is a healthy BMI range?</div>
+          <div class="faq-card__a">According to the World Health Organization (WHO), a BMI between 18.5 and 24.9 is considered normal/healthy for adults.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="age-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">🎂</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Age Calculator</div>
+            <div class="related-tool-card__desc">Calculate exact age.</div>
+          </div>
+        </a>
+        <a href="date-time-utilities.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">📅</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Date & Time Utilities</div>
+            <div class="related-tool-card__desc">Date & time tools.</div>
+          </div>
+        </a>
+        <a href="unit-converter.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">📐</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Unit Converter</div>
+            <div class="related-tool-card__desc">Convert units.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  let unitMode='metric';
+  document.querySelectorAll('.tab[data-unit]').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab[data-unit]').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      unitMode=tab.dataset.unit;
+      document.getElementById('metric-fields').classList.toggle('hidden',unitMode!=='metric');
+      document.getElementById('imperial-fields').classList.toggle('hidden',unitMode!=='imperial');
+    });
+  });
+
+  document.getElementById('bmi-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    let weightKg,heightM;
+    if(unitMode==='metric'){
+      weightKg=validNum(document.getElementById('bmi-weight-kg').value,1,500);
+      const hcm=validNum(document.getElementById('bmi-height-cm').value,50,300);
+      if(!weightKg||!hcm) return;
+      heightM=hcm/100;
+    } else {
+      const lb=validNum(document.getElementById('bmi-weight-lb').value,1);
+      const ft=validNum(document.getElementById('bmi-height-ft').value,0,9)??0;
+      const inch=validNum(document.getElementById('bmi-height-in').value,0,11)??0;
+      if(!lb) return;
+      weightKg=lb*0.453592;
+      heightM=(ft*12+inch)*0.0254;
+    }
+    const bmi=weightKg/(heightM*heightM);
+    let cat,color,advice;
+    if(bmi<18.5){ cat='Underweight'; color='var(--info)'; advice='Consider a balanced diet with more protein and healthy fats. Consult a nutritionist.'; }
+    else if(bmi<25){ cat='Normal weight'; color='var(--success)'; advice='Great! Maintain your healthy weight with balanced nutrition and regular physical activity.'; }
+    else if(bmi<30){ cat='Overweight'; color='var(--warning)'; advice='Aim for moderate calorie reduction and increased physical activity (150+ min/week).'; }
+    else if(bmi<40){ cat='Obese'; color='var(--danger)'; advice='Consult a healthcare provider for a personalised weight management plan.'; }
+    else { cat='Extremely Obese'; color='hsl(0,72%,40%)'; advice='Please consult a doctor promptly for a comprehensive weight management strategy.'; }
+
+    document.getElementById('bmi-val').textContent=bmi.toFixed(1);
+    document.getElementById('bmi-cat').textContent=cat;
+    document.getElementById('bmi-card').style.borderColor=color;
+    document.getElementById('bmi-card').querySelector('.result-value').style.color=color;
+
+    const minH=18.5*heightM*heightM, maxH=24.9*heightM*heightM;
+    document.getElementById('bmi-healthy-range').textContent=`Healthy weight range for your height: ${minH.toFixed(1)} kg – ${maxH.toFixed(1)} kg`;
+
+    const box=document.getElementById('bmi-advice-box');
+    box.textContent='💡 '+advice;
+    box.className='alert '+(bmi<25?'alert-success':bmi<30?'alert-warning':'alert-error');
+
+    document.getElementById('bmi-result').classList.remove('hidden');
+  });
+
+  document.getElementById('bmi-reset').addEventListener('click',()=>{ document.getElementById('bmi-form').reset(); document.getElementById('bmi-result').classList.add('hidden'); });
+})();
+</script>
+</body>
+</html>

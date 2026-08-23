@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Word / Text to PDF Converter – Convert Rich Text to Clean PDF | 28Tools</title>
+  <meta name="description" content="Convert formatted rich text, Markdown, or pasted Word documents into clean, print-ready PDF documents with custom margins and font styling."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/word-to-pdf.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/word-to-pdf.html"/>
+  <meta property="og:title" content="Word / Text to PDF Converter – Convert Rich Text to Clean PDF | 28Tools"/>
+  <meta property="og:description" content="Convert formatted rich text, Markdown, or pasted Word documents into clean, print-ready PDF documents with custom margins and font styling."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Word / Text to PDF",
+    "url":"https://prakash8900.github.io/28tools/tools/word-to-pdf.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Convert formatted rich text, Markdown, or pasted Word documents into clean, print-ready PDF documents with custom margins and font styling.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=pdf">PDF & Image</a><span aria-hidden="true">â€º</span><span aria-current="page">Word / Text to PDF</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-pdf" aria-hidden="true">📃</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Word / Text to PDF</h1>
+          <p class="tool-hero__desc">Convert rich text, articles, and formatted notes into clean printable PDF documents.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-pdf">PDF & Image</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 240px;gap:var(--space-xl)" id="w2p-layout">
+      <div>
+        <!-- Toolbar -->
+        <div style="display:flex;gap:var(--space-xs);flex-wrap:wrap;margin-bottom:var(--space-sm);background:var(--bg-800);padding:var(--space-sm);border-radius:var(--radius-md);border:1px solid var(--border)">
+          <button class="btn btn-ghost btn-sm" onclick="fmt('bold')" title="Bold"><b>B</b></button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('italic')" title="Italic"><i>I</i></button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('underline')" title="Underline"><u>U</u></button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('formatBlock','H1')" title="Heading 1">H1</button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('formatBlock','H2')" title="Heading 2">H2</button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('insertUnorderedList')" title="Bullet list">• List</button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('insertOrderedList')" title="Numbered list">1. List</button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('justifyLeft')" title="Align left">⇤</button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('justifyCenter')" title="Center">≡</button>
+          <button class="btn btn-ghost btn-sm" onclick="fmt('justifyRight')" title="Align right">⇥</button>
+          <button class="btn btn-ghost btn-sm" onclick="document.getElementById('w2p-editor').innerHTML=''" title="Clear">🗑</button>
+        </div>
+        <!-- Editor -->
+        <div id="w2p-editor" contenteditable="true" style="background:white;color:#111;min-height:500px;padding:var(--space-xl);border-radius:var(--radius-lg);border:1px solid var(--border);font-size:14pt;font-family:Georgia,serif;line-height:1.7;outline:none" aria-label="Document editor" role="textbox" aria-multiline="true">
+          <h1>Sample Document</h1>
+          <p>Start typing or paste your text here. Use the toolbar above to format your document.</p>
+          <h2>Section Heading</h2>
+          <p>This tool converts your <strong>formatted text</strong> to a clean, <em>printable PDF</em>.</p>
+        </div>
+      </div>
+      <!-- PDF Settings -->
+      <div class="tool-card-panel" style="height:fit-content">
+        <p class="form-label mb-md" style="margin-bottom:var(--space-md)">PDF Settings</p>
+        <div class="form-group mb-md">
+          <label class="form-label" for="w2p-filename">File Name</label>
+          <input id="w2p-filename" class="form-input" type="text" value="document" placeholder="filename"/>
+        </div>
+        <div class="form-group mb-md">
+          <label class="form-label" for="w2p-page">Page Size</label>
+          <select id="w2p-page" class="form-select"><option value="a4">A4</option><option value="letter">Letter</option></select>
+        </div>
+        <div class="form-group mb-md">
+          <label class="form-label" for="w2p-margin">Margin (mm)</label>
+          <input id="w2p-margin" class="form-input" type="number" value="20" min="5" max="40"/>
+        </div>
+        <div class="separator"></div>
+        <button class="btn btn-primary btn-full" id="w2p-print-btn">🖨️ Print / Save PDF</button>
+        <button class="btn btn-secondary btn-full mt-sm" id="w2p-download-btn">⬇ Download PDF</button>
+      </div>
+    </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Word / Text to PDF</h2>
+        <p>Follow these quick and easy steps to use our free online Word / Text to PDF directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Type or Paste Text</div>
+          <div class="step-card__desc">Enter your document text into the editor.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Adjust Formatting</div>
+          <div class="step-card__desc">Set margins, font sizing, and page layout.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Generate PDF</div>
+          <div class="step-card__desc">Download print-ready PDF file.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">📃</div>
+          <div>
+            <div class="feature-item__title">Rich Text Conversion</div>
+            <div class="feature-item__desc">Supports headings, lists, paragraphs, and custom margins.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🖨️</div>
+          <div>
+            <div class="feature-item__title">Print Ready</div>
+            <div class="feature-item__desc">Formatted cleanly for standard A4 and Letter page prints.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">100% Private</div>
+            <div class="feature-item__desc">Document content is rendered entirely on your computer.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Word / Text to PDF</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">Can I paste text from Microsoft Word or Google Docs?</div>
+          <div class="faq-card__a">Yes, paste your copied text directly into the editor to generate a PDF.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="image-to-pdf.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📄</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image to PDF</div>
+            <div class="related-tool-card__desc">Convert images to PDF.</div>
+          </div>
+        </a>
+        <a href="pdf-merge-split.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📑</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">PDF Merge & Split</div>
+            <div class="related-tool-card__desc">Merge & split PDFs.</div>
+          </div>
+        </a>
+        <a href="word-counter.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">📝</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Word Counter</div>
+            <div class="related-tool-card__desc">Count text words.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ const l=document.getElementById('w2p-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 240px'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  window.fmt=(cmd,val)=>{ document.execCommand(cmd,false,val||null); document.getElementById('w2p-editor').focus(); };
+
+  // Print via browser dialog
+  document.getElementById('w2p-print-btn').addEventListener('click',()=>{
+    const content=document.getElementById('w2p-editor').innerHTML;
+    const win=window.open('','_blank');
+    win.document.write(`<!DOCTYPE html><html><head><title>28Tools Document</title><style>body{font-family:Georgia,serif;font-size:12pt;margin:25mm;line-height:1.7}h1{font-size:24pt;margin-bottom:8pt}h2{font-size:18pt;margin-bottom:6pt}@page{margin:${document.getElementById('w2p-margin').value}mm}</style></head><body>${content}</body></html>

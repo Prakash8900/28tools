@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>SIP Calculator – Mutual Fund Investment & Wealth Growth | 28Tools</title>
+  <meta name="description" content="Project Systematic Investment Plan (SIP) returns and future wealth accumulation for mutual funds based on monthly investment, tenure, and expected returns."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/sip-calculator.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/sip-calculator.html"/>
+  <meta property="og:title" content="SIP Calculator – Mutual Fund Investment & Wealth Growth | 28Tools"/>
+  <meta property="og:description" content="Project Systematic Investment Plan (SIP) returns and future wealth accumulation for mutual funds based on monthly investment, tenure, and expected returns."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"SIP Calculator",
+    "url":"https://prakash8900.github.io/28tools/tools/sip-calculator.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Project Systematic Investment Plan (SIP) returns and future wealth accumulation for mutual funds based on monthly investment, tenure, and expected returns.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=calculators">Finance</a><span aria-hidden="true">â€º</span><span aria-current="page">SIP Calculator</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-calc" aria-hidden="true">📈</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">SIP Calculator</h1>
+          <p class="tool-hero__desc">Project wealth accumulation and estimated returns on monthly Systematic Investment Plans in mutual funds.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-calc">Finance</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:start" id="sip-layout">
+      <div class="tool-card-panel">
+        <form id="sip-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="sip-amount">Monthly SIP Amount (₹)</label>
+            <input id="sip-amount" class="form-input" type="number" min="100" step="100" placeholder="e.g. 5000" required/>
+          </div>
+          <div class="form-group mt-md">
+            <label class="form-label" for="sip-rate">Expected Annual Return (%)</label>
+            <div class="slider-wrapper">
+              <input type="range" class="slider" id="sip-rate-slider" min="1" max="30" step="0.5" value="12" aria-label="Annual return rate"/>
+              <span class="slider-val" id="sip-rate-val">12%</span>
+            </div>
+            <input id="sip-rate" class="form-input mt-sm" type="number" min="0.1" max="50" step="0.1" value="12" required/>
+          </div>
+          <div class="form-group mt-md">
+            <label class="form-label" for="sip-years">Investment Duration (Years)</label>
+            <div class="slider-wrapper">
+              <input type="range" class="slider" id="sip-years-slider" min="1" max="40" step="1" value="10" aria-label="Investment years"/>
+              <span class="slider-val" id="sip-years-val">10 yrs</span>
+            </div>
+            <input id="sip-years" class="form-input mt-sm" type="number" min="1" max="40" step="1" value="10" required/>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full mt-lg">Calculate Returns</button>
+        </form>
+      </div>
+
+      <div id="sip-result" class="hidden">
+        <div class="result-grid" style="grid-template-columns:1fr 1fr">
+          <div class="result-card success"><div class="result-value" id="sip-corpus"></div><div class="result-label">Estimated Corpus</div></div>
+          <div class="result-card"><div class="result-value" id="sip-invested"></div><div class="result-label">Total Invested</div></div>
+          <div class="result-card"><div class="result-value" id="sip-gains"></div><div class="result-label">Wealth Gained</div></div>
+          <div class="result-card"><div class="result-value" id="sip-xirr"></div><div class="result-label">XIRR (approx)</div></div>
+        </div>
+        <div class="tool-card-panel mt-md" style="padding:var(--space-md)">
+          <p class="form-label mb-sm" style="margin-bottom:var(--space-sm)">Invested vs Returns</p>
+          <div style="height:14px;border-radius:7px;overflow:hidden;display:flex">
+            <div id="sip-bar-inv" style="background:var(--accent);transition:width 0.6s var(--ease-out)"></div>
+            <div style="background:var(--success);flex:1"></div>
+          </div>
+          <div class="flex gap-md mt-sm" style="font-size:0.75rem;color:var(--text-400)">
+            <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:var(--accent);border-radius:2px;display:inline-block"></span>Invested</span>
+            <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;background:var(--success);border-radius:2px;display:inline-block"></span>Returns</span>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm mt-md copy-btn" onclick="copySIP(this)">📋 Copy Result</button>
+      </div>
+    </div>
+
+    <!-- Yearly Table -->
+    <div id="sip-table-section" class="hidden mt-xl">
+      <div class="section-header"><h2 class="section-title">Year-by-Year Growth</h2></div>
+      <div class="data-table-wrap" style="max-height:360px;overflow-y:auto">
+        <table class="data-table"><thead><tr><th>Year</th><th>Invested</th><th>Returns</th><th>Corpus</th></tr></thead><tbody id="sip-tbody"></tbody></table>
+      </div>
+    </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use SIP Calculator</h2>
+        <p>Follow these quick and easy steps to use our free online SIP Calculator directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Monthly Amount</div>
+          <div class="step-card__desc">Enter the monthly amount you intend to invest regularly.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Expected Return</div>
+          <div class="step-card__desc">Specify the anticipated annual rate of return (e.g. 12% to 15%).</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Investment Period</div>
+          <div class="step-card__desc">Select how many years you plan to keep investing.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">4</div>
+          <div class="step-card__title">View Wealth Projection</div>
+          <div class="step-card__desc">See total amount invested, estimated capital gains, and total corpus value.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">💰</div>
+          <div>
+            <div class="feature-item__title">Compounding Power</div>
+            <div class="feature-item__desc">Models monthly compounding returns on equity and debt mutual funds.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">📈</div>
+          <div>
+            <div class="feature-item__title">Gain Breakdown</div>
+            <div class="feature-item__desc">Clear visual distinction between total invested capital and estimated returns.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🎯</div>
+          <div>
+            <div class="feature-item__title">Goal Planning</div>
+            <div class="feature-item__desc">Plan retirement, education, and long-term financial freedom milestones.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">Private & Fast</div>
+            <div class="feature-item__desc">No registration or portfolio tracking required.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>SIP Calculator</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">What is a SIP?</div>
+          <div class="faq-card__a">A Systematic Investment Plan (SIP) allows you to invest a fixed amount regularly in mutual fund schemes to benefit from rupee cost averaging and compounding.</div>
+        </div>
+        <div class="faq-card">
+          <div class="faq-card__q">Are SIP returns guaranteed?</div>
+          <div class="faq-card__a">Mutual fund investments are subject to market risks. The calculator provides mathematical estimates based on your chosen rate.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="compound-interest.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">💹</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Compound Interest</div>
+            <div class="related-tool-card__desc">Compute interest frequencies.</div>
+          </div>
+        </a>
+        <a href="loan-emi-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">🏦</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Loan EMI Calculator</div>
+            <div class="related-tool-card__desc">Calculate loan installments.</div>
+          </div>
+        </a>
+        <a href="income-tax-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">📋</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Income Tax Calculator</div>
+            <div class="related-tool-card__desc">Estimate FY tax liability.</div>
+          </div>
+        </a>
+        <a href="percentage-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">%</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Percentage Calculator</div>
+            <div class="related-tool-card__desc">Quick percentage tools.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function sync(slider,input,valEl,fmt){ slider.addEventListener('input',()=>{input.value=slider.value;valEl.textContent=fmt(slider.value);}); input.addEventListener('input',()=>{slider.value=input.value;valEl.textContent=fmt(input.value);}); }
+  sync(document.getElementById('sip-rate-slider'),document.getElementById('sip-rate'),document.getElementById('sip-rate-val'),v=>v+'%');
+  sync(document.getElementById('sip-years-slider'),document.getElementById('sip-years'),document.getElementById('sip-years-val'),v=>v+' yrs');
+
+  function setLayout(){ const l=document.getElementById('sip-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  document.getElementById('sip-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const monthly=validNum(document.getElementById('sip-amount').value,100);
+    const rate=validNum(document.getElementById('sip-rate').value,0.1,50);
+    const years=validNum(document.getElementById('sip-years').value,1,40);
+    if(!monthly||!rate||!years) return;
+    const n=years*12;
+    const r=rate/12/100;
+    const corpus=monthly*((Math.pow(1+r,n)-1)/r)*(1+r);
+    const invested=monthly*n;
+    const gains=corpus-invested;
+
+    document.getElementById('sip-corpus').textContent=fmtINR(corpus);
+    document.getElementById('sip-invested').textContent=fmtINR(invested);
+    document.getElementById('sip-gains').textContent=fmtINR(gains);
+    document.getElementById('sip-xirr').textContent=rate.toFixed(2)+'%';
+    document.getElementById('sip-bar-inv').style.width=(invested/corpus*100).toFixed(1)+'%';
+    document.getElementById('sip-result').classList.remove('hidden');
+
+    // Yearly table
+    const tbody=document.getElementById('sip-tbody');
+    tbody.innerHTML='';
+    for(let y=1;y<=years;y++){
+      const nm=y*12;
+      const c=monthly*((Math.pow(1+r,nm)-1)/r)*(1+r);
+      const inv=monthly*nm;
+      const tr=document.createElement('tr');
+      tr.innerHTML=`<td>${y}</td><td>${fmtINR(inv)}</td><td>${fmtINR(c-inv)}</td><td>${fmtINR(c)}</td>`;
+      tbody.appendChild(tr);
+    }
+    document.getElementById('sip-table-section').classList.remove('hidden');
+  });
+
+  window.copySIP=btn=>{
+    copyText(`Corpus: ${document.getElementById('sip-corpus').textContent}\nInvested: ${document.getElementById('sip-invested').textContent}\nGains: ${document.getElementById('sip-gains').textContent}`,btn);
+  };
+})();
+</script>
+</body>
+</html>

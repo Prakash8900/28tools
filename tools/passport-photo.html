@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Passport Photo Maker – Resize to Passport & Port Size | 28Tools</title>
+  <meta name="description" content="Create standard passport, visa, and ID photos (2x2 inch, 35x45 mm, 30x40 mm) with print-ready single and multi-photo sheet layouts locally."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/passport-photo.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/passport-photo.html"/>
+  <meta property="og:title" content="Passport Photo Maker – Resize to Passport & Port Size | 28Tools"/>
+  <meta property="og:description" content="Create standard passport, visa, and ID photos (2x2 inch, 35x45 mm, 30x40 mm) with print-ready single and multi-photo sheet layouts locally."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Passport Photo Maker",
+    "url":"https://prakash8900.github.io/28tools/tools/passport-photo.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Create standard passport, visa, and ID photos (2x2 inch, 35x45 mm, 30x40 mm) with print-ready single and multi-photo sheet layouts locally.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=pdf">PDF & Image</a><span aria-hidden="true">â€º</span><span aria-current="page">Passport Photo Maker</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-pdf" aria-hidden="true">🪪</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Passport Photo Maker</h1>
+          <p class="tool-hero__desc">Convert portraits into standard passport, visa, and ID photos with printable sheet layouts.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-pdf">PDF & Image</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="tool-card-panel mb-lg">
+      <div class="upload-zone" id="pp-drop" role="button" tabindex="0">
+        <input type="file" id="pp-file" accept="image/jpeg,image/png,image/webp" aria-label="Select photo"/>
+        <div class="upload-zone__icon">🪪</div>
+        <p class="upload-zone__title">Drop your photo or click to select</p>
+        <p class="upload-zone__sub">JPEG · PNG · WebP · Best with face centered</p>
+      </div>
+    </div>
+
+    <div id="pp-controls" class="hidden">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl)">
+        <div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="pp-size">Photo Size Standard</label>
+            <select id="pp-size" class="form-select">
+              <option value="35x45">Indian Passport (35×45mm)</option>
+              <option value="51x51">US Passport (51×51mm)</option>
+              <option value="35x45_uk">UK Passport (35×45mm)</option>
+              <option value="35x45_eu">Schengen Visa (35×45mm)</option>
+              <option value="25x35">Port Size – Small (25×35mm)</option>
+              <option value="40x60">Port Size – Large (40×60mm)</option>
+              <option value="custom">Custom…</option>
+            </select>
+          </div>
+          <div id="pp-custom" class="form-grid-2 hidden mb-md">
+            <div class="form-group"><label class="form-label" for="pp-cw">Width (mm)</label><input id="pp-cw" class="form-input" type="number" min="10" max="100" value="35"/></div>
+            <div class="form-group"><label class="form-label" for="pp-ch">Height (mm)</label><input id="pp-ch" class="form-input" type="number" min="10" max="120" value="45"/></div>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="pp-bg">Background Color</label>
+            <div class="flex gap-sm items-center">
+              <input type="color" id="pp-bg" value="#ffffff"/>
+              <span class="text-sm text-muted">White recommended</span>
+            </div>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="pp-copies">Copies per sheet</label>
+            <select id="pp-copies" class="form-select">
+              <option value="2">2 copies</option>
+              <option value="4" selected>4 copies</option>
+              <option value="6">6 copies</option>
+              <option value="8">8 copies</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-full" id="pp-generate-btn">🪪 Generate Photo Sheet</button>
+        </div>
+        <div>
+          <p class="text-sm text-muted mb-sm">Preview</p>
+          <div class="canvas-container"><img id="pp-preview-img" alt="Photo preview" style="max-height:220px;width:100%;object-fit:contain"/></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pp-result" class="hidden mt-lg">
+      <div class="section-header"><h2 class="section-title">Print Sheet</h2></div>
+      <canvas id="pp-sheet-canvas" style="max-width:100%;border-radius:var(--radius-lg);border:1px solid var(--border)"></canvas>
+      <div class="flex gap-sm mt-md">
+        <button class="btn btn-primary" id="pp-download-png">⬇ Download PNG</button>
+        <button class="btn btn-secondary" id="pp-download-pdf">⬇ Download PDF</button>
+      </div>
+    </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Passport Photo Maker</h2>
+        <p>Follow these quick and easy steps to use our free online Passport Photo Maker directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Upload Portrait</div>
+          <div class="step-card__desc">Select a clear headshot photo.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Choose Size Preset</div>
+          <div class="step-card__desc">Select Indian Passport (35x45mm), US Visa (2x2 in), or custom dimensions.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Align & Frame</div>
+          <div class="step-card__desc">Center face within the guide lines.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">4</div>
+          <div class="step-card__title">Download</div>
+          <div class="step-card__desc">Download single photo or 4x6 / A4 printable grid sheet.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">🪪</div>
+          <div>
+            <div class="feature-item__title">Global Presets</div>
+            <div class="feature-item__desc">India, US, UK, Schengen, and international ID standards.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🖨️</div>
+          <div>
+            <div class="feature-item__title">Print Sheet Generator</div>
+            <div class="feature-item__desc">Generates 4x6 / A4 multi-photo print sheets.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">100% Private</div>
+            <div class="feature-item__desc">Identity photos are never uploaded or retained.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Passport Photo Maker</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">What are standard Indian passport photo dimensions?</div>
+          <div class="faq-card__a">35mm x 45mm (3.5cm x 4.5cm) with face covering 70-80% of the area.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="photo-crop.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">✂️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Photo Crop</div>
+            <div class="related-tool-card__desc">Crop photos to size.</div>
+          </div>
+        </a>
+        <a href="image-resizer.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">↔️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image Resizer</div>
+            <div class="related-tool-card__desc">Resize image dimensions.</div>
+          </div>
+        </a>
+        <a href="bg-remover.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">🖼️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Background Remover</div>
+            <div class="related-tool-card__desc">Make transparent background.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  const SIZES={
+    '35x45':{w:35,h:45},'51x51':{w:51,h:51},'35x45_uk':{w:35,h:45},'35x45_eu':{w:35,h:45},
+    '25x35':{w:25,h:35},'40x60':{w:40,h:60},
+  };
+  const DPI=300;
+  const MM2PX=d=>Math.round(d*DPI/25.4);
+  let loadedImg=null;
+
+  document.getElementById('pp-size').addEventListener('change',e=>{
+    document.getElementById('pp-custom').classList.toggle('hidden',e.target.value!=='custom');
+  });
+
+  function handleFile(file){
+    const err=validateFile(file,['image/jpeg','image/png','image/webp']);
+    if(err){alert(err);return;}
+    const url=URL.createObjectURL(file);
+    const im=new Image();
+    im.onload=()=>{
+      loadedImg=im;
+      document.getElementById('pp-preview-img').src=url;
+      document.getElementById('pp-controls').classList.remove('hidden');
+    };
+    im.src=url;
+  }
+
+  const dropZone=document.getElementById('pp-drop');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f) handleFile(f);});
+  document.getElementById('pp-file').addEventListener('change',e=>{if(e.target.files[0]) handleFile(e.target.files[0]);});
+
+  document.getElementById('pp-generate-btn').addEventListener('click',()=>{
+    if(!loadedImg) return;
+    const sizeKey=document.getElementById('pp-size').value;
+    const s=sizeKey==='custom'
+      ?{w:parseFloat(document.getElementById('pp-cw').value)||35,h:parseFloat(document.getElementById('pp-ch').value)||45}
+      :SIZES[sizeKey]||{w:35,h:45};
+    const bgColor=document.getElementById('pp-bg').value;
+    const copies=parseInt(document.getElementById('pp-copies').value)||4;
+    const photoW=MM2PX(s.w), photoH=MM2PX(s.h);
+    // Create one photo
+    const photoCanvas=document.createElement('canvas');
+    photoCanvas.width=photoW; photoCanvas.height=photoH;
+    const pctx=photoCanvas.getContext('2d');
+    pctx.fillStyle=bgColor; pctx.fillRect(0,0,photoW,photoH);
+    // Fit image centered
+    const iw=loadedImg.naturalWidth, ih=loadedImg.naturalHeight;
+    const sc=Math.max(photoW/iw, photoH/ih);
+    const drawW=iw*sc, drawH=ih*sc;
+    pctx.drawImage(loadedImg,(photoW-drawW)/2,(photoH-drawH)/2,drawW,drawH);
+
+    // Sheet: A4 at 300 DPI = 2480×3508
+    const sheetW=MM2PX(210), sheetH=MM2PX(297);
+    const cols=Math.floor(sheetW/photoW), rows=Math.ceil(copies/cols);
+    const sheet=document.getElementById('pp-sheet-canvas');
+    sheet.width=sheetW; sheet.height=Math.min(sheetH,rows*(photoH+MM2PX(5))+MM2PX(10));
+    const sctx=sheet.getContext('2d');
+    sctx.fillStyle='#fff'; sctx.fillRect(0,0,sheet.width,sheet.height);
+    let placed=0;
+    outer:for(let r=0;r<rows;r++){
+      for(let c=0;c<cols;c++){
+        if(placed>=copies) break outer;
+        sctx.drawImage(photoCanvas,c*(photoW+MM2PX(5))+MM2PX(5),r*(photoH+MM2PX(5))+MM2PX(5));
+        placed++;
+      }
+    }
+
+    document.getElementById('pp-result').classList.remove('hidden');
+    sheet.toBlob(blob=>{
+      document.getElementById('pp-download-png').onclick=()=>downloadBlob(blob,'passport-photo-sheet.png');
+    },'image/png');
+    document.getElementById('pp-download-pdf').onclick=()=>{
+      const {jsPDF}=window.jspdf;
+      const pdf=new jsPDF({orientation:'p',unit:'mm',format:'a4'});
+      const dataURL=sheet.toDataURL('image/jpeg',0.92);
+      const scaleX=210/sheet.width, scaleY=297/sheet.height;
+      const sc2=Math.min(scaleX,scaleY);
+      pdf.addImage(dataURL,'JPEG',0,0,sheet.width*sc2*25.4/DPI*10,sheet.height*sc2*25.4/DPI*10);
+      pdf.save('passport-photo.pdf');
+    };
+  });
+})();
+</script>
+</body>
+</html>

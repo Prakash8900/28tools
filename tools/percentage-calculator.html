@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Percentage Calculator – 5-in-1 Online Percentage Tools | 28Tools</title>
+  <meta name="description" content="Comprehensive 5-in-1 percentage calculation suite: calculate percentage of a number, percentage increase/decrease, percentage difference, and fraction conversions instantly."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/percentage-calculator.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/percentage-calculator.html"/>
+  <meta property="og:title" content="Percentage Calculator – 5-in-1 Online Percentage Tools | 28Tools"/>
+  <meta property="og:description" content="Comprehensive 5-in-1 percentage calculation suite: calculate percentage of a number, percentage increase/decrease, percentage difference, and fraction conversions instantly."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Percentage Calculator",
+    "url":"https://prakash8900.github.io/28tools/tools/percentage-calculator.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Comprehensive 5-in-1 percentage calculation suite: calculate percentage of a number, percentage increase/decrease, percentage difference, and fraction conversions instantly.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=calculators">Finance</a><span aria-hidden="true">â€º</span><span aria-current="page">Percentage Calculator</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-calc" aria-hidden="true">%</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Percentage Calculator</h1>
+          <p class="tool-hero__desc">All-in-one percentage calculation suite for everyday math, finance, discounts, and statistics.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-calc">Finance</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="tabs mb-md" style="max-width:700px" role="tablist">
+      <button class="tab active" role="tab" data-mode="pof" aria-selected="true">X% of Y</button>
+      <button class="tab" role="tab" data-mode="what" aria-selected="false">X is what % of Y</button>
+      <button class="tab" role="tab" data-mode="change" aria-selected="false">% Change</button>
+      <button class="tab" role="tab" data-mode="diff" aria-selected="false">% Difference</button>
+      <button class="tab" role="tab" data-mode="addpct" aria-selected="false">Add/Sub %</button>
+    </div>
+
+    <!-- Mode panels -->
+    <div style="max-width:520px">
+      <!-- X% of Y -->
+      <div class="tool-card-panel" id="panel-pof">
+        <p class="text-muted mb-md text-sm">What is <strong>X%</strong> of <strong>Y</strong>?</p>
+        <div class="form-grid-2">
+          <div class="form-group"><label class="form-label" for="pof-x">Percentage (X)</label><input id="pof-x" class="form-input" type="number" placeholder="e.g. 15"/></div>
+          <div class="form-group"><label class="form-label" for="pof-y">Number (Y)</label><input id="pof-y" class="form-input" type="number" placeholder="e.g. 500"/></div>
+        </div>
+        <button class="btn btn-primary mt-md" onclick="calcPof()">Calculate</button>
+        <div id="res-pof" class="result-card success hidden mt-md"><div class="result-value" id="pof-ans"></div><div class="result-label" id="pof-lbl"></div></div>
+      </div>
+
+      <!-- What % -->
+      <div class="tool-card-panel hidden" id="panel-what">
+        <p class="text-muted mb-md text-sm"><strong>X</strong> is what percentage of <strong>Y</strong>?</p>
+        <div class="form-grid-2">
+          <div class="form-group"><label class="form-label" for="what-x">Value (X)</label><input id="what-x" class="form-input" type="number" placeholder="e.g. 75"/></div>
+          <div class="form-group"><label class="form-label" for="what-y">Total (Y)</label><input id="what-y" class="form-input" type="number" placeholder="e.g. 200"/></div>
+        </div>
+        <button class="btn btn-primary mt-md" onclick="calcWhat()">Calculate</button>
+        <div id="res-what" class="result-card success hidden mt-md"><div class="result-value" id="what-ans"></div><div class="result-label" id="what-lbl"></div></div>
+      </div>
+
+      <!-- % Change -->
+      <div class="tool-card-panel hidden" id="panel-change">
+        <p class="text-muted mb-md text-sm">Percentage change from <strong>old</strong> to <strong>new</strong> value.</p>
+        <div class="form-grid-2">
+          <div class="form-group"><label class="form-label" for="chg-old">Old Value</label><input id="chg-old" class="form-input" type="number" placeholder="e.g. 200"/></div>
+          <div class="form-group"><label class="form-label" for="chg-new">New Value</label><input id="chg-new" class="form-input" type="number" placeholder="e.g. 250"/></div>
+        </div>
+        <button class="btn btn-primary mt-md" onclick="calcChange()">Calculate</button>
+        <div id="res-change" class="result-card hidden mt-md"><div class="result-value" id="chg-ans"></div><div class="result-label" id="chg-lbl"></div></div>
+      </div>
+
+      <!-- % Difference -->
+      <div class="tool-card-panel hidden" id="panel-diff">
+        <p class="text-muted mb-md text-sm">Absolute percentage difference between two values.</p>
+        <div class="form-grid-2">
+          <div class="form-group"><label class="form-label" for="diff-a">Value A</label><input id="diff-a" class="form-input" type="number" placeholder="e.g. 100"/></div>
+          <div class="form-group"><label class="form-label" for="diff-b">Value B</label><input id="diff-b" class="form-input" type="number" placeholder="e.g. 120"/></div>
+        </div>
+        <button class="btn btn-primary mt-md" onclick="calcDiff()">Calculate</button>
+        <div id="res-diff" class="result-card success hidden mt-md"><div class="result-value" id="diff-ans"></div><div class="result-label" id="diff-lbl"></div></div>
+      </div>
+
+      <!-- Add/Sub % -->
+      <div class="tool-card-panel hidden" id="panel-addpct">
+        <p class="text-muted mb-md text-sm">Add or subtract a percentage from a number.</p>
+        <div class="form-grid-2">
+          <div class="form-group"><label class="form-label" for="add-val">Number</label><input id="add-val" class="form-input" type="number" placeholder="e.g. 1000"/></div>
+          <div class="form-group"><label class="form-label" for="add-pct">Percentage (%)</label><input id="add-pct" class="form-input" type="number" placeholder="e.g. 20"/></div>
+        </div>
+        <div class="flex gap-md mt-md">
+          <button class="btn btn-primary" onclick="calcAdd(1)">Add %</button>
+          <button class="btn btn-secondary" onclick="calcAdd(-1)">Subtract %</button>
+        </div>
+        <div id="res-add" class="result-card success hidden mt-md"><div class="result-value" id="add-ans"></div><div class="result-label" id="add-lbl"></div></div>
+      </div>
+    </div>
+  </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Percentage Calculator</h2>
+        <p>Follow these quick and easy steps to use our free online Percentage Calculator directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Choose Calculator Mode</div>
+          <div class="step-card__desc">Select what percentage calculation you need from the 5 specialized tabs.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Enter Values</div>
+          <div class="step-card__desc">Type in your numbers into the simple input boxes.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Instant Result</div>
+          <div class="step-card__desc">See the precise answer and calculation breakdown in real time.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">🧮</div>
+          <div>
+            <div class="feature-item__title">5-in-1 Toolkit</div>
+            <div class="feature-item__desc">Calculate What is X% of Y, Percentage Increase/Decrease, Percentage Difference, and more.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">⚡</div>
+          <div>
+            <div class="feature-item__title">Instant Calculations</div>
+            <div class="feature-item__desc">Results update automatically as you type.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">100% Private</div>
+            <div class="feature-item__desc">Runs completely in browser memory.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Percentage Calculator</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">How do I calculate percentage increase?</div>
+          <div class="faq-card__a">Percentage Increase = ((New Value - Old Value) / Old Value) * 100.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="discount-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">🏷️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Discount Calculator</div>
+            <div class="related-tool-card__desc">Calculate sales discounts.</div>
+          </div>
+        </a>
+        <a href="gst-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">🧾</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">GST Calculator</div>
+            <div class="related-tool-card__desc">Calculate GST tax splits.</div>
+          </div>
+        </a>
+        <a href="unit-converter.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-calc">📐</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Unit Converter</div>
+            <div class="related-tool-card__desc">Convert units of measure.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  const panels = ['pof','what','change','diff','addpct'];
+  document.querySelectorAll('.tab[data-mode]').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab[data-mode]').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      panels.forEach(p=>document.getElementById('panel-'+p).classList.add('hidden'));
+      document.getElementById('panel-'+tab.dataset.mode).classList.remove('hidden');
+    });
+  });
+
+  function show(id,val,lbl,type='success'){
+    const r=document.getElementById(id); r.classList.remove('hidden','success','warning');
+    r.classList.add(type);
+    document.getElementById(id.replace('res-','')+'-ans').textContent=val;
+    document.getElementById(id.replace('res-','')+'-lbl').textContent=lbl;
+  }
+
+  window.calcPof=()=>{
+    const x=validNum(document.getElementById('pof-x').value);
+    const y=validNum(document.getElementById('pof-y').value);
+    if(x===null||y===null) return;
+    show('res-pof',fmtNum(x/100*y,4),`${x}% of ${fmtNum(y,2)} = ${fmtNum(x/100*y,4)}`);
+  };
+  window.calcWhat=()=>{
+    const x=validNum(document.getElementById('what-x').value);
+    const y=validNum(document.getElementById('what-y').value,0.001);
+    if(x===null||y===null) return;
+    show('res-what',fmtNum(x/y*100,4)+'%',`${fmtNum(x,2)} is ${fmtNum(x/y*100,2)}% of ${fmtNum(y,2)}`);
+  };
+  window.calcChange=()=>{
+    const o=validNum(document.getElementById('chg-old').value,0.001);
+    const n=validNum(document.getElementById('chg-new').value);
+    if(o===null||n===null) return;
+    const pct=(n-o)/Math.abs(o)*100;
+    const type=pct>=0?'success':'warning';
+    show('res-change',(pct>=0?'+':'')+fmtNum(pct,2)+'%',`From ${fmtNum(o,2)} to ${fmtNum(n,2)}`,type);
+  };
+  window.calcDiff=()=>{
+    const a=validNum(document.getElementById('diff-a').value);
+    const b=validNum(document.getElementById('diff-b').value);
+    if(a===null||b===null) return;
+    const avg=(a+b)/2; const pct=Math.abs(a-b)/avg*100;
+    show('res-diff',fmtNum(pct,2)+'%',`Absolute percentage difference between ${fmtNum(a,2)} and ${fmtNum(b,2)}`);
+  };
+  window.calcAdd=sign=>{
+    const v=validNum(document.getElementById('add-val').value);
+    const p=validNum(document.getElementById('add-pct').value);
+    if(v===null||p===null) return;
+    const res=v+sign*v*p/100;
+    show('res-add',fmtNum(res,4),`${fmtNum(v,2)} ${sign>0?'+':'-'} ${p}% = ${fmtNum(res,4)}`);
+  };
+})();
+</script>
+</body>
+</html>

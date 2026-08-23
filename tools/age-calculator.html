@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Age Calculator – Calculate Exact Age in Years, Months & Days | 28Tools</title>
+  <meta name="description" content="Calculate your exact chronological age in years, months, days, hours, and minutes from your date of birth, with countdown to your upcoming birthday."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/age-calculator.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/age-calculator.html"/>
+  <meta property="og:title" content="Age Calculator – Calculate Exact Age in Years, Months & Days | 28Tools"/>
+  <meta property="og:description" content="Calculate your exact chronological age in years, months, days, hours, and minutes from your date of birth, with countdown to your upcoming birthday."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Age Calculator",
+    "url":"https://prakash8900.github.io/28tools/tools/age-calculator.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Calculate your exact chronological age in years, months, days, hours, and minutes from your date of birth, with countdown to your upcoming birthday.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=health">Health & Utility</a><span aria-hidden="true">â€º</span><span aria-current="page">Age Calculator</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-health" aria-hidden="true">🎂</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Age Calculator</h1>
+          <p class="tool-hero__desc">Find your exact age in years, months, days, and hours, plus countdown to your next birthday.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-health">Health & Utility</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="tool-card-panel">
+      <form id="age-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="dob">Date of Birth</label>
+          <input id="dob" class="form-input" type="date" required/>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="ref-date">Age as of <span class="optional">Default: Today</span></label>
+          <input id="ref-date" class="form-input" type="date"/>
+        </div>
+        <div class="flex gap-md mt-lg">
+          <button type="submit" class="btn btn-primary btn-lg" style="flex:1">Calculate Age</button>
+          <button type="button" class="btn btn-secondary" id="age-reset">Reset</button>
+        </div>
+      </form>
+
+      <div id="age-result" class="hidden mt-lg">
+        <div class="result-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="result-card success"><div class="result-value" id="age-y"></div><div class="result-label">Years</div></div>
+          <div class="result-card"><div class="result-value" id="age-m"></div><div class="result-label">Months</div></div>
+          <div class="result-card"><div class="result-value" id="age-d"></div><div class="result-label">Days</div></div>
+        </div>
+        <div class="result-grid mt-sm" style="grid-template-columns:repeat(3,1fr)">
+          <div class="result-card"><div class="result-value text-xl" id="age-total-days"></div><div class="result-label">Total Days</div></div>
+          <div class="result-card"><div class="result-value text-xl" id="age-total-hrs"></div><div class="result-label">Total Hours</div></div>
+          <div class="result-card"><div class="result-value text-xl" id="age-next-bday"></div><div class="result-label">Days to Birthday</div></div>
+        </div>
+        <div class="alert alert-info mt-md" id="age-star-sign"></div>
+        <button class="btn btn-ghost btn-sm mt-md copy-btn" onclick="copyAge(this)">📋 Copy</button>
+      </div>
+    </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Age Calculator</h2>
+        <p>Follow these quick and easy steps to use our free online Age Calculator directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Select Birth Date</div>
+          <div class="step-card__desc">Choose your Date of Birth in the date picker.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Target Date</div>
+          <div class="step-card__desc">Defaults to today, or select any specific target date.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">View Detailed Breakdown</div>
+          <div class="step-card__desc">See total years, months, days, hours, and next birthday countdown.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">🎂</div>
+          <div>
+            <div class="feature-item__title">Precise Chronological Age</div>
+            <div class="feature-item__desc">Calculates down to exact days and leap years.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">⏳</div>
+          <div>
+            <div class="feature-item__title">Next Birthday Countdown</div>
+            <div class="feature-item__desc">Shows days and months remaining until your next celebration.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">📊</div>
+          <div>
+            <div class="feature-item__title">Total Units Breakdown</div>
+            <div class="feature-item__desc">See your total age converted into days, weeks, and hours.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Age Calculator</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">How are leap years factored in?</div>
+          <div class="faq-card__a">The calculator accurately accounts for 366-day leap years across all calendar calculations.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="date-time-utilities.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">📅</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Date & Time Utilities</div>
+            <div class="related-tool-card__desc">Date differences & countdown.</div>
+          </div>
+        </a>
+        <a href="bmi-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">⚕️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">BMI Calculator</div>
+            <div class="related-tool-card__desc">Calculate body mass index.</div>
+          </div>
+        </a>
+        <a href="percentage-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-health">%</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Percentage Calculator</div>
+            <div class="related-tool-card__desc">Percentage tools.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  // Set max date to today
+  const today=new Date();
+  const todayStr=today.toISOString().split('T')[0];
+  document.getElementById('dob').max=todayStr;
+  document.getElementById('ref-date').value=todayStr;
+
+  function starSign(m,d){
+    const signs=[['Capricorn',12,22],['Aquarius',1,20],['Pisces',2,19],['Aries',3,21],['Taurus',4,20],['Gemini',5,21],['Cancer',6,21],['Leo',7,23],['Virgo',8,23],['Libra',9,23],['Scorpio',10,24],['Sagittarius',11,22],['Capricorn',12,32]];
+    for(const [name,sm,sd] of signs) if((m===sm&&d>=sd)||(m===sm+1&&d<signs.find(s=>s[0]===name)[2])) return name;
+    return 'Unknown';
+  }
+  const SIGNS={Aries:'♈',Taurus:'♉',Gemini:'♊',Cancer:'♋',Leo:'♌',Virgo:'♍',Libra:'♎',Scorpio:'♏',Sagittarius:'♐',Capricorn:'♑',Aquarius:'♒',Pisces:'♓'};
+
+  document.getElementById('age-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const dob=new Date(document.getElementById('dob').value);
+    const ref=new Date(document.getElementById('ref-date').value||todayStr);
+    if(isNaN(dob)||dob>ref) return;
+
+    let years=ref.getFullYear()-dob.getFullYear();
+    let months=ref.getMonth()-dob.getMonth();
+    let days=ref.getDate()-dob.getDate();
+    if(days<0){ months--; const prevMonth=new Date(ref.getFullYear(),ref.getMonth(),0); days+=prevMonth.getDate(); }
+    if(months<0){ years--; months+=12; }
+
+    const totalDays=Math.floor((ref-dob)/(1000*60*60*24));
+    const totalHrs=totalDays*24;
+    const nextBday=new Date(ref.getFullYear(),dob.getMonth(),dob.getDate());
+    if(nextBday<=ref) nextBday.setFullYear(nextBday.getFullYear()+1);
+    const daysToB=Math.ceil((nextBday-ref)/(1000*60*60*24));
+
+    document.getElementById('age-y').textContent=years;
+    document.getElementById('age-m').textContent=months;
+    document.getElementById('age-d').textContent=days;
+    document.getElementById('age-total-days').textContent=fmtNum(totalDays,0);
+    document.getElementById('age-total-hrs').textContent=fmtNum(totalHrs,0);
+    document.getElementById('age-next-bday').textContent=daysToB===0?'Today! 🎉':daysToB;
+
+    const sg=starSign(dob.getMonth()+1,dob.getDate());
+    document.getElementById('age-star-sign').textContent=`${SIGNS[sg]||''} Your zodiac sign is ${sg}`;
+    document.getElementById('age-result').classList.remove('hidden');
+  });
+
+  document.getElementById('age-reset').addEventListener('click',()=>{
+    document.getElementById('age-form').reset();
+    document.getElementById('ref-date').value=todayStr;
+    document.getElementById('age-result').classList.add('hidden');
+  });
+
+  window.copyAge=btn=>{
+    const y=document.getElementById('age-y').textContent;
+    const m=document.getElementById('age-m').textContent;
+    const d=document.getElementById('age-d').textContent;
+    copyText(`Age: ${y} years, ${m} months, ${d} days`,btn);
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Text Case Converter – UPPERCASE, lowercase, Title Case, camelCase | 28Tools</title>
+  <meta name="description" content="Convert text formatting instantly between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, and kebab-case."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/text-case-converter.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/text-case-converter.html"/>
+  <meta property="og:title" content="Text Case Converter – UPPERCASE, lowercase, Title Case, camelCase | 28Tools"/>
+  <meta property="og:description" content="Convert text formatting instantly between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, and kebab-case."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Text Case Converter",
+    "url":"https://prakash8900.github.io/28tools/tools/text-case-converter.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Convert text formatting instantly between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, and kebab-case.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=text">Text & Code</a><span aria-hidden="true">â€º</span><span aria-current="page">Text Case Converter</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-text" aria-hidden="true">Aa</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Text Case Converter</h1>
+          <p class="tool-hero__desc">Transform text between UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-text">Text & Code</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="tool-card-panel">
+      <div class="form-group">
+        <label class="form-label" for="tc-input">Input Text</label>
+        <textarea id="tc-input" class="form-textarea" placeholder="Type or paste text here…" style="min-height:140px"></textarea>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--space-sm);margin-top:var(--space-md)">
+        <button class="btn btn-secondary" onclick="convert('upper')">UPPERCASE</button>
+        <button class="btn btn-secondary" onclick="convert('lower')">lowercase</button>
+        <button class="btn btn-secondary" onclick="convert('title')">Title Case</button>
+        <button class="btn btn-secondary" onclick="convert('sentence')">Sentence case</button>
+        <button class="btn btn-secondary" onclick="convert('camel')">camelCase</button>
+        <button class="btn btn-secondary" onclick="convert('pascal')">PascalCase</button>
+        <button class="btn btn-secondary" onclick="convert('snake')">snake_case</button>
+        <button class="btn btn-secondary" onclick="convert('kebab')">kebab-case</button>
+        <button class="btn btn-secondary" onclick="convert('constant')">CONSTANT_CASE</button>
+        <button class="btn btn-secondary" onclick="convert('alternating')">aLtErNaTiNg</button>
+        <button class="btn btn-secondary" onclick="convert('reverse')">esreveR</button>
+        <button class="btn btn-secondary" onclick="convert('remove-extra')">Remove Extra Spaces</button>
+      </div>
+    </div>
+
+    <div id="tc-result" class="hidden mt-lg">
+      <div class="tool-card-panel">
+        <div class="flex justify-between items-center mb-md" style="margin-bottom:var(--space-md)">
+          <p class="form-label" id="tc-mode-lbl">Output</p>
+          <div class="flex gap-sm">
+            <button class="btn btn-ghost btn-sm copy-btn" id="tc-copy-btn" onclick="copyText(document.getElementById('tc-output').textContent,this)">📋 Copy</button>
+            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('tc-input').value=document.getElementById('tc-output').textContent;convert(lastMode)">↺ Use as Input</button>
+          </div>
+        </div>
+        <div id="tc-output" class="code-block" style="max-height:300px" aria-live="polite"></div>
+      </div>
+    </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Text Case Converter</h2>
+        <p>Follow these quick and easy steps to use our free online Text Case Converter directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Input Text</div>
+          <div class="step-card__desc">Type or paste your text into the text area.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Click Transformation</div>
+          <div class="step-card__desc">Choose UPPERCASE, lowercase, Title Case, camelCase, or snake_case.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Copy Output</div>
+          <div class="step-card__desc">Click Copy Result to paste into your documents or code.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">🔠</div>
+          <div>
+            <div class="feature-item__title">Multi-Format Support</div>
+            <div class="feature-item__desc">Supports Title Case, camelCase, snake_case, kebab-case, and Sentence case.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">⚡</div>
+          <div>
+            <div class="feature-item__title">Instant Conversion</div>
+            <div class="feature-item__desc">Converts thousands of words in milliseconds.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">📋</div>
+          <div>
+            <div class="feature-item__title">1-Click Copy</div>
+            <div class="feature-item__desc">Quickly copy transformed text.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Text Case Converter</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">What is camelCase?</div>
+          <div class="faq-card__a">camelCase formats text without spaces, capitalizing the first letter of each subsequent word (e.g. myVariableName).</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="word-counter.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-text">📝</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Word Counter</div>
+            <div class="related-tool-card__desc">Count words & characters.</div>
+          </div>
+        </a>
+        <a href="json-formatter.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-text">{}</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">JSON Formatter</div>
+            <div class="related-tool-card__desc">Format JSON.</div>
+          </div>
+        </a>
+        <a href="password-generator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-text">🔐</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Password Generator</div>
+            <div class="related-tool-card__desc">Generate passwords.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+let lastMode='';
+window.convert=function(mode){
+  const text=document.getElementById('tc-input').value;
+  if(!text.trim()) return;
+  lastMode=mode;
+  const words=text.trim().split(/\s+/);
+  const toWords=t=>t.replace(/([a-z])([A-Z])/g,'$1 $2').replace(/[_\-]+/g,' ').toLowerCase().split(/\s+/);
+  let out='';
+  switch(mode){
+    case 'upper': out=text.toUpperCase(); break;
+    case 'lower': out=text.toLowerCase(); break;
+    case 'title': out=words.map(w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(' '); break;
+    case 'sentence': out=text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,c=>c.toUpperCase()); break;
+    case 'camel': { const ws=toWords(text); out=ws[0]+ws.slice(1).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(''); break; }
+    case 'pascal': out=toWords(text).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(''); break;
+    case 'snake': out=toWords(text).join('_'); break;
+    case 'kebab': out=toWords(text).join('-'); break;
+    case 'constant': out=toWords(text).join('_').toUpperCase(); break;
+    case 'alternating': out=[...text].map((c,i)=>i%2===0?c.toLowerCase():c.toUpperCase()).join(''); break;
+    case 'reverse': out=[...text].reverse().join(''); break;
+    case 'remove-extra': out=text.replace(/\s+/g,' ').trim(); break;
+  }
+  const labels={upper:'UPPERCASE',lower:'lowercase',title:'Title Case',sentence:'Sentence case',camel:'camelCase',pascal:'PascalCase',snake:'snake_case',kebab:'kebab-case',constant:'CONSTANT_CASE',alternating:'aLtErNaTiNg CaSe',reverse:'Reversed',['remove-extra']:'Extra Spaces Removed'};
+  document.getElementById('tc-mode-lbl').textContent=labels[mode]||mode;
+  document.getElementById('tc-output').textContent=out;
+  document.getElementById('tc-result').classList.remove('hidden');
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Image Watermark Tool – Add Text or Logo Watermark to Photos | 28Tools</title>
+  <meta name="description" content="Protect your photography and graphics by adding custom text or logo watermarks with adjustable opacity, rotation, size, and tiled positioning."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/image-watermark.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/image-watermark.html"/>
+  <meta property="og:title" content="Image Watermark Tool – Add Text or Logo Watermark to Photos | 28Tools"/>
+  <meta property="og:description" content="Protect your photography and graphics by adding custom text or logo watermarks with adjustable opacity, rotation, size, and tiled positioning."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Image Watermark Tool",
+    "url":"https://prakash8900.github.io/28tools/tools/image-watermark.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Protect your photography and graphics by adding custom text or logo watermarks with adjustable opacity, rotation, size, and tiled positioning.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=pdf">PDF & Image</a><span aria-hidden="true">â€º</span><span aria-current="page">Image Watermark Tool</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-pdf" aria-hidden="true">💧</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Image Watermark Tool</h1>
+          <p class="tool-hero__desc">Protect your photos and graphics with custom text or image watermarks.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-pdf">PDF & Image</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="wm-grid" id="wm-layout">
+      <div>
+        <div class="upload-zone" id="wm-drop" role="button" tabindex="0">
+          <input type="file" id="wm-file" accept="image/jpeg,image/png,image/webp"/>
+          <div class="upload-zone__icon">🖼️</div>
+          <p class="upload-zone__title">Drop image or click to select</p>
+          <p class="upload-zone__sub">JPEG · PNG · WebP · Max 50 MB</p>
+        </div>
+        <div class="tool-card-panel mt-md hidden" id="wm-controls">
+          <div class="form-group mb-md">
+            <label class="form-label" for="wm-text">Watermark Text</label>
+            <input type="text" id="wm-text" class="form-input" value="© 28Tools" placeholder="Your watermark"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="wm-position">Position</label>
+            <select id="wm-position" class="form-select">
+              <option value="center">Center</option>
+              <option value="bottom-right" selected>Bottom Right</option>
+              <option value="bottom-left">Bottom Left</option>
+              <option value="top-right">Top Right</option>
+              <option value="top-left">Top Left</option>
+              <option value="tiled">Tiled</option>
+            </select>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="wm-opacity">Opacity: <span id="wm-op-val">50</span>%</label>
+            <input type="range" class="slider" id="wm-opacity" min="5" max="100" step="5" value="50"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="wm-size">Font Size: <span id="wm-sz-val">32</span>px</label>
+            <input type="range" class="slider" id="wm-size" min="12" max="120" step="2" value="32"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="wm-color">Text Color</label>
+            <input type="color" id="wm-color" value="#ffffff" style="width:100%;height:40px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg-800);cursor:pointer"/>
+          </div>
+          <button class="btn btn-primary btn-full" id="wm-apply-btn">💧 Apply Watermark</button>
+        </div>
+      </div>
+      <div id="wm-result-panel" class="hidden">
+        <p class="text-sm text-muted mb-sm">Preview</p>
+        <canvas id="wm-canvas" style="max-width:100%;border-radius:var(--radius-md);margin-bottom:var(--space-md)"></canvas>
+        <button class="btn btn-primary btn-full" id="wm-download-btn">⬇ Download Image</button>
+      </div>
+    </div>
+  </div>
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Image Watermark Tool</h2>
+        <p>Follow these quick and easy steps to use our free online Image Watermark Tool directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Upload Base Image</div>
+          <div class="step-card__desc">Choose your source photo.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Select Watermark Type</div>
+          <div class="step-card__desc">Choose Text watermark or upload a Logo image.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Customize</div>
+          <div class="step-card__desc">Adjust text, font size, opacity, angle, and position.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">4</div>
+          <div class="step-card__title">Download</div>
+          <div class="step-card__desc">Download watermarked image.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">💧</div>
+          <div>
+            <div class="feature-item__title">Text & Logo Watermarks</div>
+            <div class="feature-item__desc">Add copyright text or company logo overlays.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🎛️</div>
+          <div>
+            <div class="feature-item__title">Opacity & Position Control</div>
+            <div class="feature-item__desc">Adjust transparency and place in any corner or centered.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">100% Private</div>
+            <div class="feature-item__desc">Watermarking is rendered locally on your device.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Image Watermark Tool</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">Can I add a transparent PNG logo?</div>
+          <div class="faq-card__a">Yes, upload a transparent PNG logo to overlay onto your photos.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="image-resizer.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">↔️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image Resizer</div>
+            <div class="related-tool-card__desc">Resize dimensions.</div>
+          </div>
+        </a>
+        <a href="image-compressor.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">🗜️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Image Compressor</div>
+            <div class="related-tool-card__desc">Compress image files.</div>
+          </div>
+        </a>
+        <a href="photo-crop.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-pdf">✂️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Photo Crop</div>
+            <div class="related-tool-card__desc">Crop photos.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ var l=document.getElementById('wm-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+  var opSlider=document.getElementById('wm-opacity');
+  var szSlider=document.getElementById('wm-size');
+  opSlider.addEventListener('input',function(){document.getElementById('wm-op-val').textContent=opSlider.value;});
+  szSlider.addEventListener('input',function(){document.getElementById('wm-sz-val').textContent=szSlider.value;});
+  var origFile=null;
+  function handleFile(file){
+    var err=validateFile(file,['image/jpeg','image/png','image/webp']);
+    if(err){alert(err);return;}
+    origFile=file;
+    document.getElementById('wm-controls').classList.remove('hidden');
+  }
+  var dz=document.getElementById('wm-drop');
+  dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('drag-over');});
+  dz.addEventListener('dragleave',function(){dz.classList.remove('drag-over');});
+  dz.addEventListener('drop',function(e){e.preventDefault();dz.classList.remove('drag-over');var f=e.dataTransfer.files[0];if(f)handleFile(f);});
+  document.getElementById('wm-file').addEventListener('change',function(e){if(e.target.files[0])handleFile(e.target.files[0]);});
+  document.getElementById('wm-apply-btn').addEventListener('click',function(){
+    if(!origFile)return;
+    loadImageOnCanvas(origFile).then(function(img){
+      var canvas=document.getElementById('wm-canvas');
+      canvas.width=img.naturalWidth; canvas.height=img.naturalHeight;
+      var ctx=canvas.getContext('2d');
+      ctx.drawImage(img,0,0);
+      var text=document.getElementById('wm-text').value||'Watermark';
+      var opacity=parseInt(opSlider.value)/100;
+      var fontSize=parseInt(szSlider.value);
+      var color=document.getElementById('wm-color').value;
+      var position=document.getElementById('wm-position').value;
+      ctx.globalAlpha=opacity;
+      ctx.font='bold '+fontSize+'px Inter, sans-serif';
+      ctx.fillStyle=color;
+      ctx.textBaseline='middle';
+      var pad=fontSize, tw=ctx.measureText(text).width, W=canvas.width, H=canvas.height;
+      if(position==='tiled'){
+        var stepX=tw+pad*3, stepY=fontSize*3;
+        for(var y=-stepY;y<H+stepY;y+=stepY){for(var x=-stepX;x<W+stepX;x+=stepX){ctx.save();ctx.translate(x+tw/2,y);ctx.rotate(-Math.PI/6);ctx.fillText(text,-tw/2,0);ctx.restore();}}
+      } else {
+        var px,py;
+        if(position==='center'){px=W/2-tw/2;py=H/2;}
+        else if(position==='bottom-right'){px=W-tw-pad;py=H-pad;}
+        else if(position==='bottom-left'){px=pad;py=H-pad;}
+        else if(position==='top-right'){px=W-tw-pad;py=pad;}
+        else{px=pad;py=pad;}
+        ctx.fillText(text,px,py);
+      }
+      ctx.globalAlpha=1;
+      document.getElementById('wm-result-panel').classList.remove('hidden');
+      document.getElementById('wm-download-btn').onclick=function(){
+        canvas.toBlob(function(blob){if(blob)downloadBlob(blob,origFile.name.replace(/\.[^.]+$/,'_watermarked.png'));},'image/png');
+      };
+    });
+  });
+})();
+</script>
+</body>
+</html>

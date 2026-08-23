@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Universal Unit Converter – Length, Weight, Temperature & Area | 28Tools</title>
+  <meta name="description" content="Convert measurement units across length (meters, feet, inches, miles), weight (kg, lbs, oz), temperature (Celsius, Fahrenheit, Kelvin), area, volume, and speed."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://prakash8900.github.io/28tools/tools/unit-converter.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prakash8900.github.io/28tools/tools/unit-converter.html"/>
+  <meta property="og:title" content="Universal Unit Converter – Length, Weight, Temperature & Area | 28Tools"/>
+  <meta property="og:description" content="Convert measurement units across length (meters, feet, inches, miles), weight (kg, lbs, oz), temperature (Celsius, Fahrenheit, Kelvin), area, volume, and speed."/>
+  <meta property="og:image" content="../favicon.svg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Universal Unit Converter",
+    "url":"https://prakash8900.github.io/28tools/tools/unit-converter.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "description":"Convert measurement units across length (meters, feet, inches, miles), weight (kg, lbs, oz), temperature (Celsius, Fahrenheit, Kelvin), area, volume, and speed.",
+    "offers":{
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+</head>
+<body class="tool-page">
+
+<!-- â•â• NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<header role="banner">
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="28Tools home">
+        <div class="nav__logo-icon" aria-hidden="true">28</div>
+        28Tools
+      </a>
+      <div class="nav__actions" style="margin-left:auto">
+        <a href="../index.html" class="btn btn-ghost btn-sm">â† All 32 Tools</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="tool-page__body">
+  <!-- â•â• TOOL HERO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-hero">
+    <div class="container">
+      <nav class="tool-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a><span aria-hidden="true">â€º</span><a href="../index.html?cat=converters">Converters</a><span aria-hidden="true">â€º</span><span aria-current="page">Universal Unit Converter</span>
+      </nav>
+      <div class="tool-hero__header">
+        <div class="tool-hero__icon icon-conv" aria-hidden="true">📐</div>
+        <div class="tool-hero__info">
+          <h1 class="tool-hero__title">Universal Unit Converter</h1>
+          <p class="tool-hero__desc">Convert length, mass, temperature, area, volume, and speed across metric and imperial units.</p>
+          <div class="tool-hero__meta">
+            <span class="tool-card__cat-indicator badge-conv">Converters</span>
+            <span class="tool-card__privacy">ðŸ”’ 100% Private â€“ Browser-based</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â• TOOL WORKSPACE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="tool-workspace">
+    <div class="container">
+      <div class="form-group mb-lg">
+      <label class="form-label" for="uc-category">Category</label>
+      <select id="uc-category" class="form-select" aria-label="Unit category">
+        <option value="length">Length</option>
+        <option value="weight">Weight / Mass</option>
+        <option value="temperature">Temperature</option>
+        <option value="area">Area</option>
+        <option value="volume">Volume</option>
+        <option value="speed">Speed</option>
+        <option value="energy">Energy</option>
+        <option value="data">Digital Data</option>
+      </select>
+    </div>
+
+    <div class="tool-card-panel">
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:var(--space-md);align-items:end" id="uc-row">
+        <div class="form-group">
+          <label class="form-label" for="uc-from-val">Value</label>
+          <input id="uc-from-val" class="form-input" type="number" value="1" step="any"/>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="uc-swap" aria-label="Swap units" title="Swap units" style="margin-bottom:2px">⇄</button>
+        <div class="form-group">
+          <label class="form-label" for="uc-to-val">Result</label>
+          <input id="uc-to-val" class="form-input" type="number" step="any" readonly style="color:var(--accent);font-weight:700"/>
+        </div>
+      </div>
+      <div class="form-grid-2 mt-md">
+        <div class="form-group"><label class="form-label" for="uc-from-unit">From</label><select id="uc-from-unit" class="form-select"></select></div>
+        <div class="form-group"><label class="form-label" for="uc-to-unit">To</label><select id="uc-to-unit" class="form-select"></select></div>
+      </div>
+      <div class="alert alert-info mt-md hidden" id="uc-formula"></div>
+    </div>
+
+    <!-- All conversions table -->
+
+      <!-- â•â• AD PLACEMENT: TOOL MID BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="ad-slot ad-slot--inline" aria-label="Advertisement">
+        <span class="ad-slot__label">Advertisement</span>
+        <div class="ad-slot__box">
+          <span>Responsive In-Content Ad Slot (728Ã—90 / 300Ã—250)</span>
+        </div>
+      </div>
+
+      <!-- â•â• SEO & GUIDE SECTIONS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+      <div class="tool-seo-section">
+        <h2>How to Use Universal Unit Converter</h2>
+        <p>Follow these quick and easy steps to use our free online Universal Unit Converter directly in your browser:</p>
+        <div class="guide-steps">
+        <div class="step-card">
+          <div class="step-card__num">1</div>
+          <div class="step-card__title">Select Category</div>
+          <div class="step-card__desc">Choose Length, Weight, Temperature, Area, Volume, or Speed.</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">2</div>
+          <div class="step-card__title">Choose Units</div>
+          <div class="step-card__desc">Select input and output units (e.g. Meters to Feet).</div>
+        </div>
+        <div class="step-card">
+          <div class="step-card__num">3</div>
+          <div class="step-card__title">Enter Value</div>
+          <div class="step-card__desc">Type the number and see the converted answer live.</div>
+        </div>
+
+        </div>
+
+        <h2>Features &amp; Capabilities</h2>
+        <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-item__icon">📐</div>
+          <div>
+            <div class="feature-item__title">Comprehensive Units</div>
+            <div class="feature-item__desc">Supports all major metric, imperial, and US customary units.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">⚡</div>
+          <div>
+            <div class="feature-item__title">Bi-Directional</div>
+            <div class="feature-item__desc">Easily swap input and output units with one click.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-item__icon">🔒</div>
+          <div>
+            <div class="feature-item__title">Private</div>
+            <div class="feature-item__desc">Fast, offline-capable calculations.</div>
+          </div>
+        </div>
+
+        </div>
+
+        <h2>Privacy &amp; Security Guarantee</h2>
+        <p>
+          Your privacy and document security are our highest priority. <strong>Universal Unit Converter</strong> executes all processing, calculations, and conversions entirely on your client device using local browser memory. 
+          Your files, inputs, and personal parameters are <strong>never uploaded</strong> to any remote server or stored in any database.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+        <div class="faq-card">
+          <div class="faq-card__q">How do I convert Celsius to Fahrenheit?</div>
+          <div class="faq-card__a">°F = (°C * 9/5) + 32.</div>
+        </div>
+
+        </div>
+
+        <h2>Related Tools</h2>
+        <p>Explore other free, instant utilities from our collection of 32 online tools:</p>
+        <div class="related-tools-grid">
+        <a href="currency-converter.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-conv">💱</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Currency Converter</div>
+            <div class="related-tool-card__desc">Convert currencies.</div>
+          </div>
+        </a>
+        <a href="percentage-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-conv">%</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">Percentage Calculator</div>
+            <div class="related-tool-card__desc">Calculate percentages.</div>
+          </div>
+        </a>
+        <a href="bmi-calculator.html" class="related-tool-card">
+          <div class="related-tool-card__icon icon-conv">⚕️</div>
+          <div class="related-tool-card__info">
+            <div class="related-tool-card__title">BMI Calculator</div>
+            <div class="related-tool-card__desc">Body mass index.</div>
+          </div>
+        </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+      <div>
+        <a href="../index.html" class="nav__logo" style="margin-bottom:var(--space-sm);display:inline-flex" aria-label="28Tools home">
+          <div class="nav__logo-icon" aria-hidden="true">28</div>
+          28Tools
+        </a>
+        <p class="footer__brand-desc">Fast, secure, browser-based online tools. No signup, no installation, 100% private &amp; free forever.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Finance</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="gst-calculator.html">GST Calculator</a></li>
+          <li><a class="footer__link" href="loan-emi-calculator.html">EMI Calculator</a></li>
+          <li><a class="footer__link" href="sip-calculator.html">SIP Calculator</a></li>
+          <li><a class="footer__link" href="income-tax-calculator.html">Income Tax</a></li>
+          <li><a class="footer__link" href="compound-interest.html">Compound Interest</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">PDF &amp; Image</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="image-compressor.html">Image Compressor</a></li>
+          <li><a class="footer__link" href="image-resizer.html">Image Resizer</a></li>
+          <li><a class="footer__link" href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a class="footer__link" href="pdf-merge-split.html">PDF Merge &amp; Split</a></li>
+          <li><a class="footer__link" href="bg-remover.html">Background Remover</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Utilities</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="qr-generator.html">QR Code Generator</a></li>
+          <li><a class="footer__link" href="password-generator.html">Password Generator</a></li>
+          <li><a class="footer__link" href="json-formatter.html">JSON Formatter</a></li>
+          <li><a class="footer__link" href="unit-converter.html">Unit Converter</a></li>
+          <li><a class="footer__link" href="currency-converter.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company &amp; Legal</p>
+        <ul class="footer__links">
+          <li><a class="footer__link" href="../about.html">About 28Tools</a></li>
+          <li><a class="footer__link" href="../contact.html">Contact Us</a></li>
+          <li><a class="footer__link" href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="footer__link" href="../terms.html">Terms of Service</a></li>
+          <li><a class="footer__link" href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">Â© 2026 28Tools Â· Built with â¤ï¸ Â· 100% free forever</p>
+      <p class="footer__copy text-dim text-xs">All processing happens locally in your browser. We never upload or store your files or personal data.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  // Unit definitions: [name, symbol, toBase, fromBase] (toBase & fromBase are functions)
+  const CATS = {
+    length: [
+      ['Millimeter','mm',v=>v/1000,v=>v*1000],
+      ['Centimeter','cm',v=>v/100,v=>v*100],
+      ['Meter','m',v=>v,v=>v],
+      ['Kilometer','km',v=>v*1000,v=>v/1000],
+      ['Inch','in',v=>v*0.0254,v=>v/0.0254],
+      ['Foot','ft',v=>v*0.3048,v=>v/0.3048],
+      ['Yard','yd',v=>v*0.9144,v=>v/0.9144],
+      ['Mile','mi',v=>v*1609.344,v=>v/1609.344],
+      ['Nautical Mile','nmi',v=>v*1852,v=>v/1852],
+    ],
+    weight: [
+      ['Milligram','mg',v=>v/1e6,v=>v*1e6],
+      ['Gram','g',v=>v/1000,v=>v*1000],
+      ['Kilogram','kg',v=>v,v=>v],
+      ['Tonne','t',v=>v*1000,v=>v/1000],
+      ['Ounce','oz',v=>v*0.0283495,v=>v/0.0283495],
+      ['Pound','lb',v=>v*0.453592,v=>v/0.453592],
+      ['Stone','st',v=>v*6.35029,v=>v/6.35029],
+    ],
+    temperature: [
+      ['Celsius','°C',v=>v,v=>v],
+      ['Fahrenheit','°F',v=>(v-32)*5/9,v=>v*9/5+32],
+      ['Kelvin','K',v=>v-273.15,v=>v+273.15],
+    ],
+    area: [
+      ['Square Millimeter','mm²',v=>v/1e6,v=>v*1e6],
+      ['Square Centimeter','cm²',v=>v/1e4,v=>v*1e4],
+      ['Square Meter','m²',v=>v,v=>v],
+      ['Hectare','ha',v=>v*10000,v=>v/10000],
+      ['Square Kilometer','km²',v=>v*1e6,v=>v/1e6],
+      ['Square Inch','in²',v=>v*0.00064516,v=>v/0.00064516],
+      ['Square Foot','ft²',v=>v*0.092903,v=>v/0.092903],
+      ['Acre','ac',v=>v*4046.86,v=>v/4046.86],
+    ],
+    volume: [
+      ['Milliliter','ml',v=>v/1000,v=>v*1000],
+      ['Liter','L',v=>v,v=>v],
+      ['Cubic Meter','m³',v=>v*1000,v=>v/1000],
+      ['Gallon (US)','gal',v=>v*3.78541,v=>v/3.78541],
+      ['Pint (US)','pt',v=>v*0.473176,v=>v/0.473176],
+      ['Fluid Ounce (US)','fl oz',v=>v*0.0295735,v=>v/0.0295735],
+      ['Tablespoon','tbsp',v=>v*0.0147868,v=>v/0.0147868],
+      ['Teaspoon','tsp',v=>v*0.00492892,v=>v/0.00492892],
+    ],
+    speed: [
+      ['Meters/second','m/s',v=>v,v=>v],
+      ['Kilometers/hour','km/h',v=>v/3.6,v=>v*3.6],
+      ['Miles/hour','mph',v=>v*0.44704,v=>v/0.44704],
+      ['Knots','kn',v=>v*0.514444,v=>v/0.514444],
+      ['Feet/second','ft/s',v=>v*0.3048,v=>v/0.3048],
+    ],
+    energy: [
+      ['Joule','J',v=>v,v=>v],
+      ['Kilojoule','kJ',v=>v*1000,v=>v/1000],
+      ['Calorie','cal',v=>v*4.184,v=>v/4.184],
+      ['Kilocalorie','kcal',v=>v*4184,v=>v/4184],
+      ['Watt-hour','Wh',v=>v*3600,v=>v/3600],
+      ['Kilowatt-hour','kWh',v=>v*3.6e6,v=>v/3.6e6],
+      ['BTU','BTU',v=>v*1055.06,v=>v/1055.06],
+    ],
+    data: [
+      ['Bit','b',v=>v/8,v=>v*8],
+      ['Byte','B',v=>v,v=>v],
+      ['Kilobyte','KB',v=>v*1024,v=>v/1024],
+      ['Megabyte','MB',v=>v*1048576,v=>v/1048576],
+      ['Gigabyte','GB',v=>v*1073741824,v=>v/1073741824],
+      ['Terabyte','TB',v=>v*1.099511627776e12,v=>v/1.099511627776e12],
+    ],
+  };
+
+  let currentCat='length';
+
+  function buildSelects(){
+    const units=CATS[currentCat];
+    const html=units.map((u,i)=>`<option value="${i}">${u[0]} (${u[1]})</option>`).join('');
+    document.getElementById('uc-from-unit').innerHTML=html;
+    document.getElementById('uc-to-unit').innerHTML=html;
+    document.getElementById('uc-to-unit').selectedIndex=1;
+    convert();
+  }
+
+  function convert(){
+    const val=parseFloat(document.getElementById('uc-from-val').value);
+    if(isNaN(val)) return;
+    const units=CATS[currentCat];
+    const fromIdx=parseInt(document.getElementById('uc-from-unit').value);
+    const toIdx=parseInt(document.getElementById('uc-to-unit').value);
+    const fromU=units[fromIdx], toU=units[toIdx];
+    let result;
+    if(currentCat==='temperature'){
+      const base=fromU[2](val);
+      result=toU[3](base);
+    } else {
+      const base=fromU[2](val);
+      result=toU[3](base);
+    }
+    document.getElementById('uc-to-val').value=parseFloat(result.toFixed(10));
+    document.getElementById('uc-formula').textContent=`${val} ${fromU[1]} = ${result.toFixed(6)} ${toU[1]}`;
+    document.getElementById('uc-formula').classList.remove('hidden');
+    // All conversions
+    const tbody=document.getElementById('uc-all-body');
+    const base2=fromU[2](val);
+    tbody.innerHTML=units.map(u=>{
+      let v;
+      if(currentCat==='temperature') v=u[3](fromU[2](val));
+      else v=u[3](base2);
+      return `<tr><td>${u[0]} (${u[1]})</td><td style="font-family:var(--font-mono)">${parseFloat(v.toFixed(8))}</td></tr>`;
+    }).join('');
+  }
+
+  document.getElementById('uc-category').addEventListener('change',e=>{ currentCat=e.target.value; buildSelects(); });
+  document.getElementById('uc-from-val').addEventListener('input',convert);
+  document.getElementById('uc-from-unit').addEventListener('change',convert);
+  document.getElementById('uc-to-unit').addEventListener('change',convert);
+  document.getElementById('uc-swap').addEventListener('click',()=>{
+    const f=document.getElementById('uc-from-unit').value;
+    const t=document.getElementById('uc-to-unit').value;
+    document.getElementById('uc-from-unit').value=t;
+    document.getElementById('uc-to-unit').value=f;
+    convert();
+  });
+
+  // Responsive row
+  function setRow(){ const r=document.getElementById('uc-row'); if(r) r.style.gridTemplateColumns=window.innerWidth<480?'1fr':'1fr auto 1fr'; }
+  setRow(); window.addEventListener('resize',setRow);
+
+  buildSelects();
+})();
+</script>
+</body>
+</html>
