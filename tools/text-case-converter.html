@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Text Case Converter – UPPER, lower, Title, camelCase | 28Tools</title>
+  <meta name="description" content="Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case and more."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/text-case-converter.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Text Case Converter</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-text">Aa</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Text Case Converter & Formatter</h1>
+        <p class="tool-hero__desc">Convert text between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, kebab-case and more.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-text">Text & Code</span><span class="tool-card__privacy">🔒 Private</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container" style="max-width:800px">
+    <div class="tool-card-panel">
+      <div class="form-group">
+        <label class="form-label" for="tc-input">Input Text</label>
+        <textarea id="tc-input" class="form-textarea" placeholder="Type or paste text here…" style="min-height:140px"></textarea>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:var(--space-sm);margin-top:var(--space-md)">
+        <button class="btn btn-secondary" onclick="convert('upper')">UPPERCASE</button>
+        <button class="btn btn-secondary" onclick="convert('lower')">lowercase</button>
+        <button class="btn btn-secondary" onclick="convert('title')">Title Case</button>
+        <button class="btn btn-secondary" onclick="convert('sentence')">Sentence case</button>
+        <button class="btn btn-secondary" onclick="convert('camel')">camelCase</button>
+        <button class="btn btn-secondary" onclick="convert('pascal')">PascalCase</button>
+        <button class="btn btn-secondary" onclick="convert('snake')">snake_case</button>
+        <button class="btn btn-secondary" onclick="convert('kebab')">kebab-case</button>
+        <button class="btn btn-secondary" onclick="convert('constant')">CONSTANT_CASE</button>
+        <button class="btn btn-secondary" onclick="convert('alternating')">aLtErNaTiNg</button>
+        <button class="btn btn-secondary" onclick="convert('reverse')">esreveR</button>
+        <button class="btn btn-secondary" onclick="convert('remove-extra')">Remove Extra Spaces</button>
+      </div>
+    </div>
+
+    <div id="tc-result" class="hidden mt-lg">
+      <div class="tool-card-panel">
+        <div class="flex justify-between items-center mb-md" style="margin-bottom:var(--space-md)">
+          <p class="form-label" id="tc-mode-lbl">Output</p>
+          <div class="flex gap-sm">
+            <button class="btn btn-ghost btn-sm copy-btn" id="tc-copy-btn" onclick="copyText(document.getElementById('tc-output').textContent,this)">📋 Copy</button>
+            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('tc-input').value=document.getElementById('tc-output').textContent;convert(lastMode)">↺ Use as Input</button>
+          </div>
+        </div>
+        <div id="tc-output" class="code-block" style="max-height:300px" aria-live="polite"></div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+let lastMode='';
+window.convert=function(mode){
+  const text=document.getElementById('tc-input').value;
+  if(!text.trim()) return;
+  lastMode=mode;
+  const words=text.trim().split(/\s+/);
+  const toWords=t=>t.replace(/([a-z])([A-Z])/g,'$1 $2').replace(/[_\-]+/g,' ').toLowerCase().split(/\s+/);
+  let out='';
+  switch(mode){
+    case 'upper': out=text.toUpperCase(); break;
+    case 'lower': out=text.toLowerCase(); break;
+    case 'title': out=words.map(w=>w.charAt(0).toUpperCase()+w.slice(1).toLowerCase()).join(' '); break;
+    case 'sentence': out=text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,c=>c.toUpperCase()); break;
+    case 'camel': { const ws=toWords(text); out=ws[0]+ws.slice(1).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(''); break; }
+    case 'pascal': out=toWords(text).map(w=>w.charAt(0).toUpperCase()+w.slice(1)).join(''); break;
+    case 'snake': out=toWords(text).join('_'); break;
+    case 'kebab': out=toWords(text).join('-'); break;
+    case 'constant': out=toWords(text).join('_').toUpperCase(); break;
+    case 'alternating': out=[...text].map((c,i)=>i%2===0?c.toLowerCase():c.toUpperCase()).join(''); break;
+    case 'reverse': out=[...text].reverse().join(''); break;
+    case 'remove-extra': out=text.replace(/\s+/g,' ').trim(); break;
+  }
+  const labels={upper:'UPPERCASE',lower:'lowercase',title:'Title Case',sentence:'Sentence case',camel:'camelCase',pascal:'PascalCase',snake:'snake_case',kebab:'kebab-case',constant:'CONSTANT_CASE',alternating:'aLtErNaTiNg CaSe',reverse:'Reversed',['remove-extra']:'Extra Spaces Removed'};
+  document.getElementById('tc-mode-lbl').textContent=labels[mode]||mode;
+  document.getElementById('tc-output').textContent=out;
+  document.getElementById('tc-result').classList.remove('hidden');
+};
+</script>
+</body>
+</html>

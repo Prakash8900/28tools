@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Passport Photo Maker – Resize to Passport & Port Size | 28Tools</title>
+  <meta name="description" content="Resize any photo to standard passport, visa, and port-size dimensions. Indian, US, UK, Schengen sizes supported. Download ready-to-print layout."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/passport-photo.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Passport Photo</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-pdf">🪪</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Passport / Port-size Photo Maker</h1>
+        <p class="tool-hero__desc">Resize any photo to standard passport, visa, or ID photo dimensions for India, US, UK, EU, and more. Download a print-ready sheet.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-pdf">PDF & Image</span><span class="tool-card__privacy">🔒 Private</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container" style="max-width:800px">
+    <div class="tool-card-panel mb-lg">
+      <div class="upload-zone" id="pp-drop" role="button" tabindex="0">
+        <input type="file" id="pp-file" accept="image/jpeg,image/png,image/webp" aria-label="Select photo"/>
+        <div class="upload-zone__icon">🪪</div>
+        <p class="upload-zone__title">Drop your photo or click to select</p>
+        <p class="upload-zone__sub">JPEG · PNG · WebP · Best with face centered</p>
+      </div>
+    </div>
+
+    <div id="pp-controls" class="hidden">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl)">
+        <div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="pp-size">Photo Size Standard</label>
+            <select id="pp-size" class="form-select">
+              <option value="35x45">Indian Passport (35×45mm)</option>
+              <option value="51x51">US Passport (51×51mm)</option>
+              <option value="35x45_uk">UK Passport (35×45mm)</option>
+              <option value="35x45_eu">Schengen Visa (35×45mm)</option>
+              <option value="25x35">Port Size – Small (25×35mm)</option>
+              <option value="40x60">Port Size – Large (40×60mm)</option>
+              <option value="custom">Custom…</option>
+            </select>
+          </div>
+          <div id="pp-custom" class="form-grid-2 hidden mb-md">
+            <div class="form-group"><label class="form-label" for="pp-cw">Width (mm)</label><input id="pp-cw" class="form-input" type="number" min="10" max="100" value="35"/></div>
+            <div class="form-group"><label class="form-label" for="pp-ch">Height (mm)</label><input id="pp-ch" class="form-input" type="number" min="10" max="120" value="45"/></div>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="pp-bg">Background Color</label>
+            <div class="flex gap-sm items-center">
+              <input type="color" id="pp-bg" value="#ffffff"/>
+              <span class="text-sm text-muted">White recommended</span>
+            </div>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label" for="pp-copies">Copies per sheet</label>
+            <select id="pp-copies" class="form-select">
+              <option value="2">2 copies</option>
+              <option value="4" selected>4 copies</option>
+              <option value="6">6 copies</option>
+              <option value="8">8 copies</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-full" id="pp-generate-btn">🪪 Generate Photo Sheet</button>
+        </div>
+        <div>
+          <p class="text-sm text-muted mb-sm">Preview</p>
+          <div class="canvas-container"><img id="pp-preview-img" alt="Photo preview" style="max-height:220px;width:100%;object-fit:contain"/></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="pp-result" class="hidden mt-lg">
+      <div class="section-header"><h2 class="section-title">Print Sheet</h2></div>
+      <canvas id="pp-sheet-canvas" style="max-width:100%;border-radius:var(--radius-lg);border:1px solid var(--border)"></canvas>
+      <div class="flex gap-sm mt-md">
+        <button class="btn btn-primary" id="pp-download-png">⬇ Download PNG</button>
+        <button class="btn btn-secondary" id="pp-download-pdf">⬇ Download PDF</button>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  const SIZES={
+    '35x45':{w:35,h:45},'51x51':{w:51,h:51},'35x45_uk':{w:35,h:45},'35x45_eu':{w:35,h:45},
+    '25x35':{w:25,h:35},'40x60':{w:40,h:60},
+  };
+  const DPI=300;
+  const MM2PX=d=>Math.round(d*DPI/25.4);
+  let loadedImg=null;
+
+  document.getElementById('pp-size').addEventListener('change',e=>{
+    document.getElementById('pp-custom').classList.toggle('hidden',e.target.value!=='custom');
+  });
+
+  function handleFile(file){
+    const err=validateFile(file,['image/jpeg','image/png','image/webp']);
+    if(err){alert(err);return;}
+    const url=URL.createObjectURL(file);
+    const im=new Image();
+    im.onload=()=>{
+      loadedImg=im;
+      document.getElementById('pp-preview-img').src=url;
+      document.getElementById('pp-controls').classList.remove('hidden');
+    };
+    im.src=url;
+  }
+
+  const dropZone=document.getElementById('pp-drop');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f) handleFile(f);});
+  document.getElementById('pp-file').addEventListener('change',e=>{if(e.target.files[0]) handleFile(e.target.files[0]);});
+
+  document.getElementById('pp-generate-btn').addEventListener('click',()=>{
+    if(!loadedImg) return;
+    const sizeKey=document.getElementById('pp-size').value;
+    const s=sizeKey==='custom'
+      ?{w:parseFloat(document.getElementById('pp-cw').value)||35,h:parseFloat(document.getElementById('pp-ch').value)||45}
+      :SIZES[sizeKey]||{w:35,h:45};
+    const bgColor=document.getElementById('pp-bg').value;
+    const copies=parseInt(document.getElementById('pp-copies').value)||4;
+    const photoW=MM2PX(s.w), photoH=MM2PX(s.h);
+    // Create one photo
+    const photoCanvas=document.createElement('canvas');
+    photoCanvas.width=photoW; photoCanvas.height=photoH;
+    const pctx=photoCanvas.getContext('2d');
+    pctx.fillStyle=bgColor; pctx.fillRect(0,0,photoW,photoH);
+    // Fit image centered
+    const iw=loadedImg.naturalWidth, ih=loadedImg.naturalHeight;
+    const sc=Math.max(photoW/iw, photoH/ih);
+    const drawW=iw*sc, drawH=ih*sc;
+    pctx.drawImage(loadedImg,(photoW-drawW)/2,(photoH-drawH)/2,drawW,drawH);
+
+    // Sheet: A4 at 300 DPI = 2480×3508
+    const sheetW=MM2PX(210), sheetH=MM2PX(297);
+    const cols=Math.floor(sheetW/photoW), rows=Math.ceil(copies/cols);
+    const sheet=document.getElementById('pp-sheet-canvas');
+    sheet.width=sheetW; sheet.height=Math.min(sheetH,rows*(photoH+MM2PX(5))+MM2PX(10));
+    const sctx=sheet.getContext('2d');
+    sctx.fillStyle='#fff'; sctx.fillRect(0,0,sheet.width,sheet.height);
+    let placed=0;
+    outer:for(let r=0;r<rows;r++){
+      for(let c=0;c<cols;c++){
+        if(placed>=copies) break outer;
+        sctx.drawImage(photoCanvas,c*(photoW+MM2PX(5))+MM2PX(5),r*(photoH+MM2PX(5))+MM2PX(5));
+        placed++;
+      }
+    }
+
+    document.getElementById('pp-result').classList.remove('hidden');
+    sheet.toBlob(blob=>{
+      document.getElementById('pp-download-png').onclick=()=>downloadBlob(blob,'passport-photo-sheet.png');
+    },'image/png');
+    document.getElementById('pp-download-pdf').onclick=()=>{
+      const {jsPDF}=window.jspdf;
+      const pdf=new jsPDF({orientation:'p',unit:'mm',format:'a4'});
+      const dataURL=sheet.toDataURL('image/jpeg',0.92);
+      const scaleX=210/sheet.width, scaleY=297/sheet.height;
+      const sc2=Math.min(scaleX,scaleY);
+      pdf.addImage(dataURL,'JPEG',0,0,sheet.width*sc2*25.4/DPI*10,sheet.height*sc2*25.4/DPI*10);
+      pdf.save('passport-photo.pdf');
+    };
+  });
+})();
+</script>
+</body>
+</html>

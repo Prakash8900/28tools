@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Image Resizer – Resize Images Online Free | 28Tools</title>
+  <meta name="description" content="Resize images to exact pixel dimensions or by percentage. Maintain aspect ratio, choose output format, and download instantly. No upload needed."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/image-resizer.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Image Resizer</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-pdf">↔️</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Image Resizer</h1>
+        <p class="tool-hero__desc">Resize images to exact pixel dimensions or percentage scale. Lock aspect ratio, choose format, download instantly — all in browser.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-pdf">PDF & Image</span><span class="tool-card__privacy">🔒 Private – no upload</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container" style="max-width:900px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:start" id="ir-layout">
+      <div>
+        <div class="upload-zone" id="ir-drop" role="button" tabindex="0" aria-label="Drop image or click to select">
+          <input type="file" id="ir-file" accept="image/jpeg,image/png,image/webp" aria-label="Select image"/>
+          <div class="upload-zone__icon">📐</div>
+          <p class="upload-zone__title">Drop image or click to select</p>
+          <p class="upload-zone__sub">JPEG · PNG · WebP · Max 50 MB</p>
+        </div>
+
+        <div class="tool-card-panel mt-md hidden" id="ir-controls">
+          <div class="form-group mb-md">
+            <label class="form-label">Original Size</label>
+            <p class="text-sm text-muted" id="ir-orig-dim">—</p>
+          </div>
+          <div class="tabs mb-md" role="tablist">
+            <button class="tab active" data-irmode="px" role="tab" aria-selected="true">By Pixels</button>
+            <button class="tab" data-irmode="pct" role="tab" aria-selected="false">By Percent</button>
+            <button class="tab" data-irmode="preset" role="tab" aria-selected="false">Presets</button>
+          </div>
+          <!-- Pixel mode -->
+          <div id="irp-px">
+            <div class="form-grid-2">
+              <div class="form-group"><label class="form-label" for="ir-w">Width (px)</label><input id="ir-w" class="form-input" type="number" min="1"/></div>
+              <div class="form-group"><label class="form-label" for="ir-h">Height (px)</label><input id="ir-h" class="form-input" type="number" min="1"/></div>
+            </div>
+            <label class="toggle mt-sm"><input type="checkbox" id="ir-lock" checked/><span class="toggle__track"><span class="toggle__thumb"></span></span>Lock aspect ratio</label>
+          </div>
+          <!-- Percent mode -->
+          <div id="irp-pct" class="hidden">
+            <div class="form-group"><label class="form-label" for="ir-pct">Scale (%)</label><input id="ir-pct" class="form-input" type="number" min="1" max="1000" value="50"/></div>
+          </div>
+          <!-- Presets -->
+          <div id="irp-preset" class="hidden" style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm)">
+            <button class="btn btn-secondary" onclick="setPreset(1920,1080)">1920×1080 (FHD)</button>
+            <button class="btn btn-secondary" onclick="setPreset(1280,720)">1280×720 (HD)</button>
+            <button class="btn btn-secondary" onclick="setPreset(800,600)">800×600</button>
+            <button class="btn btn-secondary" onclick="setPreset(400,400)">400×400 (Square)</button>
+            <button class="btn btn-secondary" onclick="setPreset(200,200)">200×200 (Thumb)</button>
+            <button class="btn btn-secondary" onclick="setPreset(1200,630)">1200×630 (OG)</button>
+          </div>
+
+          <div class="form-group mt-md">
+            <label class="form-label" for="ir-format">Output Format</label>
+            <select id="ir-format" class="form-select"><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select>
+          </div>
+          <button class="btn btn-primary btn-full mt-md" id="ir-resize-btn">↔ Resize Image</button>
+        </div>
+      </div>
+
+      <div id="ir-result-panel" class="hidden">
+        <div class="canvas-container mb-md"><img id="ir-result-img" alt="Resized image" style="max-height:300px;width:100%;object-fit:contain"/></div>
+        <div class="result-card success"><div class="result-value" id="ir-res-dim"></div><div class="result-label">Output Dimensions</div></div>
+        <p class="text-xs text-dim mt-sm" id="ir-res-size"></p>
+        <button class="btn btn-primary btn-full mt-md" id="ir-download-btn">⬇ Download Resized Image</button>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ const l=document.getElementById('ir-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  let origImg=null, origW=0, origH=0, irMode='px';
+
+  // Tabs
+  document.querySelectorAll('.tab[data-irmode]').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab[data-irmode]').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      irMode=tab.dataset.irmode;
+      ['px','pct','preset'].forEach(p=>{ const el=document.getElementById('irp-'+p); if(el) el.classList.toggle('hidden',p!==irMode); });
+    });
+  });
+
+  // Aspect ratio lock
+  let lockAR=true;
+  const lockChk=document.getElementById('ir-lock');
+  if(lockChk) lockChk.addEventListener('change',()=>lockAR=lockChk.checked);
+  document.getElementById('ir-w')?.addEventListener('input',()=>{ if(lockAR&&origW){ document.getElementById('ir-h').value=Math.round(parseFloat(document.getElementById('ir-w').value)*origH/origW); }});
+  document.getElementById('ir-h')?.addEventListener('input',()=>{ if(lockAR&&origH){ document.getElementById('ir-w').value=Math.round(parseFloat(document.getElementById('ir-h').value)*origW/origH); }});
+
+  function handleFile(file){
+    const err=validateFile(file,['image/jpeg','image/png','image/webp']);
+    if(err){alert(err);return;}
+    const url=URL.createObjectURL(file);
+    const img=new Image();
+    img.onload=()=>{
+      origImg=img; origW=img.naturalWidth; origH=img.naturalHeight;
+      document.getElementById('ir-orig-dim').textContent=`${origW} × ${origH} px`;
+      document.getElementById('ir-w').value=origW;
+      document.getElementById('ir-h').value=origH;
+      document.getElementById('ir-controls').classList.remove('hidden');
+    };
+    img.src=url;
+  }
+
+  const dropZone=document.getElementById('ir-drop');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f) handleFile(f);});
+  document.getElementById('ir-file').addEventListener('change',e=>{if(e.target.files[0]) handleFile(e.target.files[0]);});
+
+  window.setPreset=(w,h)=>{ document.getElementById('ir-w').value=w; document.getElementById('ir-h').value=h; };
+
+  document.getElementById('ir-resize-btn').addEventListener('click',()=>{
+    if(!origImg) return;
+    let w,h;
+    if(irMode==='px'){
+      w=parseInt(document.getElementById('ir-w').value)||origW;
+      h=parseInt(document.getElementById('ir-h').value)||origH;
+    } else if(irMode==='pct'){
+      const pct=parseFloat(document.getElementById('ir-pct').value)||100;
+      w=Math.round(origW*pct/100);
+      h=Math.round(origH*pct/100);
+    } else {
+      w=parseInt(document.getElementById('ir-w').value)||origW;
+      h=parseInt(document.getElementById('ir-h').value)||origH;
+    }
+    const canvas=document.createElement('canvas');
+    canvas.width=w; canvas.height=h;
+    const ctx=canvas.getContext('2d');
+    ctx.drawImage(origImg,0,0,w,h);
+    const format=document.getElementById('ir-format').value;
+    canvas.toBlob(blob=>{
+      const url=URL.createObjectURL(blob);
+      document.getElementById('ir-result-img').src=url;
+      document.getElementById('ir-res-dim').textContent=`${w} × ${h} px`;
+      document.getElementById('ir-res-size').textContent=`File size: ${(blob.size/1024).toFixed(1)} KB`;
+      document.getElementById('ir-result-panel').classList.remove('hidden');
+      const ext=format.split('/')[1];
+      document.getElementById('ir-download-btn').onclick=()=>downloadBlob(blob,`resized_${w}x${h}.${ext}`);
+    },format,0.92);
+  });
+})();
+</script>
+</body>
+</html>

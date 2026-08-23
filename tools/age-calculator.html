@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Age Calculator – Find Exact Age in Years, Months & Days | 28Tools</title>
+  <meta name="description" content="Calculate your exact age in years, months, days, hours and minutes from your date of birth. Find the next birthday countdown too."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/age-calculator.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Age Calculator</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-health">🎂</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Exact Age Calculator</h1>
+        <p class="tool-hero__desc">Find your precise age in years, months, days, total hours, minutes and seconds. Also shows days until your next birthday.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-health">Health & Utility</span><span class="tool-card__privacy">🔒 Private</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container" style="max-width:640px">
+    <div class="tool-card-panel">
+      <form id="age-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="dob">Date of Birth</label>
+          <input id="dob" class="form-input" type="date" required/>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="ref-date">Age as of <span class="optional">Default: Today</span></label>
+          <input id="ref-date" class="form-input" type="date"/>
+        </div>
+        <div class="flex gap-md mt-lg">
+          <button type="submit" class="btn btn-primary btn-lg" style="flex:1">Calculate Age</button>
+          <button type="button" class="btn btn-secondary" id="age-reset">Reset</button>
+        </div>
+      </form>
+
+      <div id="age-result" class="hidden mt-lg">
+        <div class="result-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="result-card success"><div class="result-value" id="age-y"></div><div class="result-label">Years</div></div>
+          <div class="result-card"><div class="result-value" id="age-m"></div><div class="result-label">Months</div></div>
+          <div class="result-card"><div class="result-value" id="age-d"></div><div class="result-label">Days</div></div>
+        </div>
+        <div class="result-grid mt-sm" style="grid-template-columns:repeat(3,1fr)">
+          <div class="result-card"><div class="result-value text-xl" id="age-total-days"></div><div class="result-label">Total Days</div></div>
+          <div class="result-card"><div class="result-value text-xl" id="age-total-hrs"></div><div class="result-label">Total Hours</div></div>
+          <div class="result-card"><div class="result-value text-xl" id="age-next-bday"></div><div class="result-label">Days to Birthday</div></div>
+        </div>
+        <div class="alert alert-info mt-md" id="age-star-sign"></div>
+        <button class="btn btn-ghost btn-sm mt-md copy-btn" onclick="copyAge(this)">📋 Copy</button>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  // Set max date to today
+  const today=new Date();
+  const todayStr=today.toISOString().split('T')[0];
+  document.getElementById('dob').max=todayStr;
+  document.getElementById('ref-date').value=todayStr;
+
+  function starSign(m,d){
+    const signs=[['Capricorn',12,22],['Aquarius',1,20],['Pisces',2,19],['Aries',3,21],['Taurus',4,20],['Gemini',5,21],['Cancer',6,21],['Leo',7,23],['Virgo',8,23],['Libra',9,23],['Scorpio',10,24],['Sagittarius',11,22],['Capricorn',12,32]];
+    for(const [name,sm,sd] of signs) if((m===sm&&d>=sd)||(m===sm+1&&d<signs.find(s=>s[0]===name)[2])) return name;
+    return 'Unknown';
+  }
+  const SIGNS={Aries:'♈',Taurus:'♉',Gemini:'♊',Cancer:'♋',Leo:'♌',Virgo:'♍',Libra:'♎',Scorpio:'♏',Sagittarius:'♐',Capricorn:'♑',Aquarius:'♒',Pisces:'♓'};
+
+  document.getElementById('age-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const dob=new Date(document.getElementById('dob').value);
+    const ref=new Date(document.getElementById('ref-date').value||todayStr);
+    if(isNaN(dob)||dob>ref) return;
+
+    let years=ref.getFullYear()-dob.getFullYear();
+    let months=ref.getMonth()-dob.getMonth();
+    let days=ref.getDate()-dob.getDate();
+    if(days<0){ months--; const prevMonth=new Date(ref.getFullYear(),ref.getMonth(),0); days+=prevMonth.getDate(); }
+    if(months<0){ years--; months+=12; }
+
+    const totalDays=Math.floor((ref-dob)/(1000*60*60*24));
+    const totalHrs=totalDays*24;
+    const nextBday=new Date(ref.getFullYear(),dob.getMonth(),dob.getDate());
+    if(nextBday<=ref) nextBday.setFullYear(nextBday.getFullYear()+1);
+    const daysToB=Math.ceil((nextBday-ref)/(1000*60*60*24));
+
+    document.getElementById('age-y').textContent=years;
+    document.getElementById('age-m').textContent=months;
+    document.getElementById('age-d').textContent=days;
+    document.getElementById('age-total-days').textContent=fmtNum(totalDays,0);
+    document.getElementById('age-total-hrs').textContent=fmtNum(totalHrs,0);
+    document.getElementById('age-next-bday').textContent=daysToB===0?'Today! 🎉':daysToB;
+
+    const sg=starSign(dob.getMonth()+1,dob.getDate());
+    document.getElementById('age-star-sign').textContent=`${SIGNS[sg]||''} Your zodiac sign is ${sg}`;
+    document.getElementById('age-result').classList.remove('hidden');
+  });
+
+  document.getElementById('age-reset').addEventListener('click',()=>{
+    document.getElementById('age-form').reset();
+    document.getElementById('ref-date').value=todayStr;
+    document.getElementById('age-result').classList.add('hidden');
+  });
+
+  window.copyAge=btn=>{
+    const y=document.getElementById('age-y').textContent;
+    const m=document.getElementById('age-m').textContent;
+    const d=document.getElementById('age-d').textContent;
+    copyText(`Age: ${y} years, ${m} months, ${d} days`,btn);
+  };
+})();
+</script>
+</body>
+</html>

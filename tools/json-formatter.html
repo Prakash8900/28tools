@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>JSON Formatter & Validator – Format, Minify, Validate | 28Tools</title>
+  <meta name="description" content="Format, validate, minify, and beautify JSON online. Syntax highlighting, error detection, key sorting, and JSON-to-CSV conversion."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/json-formatter.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>JSON Formatter</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-text">{}</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">JSON Formatter / Validator</h1>
+        <p class="tool-hero__desc">Format, validate, minify, sort keys, and compare JSON. Includes syntax-highlighted output and descriptive error messages.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-text">Text & Code</span><span class="tool-card__privacy">🔒 Private</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);max-width:1100px" id="json-layout">
+      <!-- Input -->
+      <div>
+        <div class="flex justify-between items-center mb-sm" style="margin-bottom:var(--space-sm)">
+          <p class="form-label">Input JSON</p>
+          <div class="flex gap-sm">
+            <button class="btn btn-ghost btn-sm" id="json-paste-sample">Load Sample</button>
+            <button class="btn btn-ghost btn-sm" onclick="document.getElementById('json-input').value='';clearOutput()">Clear</button>
+          </div>
+        </div>
+        <textarea id="json-input" class="form-textarea" style="min-height:400px;font-family:var(--font-mono);font-size:0.875rem;line-height:1.6" placeholder='{"key": "value"}' spellcheck="false" aria-label="JSON input"></textarea>
+        <div id="json-error" class="alert alert-error hidden mt-sm"></div>
+        <div id="json-valid" class="alert alert-success hidden mt-sm"></div>
+      </div>
+      <!-- Output -->
+      <div>
+        <div class="flex gap-sm mb-sm" style="margin-bottom:var(--space-sm);flex-wrap:wrap">
+          <button class="btn btn-primary btn-sm" onclick="formatJSON(2)">Format (2sp)</button>
+          <button class="btn btn-secondary btn-sm" onclick="formatJSON(4)">Format (4sp)</button>
+          <button class="btn btn-secondary btn-sm" onclick="minifyJSON()">Minify</button>
+          <button class="btn btn-secondary btn-sm" onclick="sortKeys()">Sort Keys</button>
+          <button class="btn btn-ghost btn-sm copy-btn" id="json-copy-btn" onclick="copyText(document.getElementById('json-output').textContent,this)">📋 Copy</button>
+        </div>
+        <div id="json-output" class="code-block" style="min-height:400px;white-space:pre" aria-live="polite" aria-label="Formatted JSON output">Output will appear here…</div>
+      </div>
+    </div>
+    <!-- Stats -->
+    <div id="json-stats" class="hidden mt-md" style="display:flex;gap:var(--space-md);flex-wrap:wrap;max-width:1100px">
+      <span class="tool-card__cat-indicator badge-text" id="stat-keys">Keys: 0</span>
+      <span class="tool-card__cat-indicator badge-text" id="stat-depth">Depth: 0</span>
+      <span class="tool-card__cat-indicator badge-text" id="stat-size">Size: 0 B</span>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ const l=document.getElementById('json-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  const SAMPLE='{"name":"28Tools","version":"1.0","tools":[{"id":"json-formatter","category":"text","popular":true},{"id":"qr-generator","category":"generators","popular":true}],"meta":{"author":"28Tools","year":2024}}';
+  document.getElementById('json-paste-sample').addEventListener('click',()=>{ document.getElementById('json-input').value=SAMPLE; });
+
+  function parseInput(){
+    const raw=document.getElementById('json-input').value.trim();
+    if(!raw) throw new Error('Input is empty.');
+    return JSON.parse(raw);
+  }
+
+  function highlightJSON(obj, indent){
+    const str=JSON.stringify(obj,null,indent);
+    // simple syntax coloring via span wrapping
+    return str
+      .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?)/g, m=>
+        /:$/.test(m)?`<span style="color:#79b8ff">${m}</span>`:
+        `<span style="color:#9ecbff">${m}</span>`)
+      .replace(/\b(true|false)\b/g,'<span style="color:#79c0ff">$1</span>')
+      .replace(/\bnull\b/g,'<span style="color:#f97583">null</span>')
+      .replace(/\b(-?\d+\.?\d*([eE][+-]?\d+)?)\b/g,'<span style="color:#b5cea8">$1</span>');
+  }
+
+  function countKeys(obj, depth=0){ let k=0,maxD=depth; if(typeof obj==='object'&&obj!==null){ for(const v of Object.values(obj??{})){ k++; const sub=countKeys(v,depth+1); k+=sub.k; maxD=Math.max(maxD,sub.d); } } return {k,d:maxD}; }
+
+  function showOutput(obj, str){
+    const out=document.getElementById('json-output');
+    out.innerHTML=highlightJSON(obj,typeof str==='number'?str:0);
+    const {k,d}=countKeys(obj);
+    document.getElementById('stat-keys').textContent=`Keys: ${k}`;
+    document.getElementById('stat-depth').textContent=`Depth: ${d}`;
+    document.getElementById('stat-size').textContent=`Size: ${(JSON.stringify(obj).length/1024).toFixed(2)} KB`;
+    document.getElementById('json-stats').style.display='flex';
+    document.getElementById('json-error').classList.add('hidden');
+    document.getElementById('json-valid').textContent='✅ Valid JSON';
+    document.getElementById('json-valid').classList.remove('hidden');
+  }
+
+  function showError(msg){ document.getElementById('json-error').textContent='❌ '+msg; document.getElementById('json-error').classList.remove('hidden'); document.getElementById('json-valid').classList.add('hidden'); }
+
+  window.clearOutput=()=>{ document.getElementById('json-output').textContent='Output will appear here…'; document.getElementById('json-stats').style.display='none'; document.getElementById('json-error').classList.add('hidden'); document.getElementById('json-valid').classList.add('hidden'); };
+
+  window.formatJSON=indent=>{ try{ const obj=parseInput(); showOutput(obj,indent); }catch(e){ showError(e.message); } };
+  window.minifyJSON=()=>{ try{ const obj=parseInput(); document.getElementById('json-output').textContent=JSON.stringify(obj); showOutput(obj,0); }catch(e){ showError(e.message); } };
+  window.sortKeys=()=>{
+    function sortObj(o){ if(Array.isArray(o)) return o.map(sortObj); if(typeof o==='object'&&o!==null){ return Object.keys(o).sort().reduce((a,k)=>{a[k]=sortObj(o[k]);return a;},{}); } return o; }
+    try{ const obj=sortObj(parseInput()); showOutput(obj,2); }catch(e){ showError(e.message); }
+  };
+
+  // Live validate on input
+  let debounce;
+  document.getElementById('json-input').addEventListener('input',()=>{
+    clearTimeout(debounce);
+    debounce=setTimeout(()=>{ const val=document.getElementById('json-input').value.trim(); if(!val){ clearOutput(); return; } try{ JSON.parse(val); document.getElementById('json-valid').textContent='✅ Valid JSON'; document.getElementById('json-valid').classList.remove('hidden'); document.getElementById('json-error').classList.add('hidden'); }catch(e){ showError(e.message); document.getElementById('json-valid').classList.add('hidden'); }},300);
+  });
+})();
+</script>
+</body>
+</html>

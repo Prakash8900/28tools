@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Discount Calculator – Find Final Price & Savings | 28Tools</title>
+  <meta name="description" content="Calculate final price after discount, add GST/tax, and see total savings. Great for shopping, billing and retail calculations."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/discount-calculator.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Discount Calculator</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-calc">🏷️</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Discount & Shopping Calculator</h1>
+        <p class="tool-hero__desc">Find the final price after discount and tax. See exactly how much you save.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-calc">Finance</span><span class="tool-card__privacy">🔒 Private</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container">
+    <div class="tool-card-panel" style="max-width:560px">
+      <form id="disc-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="disc-price">Original Price (₹)</label>
+          <input id="disc-price" class="form-input" type="number" min="0" step="0.01" placeholder="e.g. 2000" required/>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="disc-pct">Discount (%)</label>
+          <div class="slider-wrapper">
+            <input type="range" class="slider" id="disc-slider" min="0" max="100" step="0.5" value="20"/>
+            <span class="slider-val" id="disc-slider-val">20%</span>
+          </div>
+          <input id="disc-pct" class="form-input mt-sm" type="number" min="0" max="100" step="0.01" value="20"/>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="disc-tax">Tax / GST (%) <span class="optional">Optional</span></label>
+          <input id="disc-tax" class="form-input" type="number" min="0" max="100" step="0.01" placeholder="e.g. 18" value="0"/>
+        </div>
+        <div class="flex gap-md mt-lg">
+          <button type="submit" class="btn btn-primary btn-lg" style="flex:1">Calculate Savings</button>
+          <button type="button" class="btn btn-secondary" id="disc-reset">Reset</button>
+        </div>
+      </form>
+      <div id="disc-result" class="hidden mt-lg">
+        <div class="result-grid" style="grid-template-columns:1fr 1fr">
+          <div class="result-card success"><div class="result-value" id="d-final"></div><div class="result-label">Final Price</div></div>
+          <div class="result-card warning"><div class="result-value" id="d-save"></div><div class="result-label">You Save</div></div>
+          <div class="result-card"><div class="result-value" id="d-disc-amt"></div><div class="result-label">Discount Amount</div></div>
+          <div class="result-card"><div class="result-value" id="d-tax-amt"></div><div class="result-label">Tax Amount</div></div>
+        </div>
+        <button class="btn btn-ghost btn-sm mt-md copy-btn" onclick="copyDisc(this)">📋 Copy</button>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  const slider=document.getElementById('disc-slider');
+  const pctIn=document.getElementById('disc-pct');
+  const sliderVal=document.getElementById('disc-slider-val');
+  slider.addEventListener('input',()=>{ pctIn.value=slider.value; sliderVal.textContent=slider.value+'%'; });
+  pctIn.addEventListener('input',()=>{ slider.value=Math.min(100,Math.max(0,pctIn.value)); sliderVal.textContent=pctIn.value+'%'; });
+
+  document.getElementById('disc-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const price=validNum(document.getElementById('disc-price').value,0);
+    const pct=validNum(pctIn.value,0,100);
+    const tax=validNum(document.getElementById('disc-tax').value,0,100)??0;
+    if(price===null||pct===null) return;
+    const discAmt=price*pct/100;
+    const afterDisc=price-discAmt;
+    const taxAmt=afterDisc*tax/100;
+    const final=afterDisc+taxAmt;
+    document.getElementById('d-final').textContent=fmtINR(final);
+    document.getElementById('d-save').textContent=fmtINR(discAmt);
+    document.getElementById('d-disc-amt').textContent=fmtINR(discAmt);
+    document.getElementById('d-tax-amt').textContent=fmtINR(taxAmt);
+    document.getElementById('disc-result').classList.remove('hidden');
+  });
+  document.getElementById('disc-reset').addEventListener('click',()=>{ document.getElementById('disc-form').reset(); document.getElementById('disc-result').classList.add('hidden'); pctIn.value=20; slider.value=20; sliderVal.textContent='20%'; });
+  window.copyDisc=btn=>copyText(`Final Price: ${document.getElementById('d-final').textContent}\nYou Save: ${document.getElementById('d-save').textContent}`,btn);
+})();
+</script>
+</body>
+</html>

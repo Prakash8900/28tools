@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Image Format Converter – Convert JPG PNG WebP Online Free | 28Tools</title>
+  <meta name="description" content="Convert images between JPG, PNG, WebP, BMP and GIF formats instantly in your browser. No upload required, 100% private and free."/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <meta name="color-scheme" content="dark"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <style>
+    .ifc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: start; max-width: 1000px; }
+    @media (max-width: 768px) { .ifc-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Image Format Converter</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-pdf">🔁</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Image Format Converter</h1>
+        <p class="tool-hero__desc">Convert images between JPG, PNG, WebP, BMP and GIF formats. All processing happens locally in your browser — no upload, 100% private.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-pdf">PDF &amp; Image</span><span class="tool-card__privacy">🔒 100% Private</span></div>
+      </div>
+    </div>
+  </div></section>
+  <section class="tool-workspace"><div class="container">
+    <div class="ifc-grid" id="ifc-layout">
+      <div>
+        <div class="upload-zone" id="ifc-drop" role="button" tabindex="0">
+          <input type="file" id="ifc-file" accept="image/*"/>
+          <div class="upload-zone__icon">🖼️</div>
+          <p class="upload-zone__title">Drop image or click to select</p>
+          <p class="upload-zone__sub">JPEG · PNG · WebP · BMP · GIF · Max 50 MB</p>
+        </div>
+        <div class="tool-card-panel mt-md hidden" id="ifc-controls">
+          <div class="form-group mb-md">
+            <label class="form-label" for="ifc-format">Convert To</label>
+            <select id="ifc-format" class="form-select">
+              <option value="image/jpeg">JPEG (.jpg)</option>
+              <option value="image/png" selected>PNG (.png)</option>
+              <option value="image/webp">WebP (.webp)</option>
+            </select>
+          </div>
+          <div class="form-group mb-md" id="ifc-quality-group">
+            <label class="form-label" for="ifc-quality">Quality: <span id="ifc-q-val">92</span>%</label>
+            <input type="range" class="slider" id="ifc-quality" min="1" max="100" step="1" value="92"/>
+          </div>
+          <button class="btn btn-primary btn-full" id="ifc-convert-btn">🔁 Convert Image</button>
+        </div>
+      </div>
+      <div id="ifc-result-panel" class="hidden">
+        <p class="text-sm text-muted mb-sm">Preview</p>
+        <div class="canvas-container mb-md">
+          <img id="ifc-preview" alt="Converted image" style="max-height:260px;width:100%;object-fit:contain"/>
+        </div>
+        <div class="result-card success mb-md">
+          <div class="result-value" id="ifc-info"></div>
+          <div class="result-label">Output Size</div>
+        </div>
+        <button class="btn btn-primary btn-full" id="ifc-download-btn">⬇ Download Converted Image</button>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ var l=document.getElementById('ifc-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+  function fmtSize(b){ if(b<1024)return b+'B'; if(b<1048576)return (b/1024).toFixed(1)+'KB'; return (b/1048576).toFixed(2)+'MB'; }
+  var qSlider=document.getElementById('ifc-quality');
+  var fmtSel=document.getElementById('ifc-format');
+  qSlider.addEventListener('input',function(){document.getElementById('ifc-q-val').textContent=qSlider.value;});
+  fmtSel.addEventListener('change',function(){
+    document.getElementById('ifc-quality-group').style.display=fmtSel.value==='image/png'?'none':'';
+  });
+  var origFile=null;
+  function handleFile(file){
+    if(file.size>50*1024*1024){alert('File too large (max 50 MB)');return;}
+    origFile=file;
+    document.getElementById('ifc-controls').classList.remove('hidden');
+  }
+  var dz=document.getElementById('ifc-drop');
+  dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('drag-over');});
+  dz.addEventListener('dragleave',function(){dz.classList.remove('drag-over');});
+  dz.addEventListener('drop',function(e){e.preventDefault();dz.classList.remove('drag-over');var f=e.dataTransfer.files[0];if(f)handleFile(f);});
+  document.getElementById('ifc-file').addEventListener('change',function(e){if(e.target.files[0])handleFile(e.target.files[0]);});
+  document.getElementById('ifc-convert-btn').addEventListener('click',function(){
+    if(!origFile)return;
+    loadImageOnCanvas(origFile).then(function(img){
+      var canvas=document.createElement('canvas');
+      canvas.width=img.naturalWidth; canvas.height=img.naturalHeight;
+      var ctx=canvas.getContext('2d');
+      ctx.drawImage(img,0,0);
+      var fmt=fmtSel.value;
+      var quality=fmt==='image/png'?undefined:parseInt(qSlider.value)/100;
+      canvas.toBlob(function(blob){
+        if(!blob){alert('Conversion failed.');return;}
+        var url=URL.createObjectURL(blob);
+        document.getElementById('ifc-preview').src=url;
+        document.getElementById('ifc-info').textContent=fmtSize(blob.size);
+        document.getElementById('ifc-result-panel').classList.remove('hidden');
+        var ext=fmt.split('/')[1]==='jpeg'?'jpg':fmt.split('/')[1];
+        document.getElementById('ifc-download-btn').onclick=function(){
+          downloadBlob(blob,origFile.name.replace(/\.[^.]+$/,'.'+ext));
+        };
+      },fmt,quality);
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>PDF Compressor – Reduce PDF Size Online | 28Tools</title>
+  <meta name="description" content="Reduce PDF file size by removing metadata, compressing content streams, and optimizing structure. Local processing, no upload."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/pdf-compressor.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>PDF Compressor</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-pdf">📦</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">PDF Size Compressor</h1>
+        <p class="tool-hero__desc">Reduce PDF file size by stripping metadata, linearizing structure, and optimizing content. All processing happens locally in your browser.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-pdf">PDF & Image</span><span class="tool-card__privacy">🔒 Private – no upload</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container" style="max-width:640px">
+    <div class="tool-card-panel">
+      <div class="upload-zone" id="pdc-drop" role="button" tabindex="0">
+        <input type="file" id="pdc-file" accept="application/pdf" aria-label="Select PDF to compress"/>
+        <div class="upload-zone__icon">📦</div>
+        <p class="upload-zone__title">Drop PDF or click to select</p>
+        <p class="upload-zone__sub">Single PDF file · Max 50 MB</p>
+      </div>
+
+      <div id="pdc-controls" class="hidden mt-md">
+        <p class="form-label mb-sm" id="pdc-info"></p>
+        <div class="form-group mb-md">
+          <label class="toggle"><input type="checkbox" id="pdc-strip-meta" checked/><span class="toggle__track"><span class="toggle__thumb"></span></span>Strip metadata & creator info</label>
+        </div>
+        <div class="form-group mb-md">
+          <label class="toggle"><input type="checkbox" id="pdc-remove-annots"/><span class="toggle__track"><span class="toggle__thumb"></span></span>Remove annotations & comments</label>
+        </div>
+        <button class="btn btn-primary btn-full" id="pdc-compress-btn">📦 Compress PDF</button>
+      </div>
+
+      <div id="pdc-progress" class="alert alert-info hidden mt-md"><span class="spinner"></span> &nbsp; Compressing…</div>
+
+      <div id="pdc-result" class="hidden mt-md">
+        <div class="result-grid">
+          <div class="result-card"><div class="result-value" id="pdc-orig-sz"></div><div class="result-label">Original Size</div></div>
+          <div class="result-card success"><div class="result-value" id="pdc-new-sz"></div><div class="result-label">Compressed Size</div></div>
+          <div class="result-card"><div class="result-value" id="pdc-saved"></div><div class="result-label">Reduced By</div></div>
+        </div>
+        <button class="btn btn-primary btn-full mt-md" id="pdc-download-btn">⬇ Download Compressed PDF</button>
+        <div class="alert alert-warning mt-md" style="font-size:0.8125rem">ℹ️ Note: PDF-lib compression is structural (metadata/object cleanup). For image-heavy PDFs, compression may be limited compared to server-side tools.</div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function fmtSz(b){ if(b<1024) return b+'B'; if(b<1048576) return (b/1024).toFixed(1)+'KB'; return (b/1048576).toFixed(2)+'MB'; }
+  let origFile=null;
+
+  function handleFile(file){
+    if(!file.name.endsWith('.pdf')&&file.type!=='application/pdf'){alert('Please select a PDF file.');return;}
+    if(file.size>50*1024*1024){alert('File too large (max 50MB).');return;}
+    origFile=file;
+    document.getElementById('pdc-info').textContent=`"${file.name}" · ${fmtSz(file.size)}`;
+    document.getElementById('pdc-controls').classList.remove('hidden');
+    document.getElementById('pdc-result').classList.add('hidden');
+  }
+
+  const dropZone=document.getElementById('pdc-drop');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f) handleFile(f);});
+  document.getElementById('pdc-file').addEventListener('change',e=>{if(e.target.files[0]) handleFile(e.target.files[0]);});
+
+  document.getElementById('pdc-compress-btn').addEventListener('click',async()=>{
+    if(!origFile) return;
+    document.getElementById('pdc-progress').classList.remove('hidden');
+    try{
+      const {PDFDocument}=PDFLib;
+      const bytes=await origFile.arrayBuffer();
+      const doc=await PDFDocument.load(bytes,{ignoreEncryption:true});
+
+      if(document.getElementById('pdc-strip-meta').checked){
+        doc.setTitle('');
+        doc.setAuthor('');
+        doc.setSubject('');
+        doc.setKeywords([]);
+        doc.setProducer('28Tools PDF Compressor');
+        doc.setCreator('');
+      }
+      if(document.getElementById('pdc-remove-annots').checked){
+        const pages=doc.getPages();
+        pages.forEach(pg=>{
+          try{ pg.node.delete(PDFLib.PDFName.of('Annots')); }catch{}
+        });
+      }
+
+      const outBytes=await doc.save({useObjectStreams:true,addDefaultPage:false,objectsPerTick:50});
+      const blob=new Blob([outBytes],{type:'application/pdf'});
+      const savedPct=((1-outBytes.length/origFile.size)*100).toFixed(1);
+      document.getElementById('pdc-orig-sz').textContent=fmtSz(origFile.size);
+      document.getElementById('pdc-new-sz').textContent=fmtSz(outBytes.length);
+      document.getElementById('pdc-saved').textContent=savedPct+'%';
+      document.getElementById('pdc-result').classList.remove('hidden');
+      document.getElementById('pdc-download-btn').onclick=()=>downloadBlob(blob,origFile.name.replace('.pdf','_compressed.pdf'));
+    }catch(e){ alert('Error: '+e.message); }
+    document.getElementById('pdc-progress').classList.add('hidden');
+  });
+})();
+</script>
+</body>
+</html>

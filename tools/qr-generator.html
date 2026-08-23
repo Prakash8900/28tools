@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>QR Code Generator – Free Custom QR Codes | 28Tools</title>
+  <meta name="description" content="Generate custom QR codes for URLs, text, email, phone, WiFi and more. Download as PNG or SVG. No signup, 100% free."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/qr-generator.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <!-- QR code lib (self-contained, no tracking) -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>QR Generator</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-gen">▦</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">QR Code Generator</h1>
+        <p class="tool-hero__desc">Generate custom QR codes for URLs, plain text, email, phone, WhatsApp, and WiFi. Customise colours and download as PNG.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-gen">Generators</span><span class="tool-card__privacy">🔒 Private – generated locally</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:var(--space-xl);align-items:start;max-width:900px" id="qr-layout">
+      <div class="tool-card-panel">
+        <!-- Type tabs -->
+        <div class="tabs mb-md" role="tablist">
+          <button class="tab active" role="tab" data-qrtype="url" aria-selected="true">URL</button>
+          <button class="tab" role="tab" data-qrtype="text" aria-selected="false">Text</button>
+          <button class="tab" role="tab" data-qrtype="email" aria-selected="false">Email</button>
+          <button class="tab" role="tab" data-qrtype="phone" aria-selected="false">Phone</button>
+          <button class="tab" role="tab" data-qrtype="wifi" aria-selected="false">WiFi</button>
+        </div>
+
+        <!-- URL -->
+        <div id="qrp-url">
+          <div class="form-group"><label class="form-label" for="qr-url">Website URL</label><input id="qr-url" class="form-input" type="url" placeholder="https://example.com" value="https://28tools.io"/></div>
+        </div>
+        <!-- Text -->
+        <div id="qrp-text" class="hidden">
+          <div class="form-group"><label class="form-label" for="qr-text">Text Content</label><textarea id="qr-text" class="form-textarea" placeholder="Enter any text…" style="min-height:100px"></textarea></div>
+        </div>
+        <!-- Email -->
+        <div id="qrp-email" class="hidden">
+          <div class="form-group"><label class="form-label" for="qr-email-to">Email Address</label><input id="qr-email-to" class="form-input" type="email" placeholder="you@example.com"/></div>
+          <div class="form-group mt-sm"><label class="form-label" for="qr-email-sub">Subject <span class="optional">Optional</span></label><input id="qr-email-sub" class="form-input" type="text" placeholder="Hello"/></div>
+        </div>
+        <!-- Phone -->
+        <div id="qrp-phone" class="hidden">
+          <div class="form-group"><label class="form-label" for="qr-phone">Phone Number</label><input id="qr-phone" class="form-input" type="tel" placeholder="+91 98765 43210"/></div>
+        </div>
+        <!-- WiFi -->
+        <div id="qrp-wifi" class="hidden">
+          <div class="form-group"><label class="form-label" for="qr-ssid">SSID (Network Name)</label><input id="qr-ssid" class="form-input" type="text" placeholder="MyNetwork"/></div>
+          <div class="form-group mt-sm"><label class="form-label" for="qr-pass">Password</label><input id="qr-pass" class="form-input" type="text" placeholder="password"/></div>
+          <div class="form-group mt-sm"><label class="form-label" for="qr-enc">Encryption</label><select id="qr-enc" class="form-select"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select></div>
+        </div>
+
+        <!-- Customise -->
+        <div class="separator"></div>
+        <div class="form-grid-2 mt-md">
+          <div class="form-group">
+            <label class="form-label" for="qr-fg">Foreground</label>
+            <div class="flex gap-sm items-center">
+              <input type="color" id="qr-fg" value="#6c63ff" aria-label="QR foreground color"/>
+              <input class="form-input" type="text" id="qr-fg-hex" value="#6c63ff" style="width:90px;font-family:var(--font-mono);font-size:0.8125rem"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="qr-bg">Background</label>
+            <div class="flex gap-sm items-center">
+              <input type="color" id="qr-bg" value="#0a0d14" aria-label="QR background color"/>
+              <input class="form-input" type="text" id="qr-bg-hex" value="#0a0d14" style="width:90px;font-family:var(--font-mono);font-size:0.8125rem"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="qr-size">QR Size: <span id="qr-size-val">256px</span></label>
+          <input type="range" class="slider" id="qr-size" min="128" max="512" step="32" value="256"/>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-full mt-lg" id="qr-generate-btn">Generate QR Code</button>
+      </div>
+
+      <!-- Preview -->
+      <div style="text-align:center;min-width:220px">
+        <div class="tool-card-panel" style="padding:var(--space-lg);display:inline-block">
+          <div id="qr-canvas-wrap" style="background:#fff;padding:12px;border-radius:var(--radius-md);display:inline-block">
+            <div id="qr-output" style="width:256px;height:256px;display:flex;align-items:center;justify-content:center;color:var(--text-400);font-size:0.875rem">
+              Click Generate
+            </div>
+          </div>
+        </div>
+        <div id="qr-actions" class="hidden mt-md flex gap-sm" style="justify-content:center">
+          <button class="btn btn-primary btn-sm" id="qr-download-btn">⬇ Download PNG</button>
+          <button class="btn btn-ghost btn-sm copy-btn" id="qr-copy-data-btn">📋 Copy Data</button>
+        </div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ const l=document.getElementById('qr-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr auto'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  // Type tabs
+  const panels=['url','text','email','phone','wifi'];
+  let activeType='url';
+  document.querySelectorAll('.tab[data-qrtype]').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab[data-qrtype]').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      panels.forEach(p=>document.getElementById('qrp-'+p).classList.add('hidden'));
+      activeType=tab.dataset.qrtype;
+      document.getElementById('qrp-'+activeType).classList.remove('hidden');
+    });
+  });
+
+  // Size slider
+  const sizeSlider=document.getElementById('qr-size');
+  sizeSlider.addEventListener('input',()=>{ document.getElementById('qr-size-val').textContent=sizeSlider.value+'px'; });
+
+  // Color sync
+  function syncColor(colorInput, hexInput){ colorInput.addEventListener('input',()=>{hexInput.value=colorInput.value;}); hexInput.addEventListener('change',()=>{if(/^#[0-9a-fA-F]{6}$/.test(hexInput.value)) colorInput.value=hexInput.value;}); }
+  syncColor(document.getElementById('qr-fg'),document.getElementById('qr-fg-hex'));
+  syncColor(document.getElementById('qr-bg'),document.getElementById('qr-bg-hex'));
+
+  function buildData(){
+    if(activeType==='url') return document.getElementById('qr-url').value.trim()||'https://28tools.io';
+    if(activeType==='text') return document.getElementById('qr-text').value.trim()||'28Tools';
+    if(activeType==='email'){
+      const to=document.getElementById('qr-email-to').value.trim();
+      const sub=document.getElementById('qr-email-sub').value.trim();
+      return `mailto:${to}${sub?'?subject='+encodeURIComponent(sub):''}`;
+    }
+    if(activeType==='phone') return 'tel:'+document.getElementById('qr-phone').value.trim();
+    if(activeType==='wifi'){
+      const s=document.getElementById('qr-ssid').value.trim();
+      const p=document.getElementById('qr-pass').value.trim();
+      const e=document.getElementById('qr-enc').value;
+      return `WIFI:T:${e};S:${s};P:${p};;`;
+    }
+    return '';
+  }
+
+  let qrInstance=null;
+  let lastData='';
+  document.getElementById('qr-generate-btn').addEventListener('click',()=>{
+    const data=buildData();
+    if(!data){ return; }
+    lastData=data;
+    const size=parseInt(sizeSlider.value);
+    const fg=document.getElementById('qr-fg').value;
+    const bg=document.getElementById('qr-bg').value;
+    const wrap=document.getElementById('qr-output');
+    wrap.innerHTML='';
+    wrap.style.width=size+'px'; wrap.style.height=size+'px';
+    document.getElementById('qr-canvas-wrap').style.background=bg;
+    if(qrInstance) { try{ qrInstance.clear(); }catch{} }
+    try {
+      qrInstance=new QRCode(wrap,{text:data,width:size,height:size,colorDark:fg,colorLight:bg,correctLevel:QRCode.CorrectLevel.M});
+      document.getElementById('qr-actions').classList.remove('hidden');
+    } catch(err) {
+      wrap.textContent='Error generating QR. Input may be too long.';
+    }
+  });
+
+  document.getElementById('qr-download-btn').addEventListener('click',()=>{
+    const img=document.querySelector('#qr-output img')||document.querySelector('#qr-output canvas');
+    if(!img) return;
+    const dataURL=img.tagName==='IMG'?img.src:img.toDataURL();
+    downloadDataURL(dataURL,'28tools-qr.png');
+  });
+
+  document.getElementById('qr-copy-data-btn').addEventListener('click',function(){ copyText(lastData,this); });
+})();
+</script>
+</body>
+</html>

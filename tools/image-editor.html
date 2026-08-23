@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Image Editor – Adjust Brightness Contrast Saturation Online Free | 28Tools</title>
+  <meta name="description" content="Free online image editor. Adjust brightness, contrast, saturation, sharpness and apply filters to photos in your browser. No upload needed."/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <meta name="color-scheme" content="dark"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <style>
+    .ie-grid { display: grid; grid-template-columns: 320px 1fr; gap: var(--space-xl); align-items: start; max-width: 1100px; }
+    @media (max-width: 860px) { .ie-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Image Editor</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-pdf">✏️</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Image Editor</h1>
+        <p class="tool-hero__desc">Adjust brightness, contrast, saturation, sharpness and apply photo filters — all locally in your browser. No upload, no server.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-pdf">PDF &amp; Image</span><span class="tool-card__privacy">🔒 100% Private</span></div>
+      </div>
+    </div>
+  </div></section>
+  <section class="tool-workspace"><div class="container">
+    <div class="ie-grid" id="ie-layout">
+      <!-- Controls -->
+      <div>
+        <div class="upload-zone" id="ie-drop" role="button" tabindex="0" style="margin-bottom:var(--space-md)">
+          <input type="file" id="ie-file" accept="image/jpeg,image/png,image/webp"/>
+          <div class="upload-zone__icon">🖼️</div>
+          <p class="upload-zone__title">Drop image or click</p>
+          <p class="upload-zone__sub">JPEG · PNG · WebP</p>
+        </div>
+        <div class="tool-card-panel hidden" id="ie-controls">
+          <div class="form-group mb-md">
+            <label class="form-label">Brightness: <span id="ie-br-val">0</span></label>
+            <input type="range" class="slider" id="ie-brightness" min="-100" max="100" step="1" value="0"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label">Contrast: <span id="ie-ct-val">0</span></label>
+            <input type="range" class="slider" id="ie-contrast" min="-100" max="100" step="1" value="0"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label">Saturation: <span id="ie-sa-val">100</span>%</label>
+            <input type="range" class="slider" id="ie-saturation" min="0" max="200" step="1" value="100"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label">Hue Rotate: <span id="ie-hu-val">0</span>°</label>
+            <input type="range" class="slider" id="ie-hue" min="0" max="360" step="1" value="0"/>
+          </div>
+          <div class="form-group mb-md">
+            <label class="form-label">Blur: <span id="ie-bl-val">0</span>px</label>
+            <input type="range" class="slider" id="ie-blur" min="0" max="20" step="0.5" value="0"/>
+          </div>
+          <div class="form-group mb-lg">
+            <label class="form-label">Filter Preset</label>
+            <select id="ie-preset" class="form-select">
+              <option value="">None</option>
+              <option value="grayscale(100%)">Grayscale</option>
+              <option value="sepia(100%)">Sepia</option>
+              <option value="invert(100%)">Invert</option>
+              <option value="hue-rotate(90deg) saturate(150%)">Cool</option>
+              <option value="saturate(200%) contrast(110%)">Vivid</option>
+            </select>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-sm)">
+            <button class="btn btn-ghost btn-sm" id="ie-reset-btn">↺ Reset</button>
+            <button class="btn btn-primary btn-sm" id="ie-download-btn">⬇ Download</button>
+          </div>
+        </div>
+      </div>
+      <!-- Preview -->
+      <div id="ie-preview-wrap" class="hidden">
+        <p class="text-sm text-muted mb-sm">Live Preview</p>
+        <div class="canvas-container" style="min-height:200px;display:flex;align-items:center;justify-content:center">
+          <img id="ie-preview" alt="Image preview" style="max-width:100%;max-height:500px;border-radius:var(--radius-md);transition:filter 0.15s ease"/>
+        </div>
+      </div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){
+    var l=document.getElementById('ie-layout');
+    if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'300px 1fr';
+  }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  var origURL=null;
+  var preview=document.getElementById('ie-preview');
+
+  function val(id){return document.getElementById(id).value;}
+  function setLabel(id,suffix,valId){
+    document.getElementById(id).addEventListener('input',function(){
+      document.getElementById(valId).textContent=this.value+(suffix||'');
+      applyFilter();
+    });
+  }
+  setLabel('ie-brightness','','ie-br-val');
+  setLabel('ie-contrast','','ie-ct-val');
+  setLabel('ie-saturation','%','ie-sa-val');
+  setLabel('ie-hue','°','ie-hu-val');
+  setLabel('ie-blur','px','ie-bl-val');
+  document.getElementById('ie-preset').addEventListener('change',applyFilter);
+
+  function applyFilter(){
+    var br=parseInt(val('ie-brightness'));
+    var ct=parseInt(val('ie-contrast'));
+    var sat=parseInt(val('ie-saturation'));
+    var hue=parseInt(val('ie-hue'));
+    var blur=parseFloat(val('ie-blur'));
+    var preset=val('ie-preset');
+    var f='brightness('+((100+br)/100)+') contrast('+((100+ct)/100)+') saturate('+(sat/100)+') hue-rotate('+hue+'deg) blur('+blur+'px)';
+    if(preset) f+=' '+preset;
+    preview.style.filter=f;
+  }
+
+  function handleFile(file){
+    var err=validateFile(file,['image/jpeg','image/png','image/webp']);
+    if(err){alert(err);return;}
+    if(origURL) URL.revokeObjectURL(origURL);
+    origURL=URL.createObjectURL(file);
+    preview.src=origURL;
+    document.getElementById('ie-controls').classList.remove('hidden');
+    document.getElementById('ie-preview-wrap').classList.remove('hidden');
+  }
+
+  var dz=document.getElementById('ie-drop');
+  dz.addEventListener('dragover',function(e){e.preventDefault();dz.classList.add('drag-over');});
+  dz.addEventListener('dragleave',function(){dz.classList.remove('drag-over');});
+  dz.addEventListener('drop',function(e){e.preventDefault();dz.classList.remove('drag-over');var f=e.dataTransfer.files[0];if(f)handleFile(f);});
+  document.getElementById('ie-file').addEventListener('change',function(e){if(e.target.files[0])handleFile(e.target.files[0]);});
+
+  document.getElementById('ie-reset-btn').addEventListener('click',function(){
+    ['ie-brightness','ie-contrast','ie-hue','ie-blur'].forEach(function(id){document.getElementById(id).value=0;});
+    document.getElementById('ie-saturation').value=100;
+    document.getElementById('ie-preset').value='';
+    document.getElementById('ie-br-val').textContent='0';
+    document.getElementById('ie-ct-val').textContent='0';
+    document.getElementById('ie-sa-val').textContent='100';
+    document.getElementById('ie-hu-val').textContent='0';
+    document.getElementById('ie-bl-val').textContent='0';
+    applyFilter();
+  });
+
+  document.getElementById('ie-download-btn').addEventListener('click',function(){
+    if(!origURL){alert('Please select an image first.');return;}
+    var img=new Image();
+    img.crossOrigin='anonymous';
+    img.onload=function(){
+      var canvas=document.createElement('canvas');
+      canvas.width=img.naturalWidth; canvas.height=img.naturalHeight;
+      var ctx=canvas.getContext('2d');
+      ctx.filter=preview.style.filter;
+      ctx.drawImage(img,0,0);
+      canvas.toBlob(function(blob){if(blob)downloadBlob(blob,'edited_image.png');},'image/png');
+    };
+    img.src=origURL;
+  });
+})();
+</script>
+</body>
+</html>

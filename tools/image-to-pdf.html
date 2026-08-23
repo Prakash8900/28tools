@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Image to PDF Converter – Combine Images into PDF | 28Tools</title>
+  <meta name="description" content="Convert one or multiple images (JPEG, PNG, WebP) into a single PDF file. Arrange order, choose page size — all locally in your browser."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/image-to-pdf.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Image to PDF</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-pdf">📄</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Image to PDF Converter</h1>
+        <p class="tool-hero__desc">Combine one or multiple images into a single PDF. Reorder pages, choose page size (A4, Letter, etc.) — processed entirely in your browser.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-pdf">PDF & Image</span><span class="tool-card__privacy">🔒 Private – no upload</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container" style="max-width:800px">
+    <div class="tool-card-panel mb-lg">
+      <div class="upload-zone" id="i2p-drop" role="button" tabindex="0" aria-label="Drop images or click to select multiple">
+        <input type="file" id="i2p-file" accept="image/jpeg,image/png,image/webp" multiple aria-label="Select images"/>
+        <div class="upload-zone__icon">📸</div>
+        <p class="upload-zone__title">Drop images here or click to select</p>
+        <p class="upload-zone__sub">JPEG · PNG · WebP · Multiple files allowed · Max 50 MB each</p>
+      </div>
+    </div>
+
+    <div id="i2p-preview-section" class="hidden">
+      <div class="section-header">
+        <h2 class="section-title">Selected Images (<span id="i2p-count">0</span>)</h2>
+        <button class="btn btn-ghost btn-sm" id="i2p-clear">Clear All</button>
+      </div>
+      <div id="i2p-thumbs" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:var(--space-sm);margin-bottom:var(--space-lg)"></div>
+
+      <div class="tool-card-panel">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="i2p-page">Page Size</label>
+            <select id="i2p-page" class="form-select">
+              <option value="a4">A4 (210×297mm)</option>
+              <option value="letter">Letter (8.5×11in)</option>
+              <option value="a3">A3 (297×420mm)</option>
+              <option value="fit">Fit to Image</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="i2p-orient">Orientation</label>
+            <select id="i2p-orient" class="form-select">
+              <option value="portrait">Portrait</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group mt-md">
+          <label class="form-label" for="i2p-margin">Margin (mm)</label>
+          <input id="i2p-margin" class="form-input" type="number" min="0" max="50" value="10"/>
+        </div>
+        <button class="btn btn-primary btn-lg btn-full mt-lg" id="i2p-convert-btn">📄 Convert to PDF</button>
+      </div>
+    </div>
+
+    <div id="i2p-progress" class="hidden mt-md">
+      <div class="alert alert-info"><span class="spinner"></span> &nbsp; <span id="i2p-prog-txt">Processing…</span></div>
+    </div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  let fileList=[];
+
+  function renderThumbs(){
+    const wrap=document.getElementById('i2p-thumbs');
+    document.getElementById('i2p-count').textContent=fileList.length;
+    wrap.innerHTML='';
+    fileList.forEach((f,i)=>{
+      const url=URL.createObjectURL(f);
+      const div=document.createElement('div');
+      div.style.cssText='position:relative;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;aspect-ratio:1';
+      div.innerHTML=`<img src="${url}" alt="Page ${i+1}" style="width:100%;height:100%;object-fit:cover"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;background:hsl(222,47%,5%,0.8);padding:2px 4px;font-size:0.625rem;color:var(--text-300);text-align:center">Page ${i+1}</div>
+        <button style="position:absolute;top:2px;right:2px;background:var(--danger);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:0.625rem;cursor:pointer" onclick="removeImg(${i})" aria-label="Remove image ${i+1}">✕</button>`;
+      wrap.appendChild(div);
+    });
+    document.getElementById('i2p-preview-section').classList.toggle('hidden',fileList.length===0);
+  }
+
+  window.removeImg=i=>{ fileList.splice(i,1); renderThumbs(); };
+
+  function addFiles(files){
+    for(const f of files){
+      if(validateFile(f,['image/jpeg','image/png','image/webp'])) continue;
+      if(fileList.length>=20){alert('Max 20 images allowed.');break;}
+      fileList.push(f);
+    }
+    renderThumbs();
+  }
+
+  const dropZone=document.getElementById('i2p-drop');
+  dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag-over');});
+  dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('drag-over');addFiles(e.dataTransfer.files);});
+  document.getElementById('i2p-file').addEventListener('change',e=>addFiles(e.target.files));
+  document.getElementById('i2p-clear').addEventListener('click',()=>{fileList=[];renderThumbs();});
+
+  document.getElementById('i2p-convert-btn').addEventListener('click',async()=>{
+    if(!fileList.length){alert('Please add at least one image.');return;}
+    const prog=document.getElementById('i2p-progress');
+    const progTxt=document.getElementById('i2p-prog-txt');
+    prog.classList.remove('hidden');
+
+    const pageSize=document.getElementById('i2p-page').value;
+    const orient=document.getElementById('i2p-orient').value;
+    const margin=parseInt(document.getElementById('i2p-margin').value)||10;
+
+    const sizeMap={a4:[210,297],letter:[215.9,279.4],a3:[297,420]};
+    const [pw,ph]=sizeMap[pageSize]||[210,297];
+
+    const {jsPDF}=window.jspdf;
+    let pdf=null;
+    for(let i=0;i<fileList.length;i++){
+      progTxt.textContent=`Processing image ${i+1} of ${fileList.length}…`;
+      const img=await loadImageOnCanvas(fileList[i]);
+      const canvas=document.createElement('canvas');
+      canvas.width=img.naturalWidth; canvas.height=img.naturalHeight;
+      canvas.getContext('2d').drawImage(img,0,0);
+      const dataURL=canvas.toDataURL('image/jpeg',0.92);
+      const imgW=img.naturalWidth, imgH=img.naturalHeight;
+      let docW,docH;
+      if(pageSize==='fit'){
+        docW=imgW*0.264583; docH=imgH*0.264583;
+      } else {
+        [docW,docH]=orient==='landscape'?[ph,pw]:[pw,ph];
+      }
+      if(!pdf){ pdf=new jsPDF({orientation:orient==='landscape'?'l':'p',unit:'mm',format:pageSize==='fit'?[docW,docH]:pageSize}); }
+      else { pdf.addPage(pageSize==='fit'?[docW,docH]:pageSize,orient==='landscape'?'l':'p'); }
+      const availW=docW-margin*2, availH=docH-margin*2;
+      const scale=Math.min(availW/(imgW*0.264583),availH/(imgH*0.264583));
+      const drawW=(imgW*0.264583)*scale, drawH=(imgH*0.264583)*scale;
+      const offX=margin+(availW-drawW)/2, offY=margin+(availH-drawH)/2;
+      pdf.addImage(dataURL,'JPEG',offX,offY,drawW,drawH);
+    }
+    prog.classList.add('hidden');
+    pdf.save('28tools-images.pdf');
+  });
+})();
+</script>
+</body>
+</html>

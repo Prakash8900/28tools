@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Income Tax Calculator India FY 2024-25 – Old & New Regime | 28Tools</title>
+  <meta name="description" content="Calculate Indian income tax under both old and new tax regimes for FY 2024-25. Compare tax liability, standard deduction, surcharge and cess."/>
+  <meta name="robots" content="index,follow"/><link rel="canonical" href="https://28tools.io/tools/income-tax-calculator.html"/>
+  <meta name="theme-color" content="#0a0d14"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%236366f1'/><text x='32' y='44' font-family='sans-serif' font-weight='900' font-size='34' fill='%23fff' text-anchor='middle' letter-spacing='-1.5'>28</text></svg>"/>
+  <link rel="stylesheet" href="../css/main.css"/>
+</head>
+<body class="tool-page">
+<header role="banner"><nav class="nav"><div class="container nav__inner">
+  <a href="../index.html" class="nav__logo"><div class="nav__logo-icon" aria-hidden="true">28</div>28Tools</a>
+  <div class="nav__actions" style="margin-left:auto"><a href="../index.html" class="btn btn-ghost btn-sm">← All Tools</a></div>
+</div></nav></header>
+
+<main class="tool-page__body">
+  <section class="tool-hero"><div class="container">
+    <nav class="tool-hero__breadcrumb"><a href="../index.html">Home</a><span>›</span><span>Income Tax Calculator</span></nav>
+    <div class="tool-hero__header">
+      <div class="tool-hero__icon icon-calc">📋</div>
+      <div class="tool-hero__info">
+        <h1 class="tool-hero__title">Income Tax Calculator (India FY 2024-25)</h1>
+        <p class="tool-hero__desc">Estimate your income tax under both old and new tax regimes. Includes standard deduction, surcharge, and health & education cess.</p>
+        <div class="tool-hero__meta"><span class="tool-card__cat-indicator badge-calc">Finance</span><span class="tool-card__privacy">🔒 Private</span></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tool-workspace"><div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-xl);align-items:start" id="tax-layout">
+      <div class="tool-card-panel">
+        <form id="tax-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="tax-income">Annual Gross Income (₹)</label>
+            <input id="tax-income" class="form-input" type="number" min="0" step="10000" placeholder="e.g. 1200000" required/>
+          </div>
+          <div class="form-group mt-md">
+            <label class="form-label" for="tax-age">Age Category</label>
+            <select id="tax-age" class="form-select">
+              <option value="below60">Below 60 years</option>
+              <option value="60to80">60–80 years (Senior Citizen)</option>
+              <option value="above80">Above 80 years (Super Senior)</option>
+            </select>
+          </div>
+          <div class="form-group mt-md">
+            <label class="form-label" for="tax-80c">80C Deductions (₹) <span class="optional">Old Regime</span></label>
+            <input id="tax-80c" class="form-input" type="number" min="0" max="150000" placeholder="Max ₹1,50,000"/>
+          </div>
+          <div class="form-group mt-md">
+            <label class="form-label" for="tax-80d">80D (Health Insurance) (₹) <span class="optional">Old Regime</span></label>
+            <input id="tax-80d" class="form-input" type="number" min="0" placeholder="Max ₹25,000–₹50,000"/>
+          </div>
+          <div class="form-group mt-md">
+            <label class="form-label" for="tax-hra">HRA Exemption (₹) <span class="optional">Old Regime</span></label>
+            <input id="tax-hra" class="form-input" type="number" min="0" placeholder="e.g. 120000"/>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-full mt-lg">Calculate Tax</button>
+        </form>
+      </div>
+
+      <div id="tax-result" class="hidden">
+        <div class="tabs mb-md" role="tablist">
+          <button class="tab active" role="tab" data-regime="new" aria-selected="true">New Regime</button>
+          <button class="tab" role="tab" data-regime="old" aria-selected="false">Old Regime</button>
+        </div>
+        <div id="new-regime-result">
+          <div class="result-grid" style="grid-template-columns:1fr 1fr">
+            <div class="result-card success"><div class="result-value" id="new-tax"></div><div class="result-label">Tax Payable (New)</div></div>
+            <div class="result-card"><div class="result-value" id="new-eff"></div><div class="result-label">Effective Rate</div></div>
+          </div>
+          <div class="data-table-wrap mt-md"><table class="data-table"><thead><tr><th>Slab</th><th>Rate</th><th>Tax</th></tr></thead><tbody id="new-slab-body"></tbody></table></div>
+        </div>
+        <div id="old-regime-result" class="hidden">
+          <div class="result-grid" style="grid-template-columns:1fr 1fr">
+            <div class="result-card success"><div class="result-value" id="old-tax"></div><div class="result-label">Tax Payable (Old)</div></div>
+            <div class="result-card"><div class="result-value" id="old-eff"></div><div class="result-label">Effective Rate</div></div>
+          </div>
+          <div class="data-table-wrap mt-md"><table class="data-table"><thead><tr><th>Slab</th><th>Rate</th><th>Tax</th></tr></thead><tbody id="old-slab-body"></tbody></table></div>
+        </div>
+        <div class="alert alert-info mt-md" id="tax-recommendation"></div>
+        <button class="btn btn-ghost btn-sm mt-md copy-btn" onclick="copyTax(this)">📋 Copy</button>
+      </div>
+    </div>
+    <div class="alert alert-info mt-lg" style="max-width:800px"><strong>Disclaimer:</strong> This is an estimate only. Consult a tax professional for official tax computation. Tax laws may change.</div>
+  </div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><p class="footer__copy">© 2024 28Tools · <a href="../index.html" style="color:var(--accent)">All Tools</a></p></div></div></footer>
+<script src="../js/main.js"></script>
+<script>
+(function(){
+  function setLayout(){ const l=document.getElementById('tax-layout'); if(l) l.style.gridTemplateColumns=window.innerWidth<768?'1fr':'1fr 1fr'; }
+  setLayout(); window.addEventListener('resize',setLayout);
+
+  // New regime slabs FY 2024-25
+  const newSlabs=[
+    {min:0,max:300000,rate:0},
+    {min:300000,max:700000,rate:5},
+    {min:700000,max:1000000,rate:10},
+    {min:1000000,max:1200000,rate:15},
+    {min:1200000,max:1500000,rate:20},
+    {min:1500000,max:Infinity,rate:30},
+  ];
+  // Old regime slabs (below 60)
+  const oldSlabs=[
+    {min:0,max:250000,rate:0},
+    {min:250000,max:500000,rate:5},
+    {min:500000,max:1000000,rate:20},
+    {min:1000000,max:Infinity,rate:30},
+  ];
+  const oldSlabs60=[{min:0,max:300000,rate:0},{min:300000,max:500000,rate:5},{min:500000,max:1000000,rate:20},{min:1000000,max:Infinity,rate:30}];
+  const oldSlabs80=[{min:0,max:500000,rate:0},{min:500000,max:1000000,rate:20},{min:1000000,max:Infinity,rate:30}];
+
+  function calcTax(income, slabs){
+    let tax=0; const rows=[];
+    for(const s of slabs){
+      if(income<=s.min) break;
+      const taxable=Math.min(income,s.max)-s.min;
+      const t=taxable*s.rate/100;
+      tax+=t;
+      if(s.rate>0) rows.push({slab:`${fmtINR(s.min)}–${s.max===Infinity?'Above':fmtINR(s.max)}`,rate:s.rate+'%',tax:fmtINR(t)});
+    }
+    return {tax, rows};
+  }
+
+  function applyRebateAndCess(tax, income, isNew){
+    // Rebate u/s 87A
+    const limit=isNew?700000:500000;
+    if(income<=limit) tax=0;
+    // Surcharge
+    let surcharge=0;
+    if(income>5000000 && income<=10000000) surcharge=tax*0.10;
+    else if(income>10000000 && income<=20000000) surcharge=tax*0.15;
+    else if(income>20000000 && income<=50000000) surcharge=tax*0.25;
+    else if(income>50000000) surcharge=tax*(isNew?0.25:0.37);
+    const cess=(tax+surcharge)*0.04;
+    return tax+surcharge+cess;
+  }
+
+  function buildSlabTable(tbody, rows){
+    tbody.innerHTML=rows.map(r=>`<tr><td>${r.slab}</td><td>${r.rate}</td><td>${r.tax}</td></tr>`).join('');
+  }
+
+  document.getElementById('tax-form').addEventListener('submit',e=>{
+    e.preventDefault();
+    const gross=validNum(document.getElementById('tax-income').value,0); if(gross===null) return;
+    const age=document.getElementById('tax-age').value;
+    const c80=Math.min(validNum(document.getElementById('tax-80c').value,0)??0,150000);
+    const d80=validNum(document.getElementById('tax-80d').value,0)??0;
+    const hra=validNum(document.getElementById('tax-hra').value,0)??0;
+
+    // New regime: standard deduction ₹75,000 (FY24-25)
+    const newTaxable=Math.max(0,gross-75000);
+    const {tax:newBaseTax, rows:newRows}=calcTax(newTaxable,newSlabs);
+    const newFinal=applyRebateAndCess(newBaseTax,newTaxable,true);
+
+    // Old regime
+    const oldDeductions=50000+c80+d80+hra; // std deduction 50k
+    let oldSlabSet=age==='above80'?oldSlabs80:age==='60to80'?oldSlabs60:oldSlabs;
+    const oldTaxable=Math.max(0,gross-oldDeductions);
+    const {tax:oldBaseTax, rows:oldRows}=calcTax(oldTaxable,oldSlabSet);
+    const oldFinal=applyRebateAndCess(oldBaseTax,oldTaxable,false);
+
+    document.getElementById('new-tax').textContent=fmtINR(newFinal);
+    document.getElementById('new-eff').textContent=(newFinal/gross*100).toFixed(2)+'%';
+    document.getElementById('old-tax').textContent=fmtINR(oldFinal);
+    document.getElementById('old-eff').textContent=(oldFinal/gross*100).toFixed(2)+'%';
+    buildSlabTable(document.getElementById('new-slab-body'),newRows);
+    buildSlabTable(document.getElementById('old-slab-body'),oldRows);
+
+    const save=Math.abs(newFinal-oldFinal);
+    const better=newFinal<=oldFinal?'New':'Old';
+    document.getElementById('tax-recommendation').innerHTML=
+      `💡 <strong>${better} Regime</strong> is better for you. You save ${fmtINR(save)} in taxes.`;
+    document.getElementById('tax-result').classList.remove('hidden');
+  });
+
+  // Regime tabs
+  document.querySelectorAll('.tab[data-regime]').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab[data-regime]').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      document.getElementById('new-regime-result').classList.toggle('hidden',tab.dataset.regime!=='new');
+      document.getElementById('old-regime-result').classList.toggle('hidden',tab.dataset.regime!=='old');
+    });
+  });
+
+  window.copyTax=btn=>copyText(`New Regime Tax: ${document.getElementById('new-tax').textContent}\nOld Regime Tax: ${document.getElementById('old-tax').textContent}`,btn);
+})();
+</script>
+</body>
+</html>
