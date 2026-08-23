@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://28tools.io/sitemap.xml
-
-# Disallow admin/private paths (none exist for this static site)
-Disallow: /draft/
