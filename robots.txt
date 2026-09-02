@@ -1,4 +1,4 @@
 ﻿User-agent: *
 Allow: /
 
-Sitemap: https://yourdomain.github.io/28tools/sitemap.xml
+Sitemap: https://28tools.in/28tools/sitemap.xml
