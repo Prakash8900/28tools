@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Image Compressor - Reduce Image File Size Free | 28tools</title>
+<meta name="description" content="Compress JPG, PNG and WebP images online for free. Reduce file size without losing quality. 100% browser-based, no upload needed.">
+<meta name="keywords" content="image compressor, compress image, reduce image size, jpg compressor, png compressor">
+<meta property="og:title" content="Image Compressor - 28tools">
+<meta property="og:description" content="Compress images free in your browser. No uploads.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="manifest" href="../manifest.json">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Image Compressor","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Compress JPG PNG WebP images in your browser for free."}</script>
+</head>
+<body>
+<nav class="nav"><div class="container nav__inner">
+<a href="../index.html" class="nav__logo" aria-label="28tools Home"><img src="../assets/images/favicon.png" alt="28tools favicon" class="nav__logo-favicon" aria-hidden="true"><img src="../assets/images/logo.png" alt="28tools" class="nav__logo-img"></a>
+<div class="nav__links"><a href="../index.html" class="nav__link">🏠 Home</a><a href="../index.html#image-tools" class="nav__link active">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__link">📄 PDF Tools</a></div>
+<div class="nav__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button><button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></nav>
+<div class="nav__drawer" id="navDrawer"><a href="../index.html" class="nav__drawer-link">🏠 Home</a><a href="../index.html#image-tools" class="nav__drawer-link">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__drawer-link">📄 PDF Tools</a></div>
+
+<main class="tool-page">
+<div class="container">
+<nav class="tool-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="tool-breadcrumb__sep">›</span><a href="../index.html#image-tools">Image Tools</a><span class="tool-breadcrumb__sep">›</span><span>Image Compressor</span></nav>
+<div class="tool-title-row">
+<div class="tool-title-icon" style="background:transparent"><svg class="tool-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)"/><rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)"/><path d="M11 34 L19 20 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55"/><circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45"/><circle cx="46" cy="46" r="11" fill="var(--icon-green)"/><path d="M42 43 L46 47 L50 43" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M42 48 L46 52 L50 48" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div><h1>Image Compressor</h1><p>Reduce image file size without losing quality — 100% in your browser</p></div>
+</div>
+
+<!-- Upload -->
+<div class="upload-zone" id="uploadZone">
+<input type="file" id="fileInput" class="upload-zone__input" accept="image/jpeg,image/png,image/webp" multiple>
+<span class="upload-zone__icon">📂</span>
+<div class="upload-zone__title">Drop images here or click to upload</div>
+<div class="upload-zone__subtitle">Supports JPG, PNG, WebP — Max 20MB per file</div>
+<div class="upload-zone__formats"><span class="format-tag">JPG</span><span class="format-tag">PNG</span><span class="format-tag">WebP</span></div>
+</div>
+
+<div id="statusArea"></div>
+
+<!-- Workspace -->
+<div class="tool-workspace tool-workspace--split" id="workspace" style="display:none;margin-top:24px;">
+<div>
+<div class="settings-panel">
+<div class="settings-panel__title">⚙️ Compression Settings</div>
+<div class="form-group">
+<label class="form-label" for="qualityRange">Quality <span id="qualityVal">75%</span></label>
+<input type="range" class="form-range" id="qualityRange" min="1" max="100" value="75">
+</div>
+<div class="form-group">
+<label class="form-label" for="outputFormat">Output Format</label>
+<select class="form-select" id="outputFormat">
+<option value="same">Same as input</option>
+<option value="image/jpeg">JPG</option>
+<option value="image/png">PNG</option>
+<option value="image/webp">WebP</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label" for="maxWidthInput">Max Width (px) <span>0 = no limit</span></label>
+<input type="number" class="form-input" id="maxWidthInput" value="0" min="0" max="8000">
+</div>
+<button class="btn btn--primary w-full" id="compressBtn" style="margin-top:8px;">🗜️ Compress Images</button>
+</div>
+
+<div id="fileListArea" class="file-list" style="margin-top:16px;"></div>
+</div>
+
+<div>
+<div class="preview-panel">
+<div class="preview-panel__header"><span class="preview-panel__title">Preview</span><span id="sizeInfo" class="text-muted" style="font-size:.85rem;"></span></div>
+<div class="preview-panel__body" id="previewBody"><span style="color:var(--clr-text-faint);font-size:.9rem;">Preview will appear here</span></div>
+</div>
+<div id="downloadArea" style="margin-top:16px;display:none;">
+<button class="btn btn--primary w-full" id="downloadBtn">⬇️ Download Compressed Image(s)</button>
+</div>
+</div>
+</div>
+
+<!-- HOW TO USE -->
+<section class="how-to-section">
+<h2>How to Use the Image Compressor</h2>
+<div class="how-to-steps">
+<div class="step-card"><div class="step-card__num">1</div><h4>Upload Your Image</h4><p>Drag and drop or click to upload JPG, PNG, or WebP images. Multiple files supported.</p></div>
+<div class="step-card"><div class="step-card__num">2</div><h4>Adjust Settings</h4><p>Set quality level (1–100) and choose output format. Lower quality = smaller file size.</p></div>
+<div class="step-card"><div class="step-card__num">3</div><h4>Download</h4><p>Click Compress, preview the result, then download your optimized image.</p></div>
+</div>
+<div class="faq">
+<h3 style="margin-bottom:16px;">Frequently Asked Questions</h3>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">Does compressing reduce image quality? <span class="faq__icon">▾</span></button><div class="faq__a">It depends on the quality setting. At 75–85% quality, the difference is invisible to the human eye while file sizes reduce by 50–70%. PNG compression is lossless.</div></div>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">Are my images uploaded to a server? <span class="faq__icon">▾</span></button><div class="faq__a">No. All compression happens entirely in your browser using the HTML5 Canvas API. Your images never leave your device.</div></div>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">What is the maximum file size? <span class="faq__icon">▾</span></button><div class="faq__a">The tool supports files up to 20MB each. For very large files, processing may take a few seconds depending on your device.</div></div>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">Can I compress multiple images at once? <span class="faq__icon">▾</span></button><div class="faq__a">Yes! Select multiple files and click Compress. Each file will be compressed individually and you can download them all as a ZIP.</div></div>
+</div>
+</section>
+</div>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer__bottom"><span>© 2024 28tools</span><a href="../index.html">← Back to all tools</a></div></div></footer>
+
+<script src="../js/main.js" defer></script>
+<script src="../js/tools/image-compressor.js" defer></script>
+</body></html>
