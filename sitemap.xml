@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://yourdomain.github.io/28tools/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-compressor.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-resizer.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-converter.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-cropper.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-rotator.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-to-base64.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-watermark.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/color-picker.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-filters.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-merger.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/exif-viewer.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/favicon-generator.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-splitter.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/bulk-renamer.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-to-pdf.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-to-image.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-merger.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-splitter.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-compressor.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-rotator.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-page-remover.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-protect.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-unlock.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-text-extractor.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-watermark.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-reorder.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-metadata.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-viewer.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- New Image Tools (29-35) -->
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-blur-sharpen.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-brightness-contrast.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-flip.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/passport-photo.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-pixelator.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/palette-extractor.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/image-compare.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- New PDF Tools (36-42) -->
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-page-numbers.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-header-footer.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-blank-page.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-duplicate-remover.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-grayscale.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/images-to-pdf.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://yourdomain.github.io/28tools/tools/pdf-info.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+</urlset>
