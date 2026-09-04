@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Image Format Converter — 28tools</title>
+<meta name="description" content="Convert images between JPG, PNG, WebP, GIF and BMP formats for free. Browser-based, no uploads.">
+<meta name="keywords" content="image converter, jpg to png, png to webp, convert image format online">
+<meta property="og:title" content="Image Format Converter - Convert JPG PNG WebP Free - 28tools"><meta property="og:description" content="Convert images between JPG, PNG, WebP, GIF and BMP formats for free. Browser-based, no uploads."><meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Image Format Converter - Convert JPG PNG WebP Free","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+<nav class="nav"><div class="container nav__inner">
+<a class="brand-logo" href="../index.html" aria-label="28tools Home"><span class="brand-number">28</span><span class="brand-name">tools</span></a>
+<div class="nav__links"><a href="../index.html" class="nav__link">🏠 Home</a><a href="../index.html#image-tools" class="nav__link">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__link">📄 PDF Tools</a></div>
+<div class="nav__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button><button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></nav>
+<div class="nav__drawer" id="navDrawer"><a href="../index.html" class="nav__drawer-link">🏠 Home</a><a href="../index.html#image-tools" class="nav__drawer-link">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__drawer-link">📄 PDF Tools</a></div>
+<main class="tool-page"><div class="container">
+<nav class="tool-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="tool-breadcrumb__sep">›</span><a href="../index.html#image-tools">Image Tools</a><span class="tool-breadcrumb__sep">›</span><span>Image Format Converter - Convert JPG PNG WebP Free</span></nav>
+<div class="tool-title-row"><div class="tool-title-icon" style="background:transparent"><svg class="tool-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="9" width="26" height="26" rx="3" fill="var(--icon-frame)"/><rect x="7" y="13" width="18" height="18" rx="2" fill="var(--icon-frame-inner)"/><path d="M9 25 L14 18 L19 23 L22 19 L25 25Z" fill="var(--icon-paper-edge)" opacity="0.55"/><rect x="21" y="14" width="26" height="26" rx="3" fill="var(--icon-paper)"/><rect x="25" y="18" width="18" height="18" rx="2" fill="var(--icon-paper-edge)" opacity="0.6"/><circle cx="46" cy="46" r="11" fill="var(--icon-cyan)"/><path d="M40 43 C40 40 43 38 46 39" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M52 49 C52 52 49 54 46 53" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"/></svg></div><div><h1>Image Format Converter</h1><p>Convert between JPG, PNG, WebP, GIF, BMP — instantly, no upload</p></div></div>
+<div class="upload-zone" id="uploadZone">
+<input type="file" id="fileInput" class="upload-zone__input" accept="image/*" multiple>
+<span class="upload-zone__icon">📂</span>
+<div class="upload-zone__title">Drop images here or click to upload</div>
+<div class="upload-zone__subtitle">Supports JPG, PNG, WebP, GIF, BMP — Max 20MB</div>
+<div class="upload-zone__formats"><span class="format-tag">JPG</span><span class="format-tag">PNG</span><span class="format-tag">WebP</span><span class="format-tag">GIF</span><span class="format-tag">BMP</span></div>
+</div>
+<div id="statusArea"></div>
+<div class="tool-workspace tool-workspace--split" id="workspace" style="display:none;margin-top:24px;">
+<div><div class="settings-panel">
+<div class="settings-panel__title">⚙️ Conversion Settings</div>
+<div class="form-group"><label class="form-label">Convert To</label>
+<select class="form-select" id="targetFormat">
+<option value="image/jpeg">JPG</option><option value="image/png">PNG</option>
+<option value="image/webp">WebP</option><option value="image/bmp">BMP</option></select></div>
+<div class="form-group" id="qualityGroup"><label class="form-label">Quality <span id="qualityVal">90%</span></label><input type="range" class="form-range" id="qualityRange" min="1" max="100" value="90"></div>
+<div class="form-group"><label class="toggle-switch"><input type="checkbox" id="whiteBackground" checked><div class="toggle-track"></div><span class="toggle-label">White background (for transparency)</span></label></div>
+<button class="btn btn--primary w-full" id="convertBtn" style="margin-top:8px">🔄 Convert Images</button>
+</div>
+<div id="fileListArea" class="file-list" style="margin-top:16px"></div></div>
+<div><div class="preview-panel">
+<div class="preview-panel__header"><span class="preview-panel__title">Preview</span><span id="sizeInfo" class="text-muted" style="font-size:.85rem"></span></div>
+<div class="preview-panel__body" id="previewBody"><span style="color:var(--clr-text-faint);font-size:.9rem">Preview appears here</span></div>
+</div>
+<div id="downloadArea" style="display:none;margin-top:16px"><button class="btn btn--primary w-full" id="downloadBtn">⬇️ Download Converted Image(s)</button></div>
+</div></div>
+<section class="how-to-section">
+<h2>How to Convert Image Formats</h2>
+<div class="how-to-steps"><div class='step-card'><div class='step-card__num'>1</div><h4>Upload Images</h4><p>Drop or select images to convert. Multiple files supported.</p></div><div class='step-card'><div class='step-card__num'>2</div><h4>Choose Format</h4><p>Select the target format: JPG, PNG, WebP, or BMP.</p></div><div class='step-card'><div class='step-card__num'>3</div><h4>Download</h4><p>Convert and download individually or as a ZIP.</p></div></div>
+<div class="faq"><h3 style="margin-bottom:16px">Frequently Asked Questions</h3><div class='faq__item'><button class='faq__q' aria-expanded='false'>Does PNG to JPG lose quality? <span class='faq__icon'>▾</span></button><div class='faq__a'>JPG uses lossy compression. Use 90%+ quality to minimize loss. PNG is lossless.</div></div><div class='faq__item'><button class='faq__q' aria-expanded='false'>Will transparency be preserved? <span class='faq__icon'>▾</span></button><div class='faq__a'>JPG and BMP don't support transparency. Enable white background to fill transparent areas.</div></div><div class='faq__item'><button class='faq__q' aria-expanded='false'>Can I batch convert? <span class='faq__icon'>▾</span></button><div class='faq__a'>Yes! Upload multiple images and they'll all be converted to your chosen format.</div></div></div>
+</section>
+</div></main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><span>© 2024 28tools</span><a class="brand-logo" href="../index.html" aria-label="28tools Home"><span class="brand-number">28</span><span class="brand-name">tools</span></a></div></div></footer>
+<script src="../js/main.js" defer></script>
+<script src="../js/tools/image-converter.js" defer></script>
+</body></html>

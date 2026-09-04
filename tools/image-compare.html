@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Image Compare Tool — 28tools</title>
+<meta name="description" content="Compare two images side-by-side with a draggable before/after reveal slider. Free, no upload, works in browser."><meta name="keywords" content="image compare tool,before after image slider,image comparison,side by side image compare,before after photo">
+<meta property="og:title" content="Image Compare Tool - Before & After Slider Online Free - 28tools"><meta property="og:description" content="Compare two images side-by-side with a draggable before/after reveal slider. Free, no upload, works in browser."><meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<style>
+  .compare-wrapper { position:relative; overflow:hidden; user-select:none; border-radius:12px; background:#111; touch-action:none; cursor:col-resize; }
+  .compare-img { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; }
+  .compare-img--after { clip-path:inset(0 0 0 50%); }
+  .compare-handle { position:absolute; top:0; bottom:0; width:3px; background:white; box-shadow:0 0 0 2px rgba(0,0,0,.5); cursor:col-resize; transform:translateX(-50%); z-index:10; }
+  .compare-handle::before, .compare-handle::after {
+    content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    background:white; border-radius:50%;
+  }
+  .compare-handle::before {
+    width:36px; height:36px;
+    background:white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M8 5l-6 7 6 7M16 5l6 7-6 7'/%3E%3C/svg%3E") center/20px no-repeat;
+    box-shadow:0 2px 8px rgba(0,0,0,.4);
+  }
+  .compare-label { position:absolute; top:12px; font-size:.8rem; font-weight:700; padding:4px 10px; border-radius:20px; background:rgba(0,0,0,.6); color:#fff; pointer-events:none; }
+  .compare-label--before { left:12px; }
+  .compare-label--after { right:12px; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Image Compare Tool - Before & After Slider Online Free","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head><body>
+<nav class="nav"><div class="container nav__inner">
+<a class="brand-logo" href="../index.html" aria-label="28tools Home"><span class="brand-number">28</span><span class="brand-name">tools</span></a>
+<div class="nav__links"><a href="../index.html" class="nav__link">🏠 Home</a><a href="../index.html#image-tools" class="nav__link">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__link">📄 PDF Tools</a></div>
+<div class="nav__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button><button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></nav>
+<div class="nav__drawer" id="navDrawer"><a href="../index.html" class="nav__drawer-link">🏠 Home</a><a href="../index.html#image-tools" class="nav__drawer-link">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__drawer-link">📄 PDF Tools</a></div>
+<main class="tool-page"><div class="container">
+<nav class="tool-breadcrumb"><a href="../index.html">Home</a><span class="tool-breadcrumb__sep">›</span><a href="../index.html#image-tools">Image Tools</a><span class="tool-breadcrumb__sep">›</span><span>Image Compare</span></nav>
+<div class="tool-title-row"><div class="tool-title-icon" style="background:transparent"><svg class="tool-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="22" height="36" rx="3" fill="var(--icon-frame)"/><rect x="7" y="10" width="14" height="28" rx="2" fill="var(--icon-frame-inner)"/><path d="M9 30 L13 20 L17 26 L19 22 L21 30Z" fill="var(--icon-paper-edge)" opacity="0.55"/><rect x="25" y="10" width="22" height="36" rx="3" fill="var(--icon-frame)"/><rect x="29" y="14" width="14" height="28" rx="2" fill="var(--icon-frame-inner)"/><rect x="22" y="10" width="6" height="36" rx="2" fill="var(--icon-paper-edge)" opacity="0.5"/><circle cx="25" cy="28" r="3" fill="var(--icon-paper-edge)" opacity="0.8"/><circle cx="46" cy="46" r="11" fill="var(--icon-cyan)"/><line x1="46" y1="39" x2="46" y2="53" stroke="white" stroke-width="2.2"/><path d="M42 43 L38 46 L42 49" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M50 43 L54 46 L50 49" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h1>Image Compare Tool</h1><p>Upload two images and drag the slider to reveal a before/after comparison</p></div></div>
+
+<div id="statusArea"></div>
+
+<!-- Upload section -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px">
+  <div>
+    <p style="font-weight:600;margin-bottom:8px">Before (Left)</p>
+    <div class="upload-zone" id="uploadZoneBefore" style="min-height:120px">
+      <input type="file" id="fileInputBefore" class="upload-zone__input" accept="image/*">
+      <span class="upload-zone__icon" style="font-size:1.5rem">📂</span>
+      <div class="upload-zone__title" style="font-size:.95rem">Drop or click</div>
+      <div class="upload-zone__subtitle" style="font-size:.8rem">Before image</div>
+    </div>
+  </div>
+  <div>
+    <p style="font-weight:600;margin-bottom:8px">After (Right)</p>
+    <div class="upload-zone" id="uploadZoneAfter" style="min-height:120px">
+      <input type="file" id="fileInputAfter" class="upload-zone__input" accept="image/*">
+      <span class="upload-zone__icon" style="font-size:1.5rem">📂</span>
+      <div class="upload-zone__title" style="font-size:.95rem">Drop or click</div>
+      <div class="upload-zone__subtitle" style="font-size:.8rem">After image</div>
+    </div>
+  </div>
+</div>
+
+<div id="workspace" style="display:none;margin-top:24px">
+  <div class="preview-panel">
+    <div class="preview-panel__header">
+      <span class="preview-panel__title">Comparison Slider</span>
+      <span class="text-muted" style="font-size:.85rem">Drag the handle to compare</span>
+    </div>
+    <div style="padding:16px">
+      <div class="compare-wrapper" id="compareWrapper" style="height:480px">
+        <img class="compare-img compare-img--before" id="imgBefore" alt="Before">
+        <img class="compare-img compare-img--after" id="imgAfter" alt="After">
+        <div class="compare-handle" id="compareHandle" style="left:50%"></div>
+        <span class="compare-label compare-label--before">Before</span>
+        <span class="compare-label compare-label--after">After</span>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+        <label style="font-size:.85rem;font-weight:500">Slider Position:</label>
+        <input type="range" class="form-range" id="sliderRange" min="0" max="100" value="50" style="flex:1">
+        <span id="sliderPct" style="font-size:.85rem;width:36px">50%</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="how-to-section"><h2>How to Use</h2>
+<div class="how-to-steps">
+<div class="step-card"><div class="step-card__num">1</div><h4>Upload Both Images</h4><p>Upload your "Before" image on the left and your "After" image on the right.</p></div>
+<div class="step-card"><div class="step-card__num">2</div><h4>Drag the Slider</h4><p>Click and drag the center handle left or right to reveal each image.</p></div>
+<div class="step-card"><div class="step-card__num">3</div><h4>Compare</h4><p>Use the range slider below for precise control. All done in your browser — no uploads.</p></div>
+</div>
+<div class="faq"><h3 style="margin-bottom:16px">FAQ</h3>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">Are my images uploaded anywhere? <span class="faq__icon">▾</span></button><div class="faq__a">No. Everything runs 100% in your browser. Your files never leave your device.</div></div>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">Do the images need to be the same size? <span class="faq__icon">▾</span></button><div class="faq__a">No, the tool handles images of different sizes. Both images are scaled with object-fit:contain so you can compare them side by side regardless of their original dimensions.</div></div>
+</div></section>
+</div></main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><span>© 2024 28tools</span><a class="brand-logo" href="../index.html" aria-label="28tools Home"><span class="brand-number">28</span><span class="brand-name">tools</span></a></div></div></footer>
+<script src="../js/main.js" defer></script><script src="../js/tools/image-compare.js" defer></script>
+</body></html>

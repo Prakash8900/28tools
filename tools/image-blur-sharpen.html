@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Image Blur & Sharpen Tool — 28tools</title>
+<meta name="description" content="Apply Gaussian blur or unsharp mask sharpening to images online free. Real-time canvas preview. No upload."><meta name="keywords" content="image blur tool,sharpen image online,gaussian blur,unsharp mask,blur photo online free">
+<meta property="og:title" content="Image Blur & Sharpen Tool - Apply Blur or Sharpen Online Free - 28tools"><meta property="og:description" content="Apply Gaussian blur or unsharp mask sharpening to images online free. Real-time canvas preview. No upload."><meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Image Blur & Sharpen Tool - Apply Blur or Sharpen Online Free","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head><body>
+<nav class="nav"><div class="container nav__inner">
+<a class="brand-logo" href="../index.html" aria-label="28tools Home"><span class="brand-number">28</span><span class="brand-name">tools</span></a>
+<div class="nav__links"><a href="../index.html" class="nav__link">🏠 Home</a><a href="../index.html#image-tools" class="nav__link">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__link">📄 PDF Tools</a></div>
+<div class="nav__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><span id="themeIcon">🌙</span></button><button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</div></nav>
+<div class="nav__drawer" id="navDrawer"><a href="../index.html" class="nav__drawer-link">🏠 Home</a><a href="../index.html#image-tools" class="nav__drawer-link">🖼️ Image Tools</a><a href="../index.html#pdf-tools" class="nav__drawer-link">📄 PDF Tools</a></div>
+<main class="tool-page"><div class="container">
+<nav class="tool-breadcrumb"><a href="../index.html">Home</a><span class="tool-breadcrumb__sep">›</span><a href="../index.html#image-tools">Image Tools</a><span class="tool-breadcrumb__sep">›</span><span>Image Blur & Sharpen Tool - Apply Blur or Sharpen Online Free</span></nav>
+<div class="tool-title-row"><div class="tool-title-icon" style="background:transparent"><svg class="tool-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)"/><rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)"/><path d="M11 34 L17 22 L23 30Z" fill="var(--icon-paper-edge)" opacity="0.3"/><path d="M23 30 L29 20 L35 28 L39 23 L41 34 L23 34Z" fill="var(--icon-paper-edge)" opacity="0.6"/><circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45"/><circle cx="46" cy="46" r="11" fill="var(--icon-cyan)"/><path d="M39 43 C41 41 43 45 45 43 C47 41 49 45 51 43" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M39 49 C41 51 43 47 45 49 C47 51 49 47 51 49" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg></div><div><h1>Image Blur & Sharpen</h1><p>Apply Gaussian blur or unsharp-mask sharpening — live preview in your browser</p></div></div>
+<div class="upload-zone" id="uploadZone">
+<input type="file" id="fileInput" class="upload-zone__input" accept="image/*">
+<span class="upload-zone__icon">📂</span>
+<div class="upload-zone__title">Drop image here or click to upload</div>
+<div class="upload-zone__subtitle">JPG, PNG, WebP — Max 20MB</div>
+<div class="upload-zone__formats"><span class="format-tag">JPG</span><span class="format-tag">PNG</span><span class="format-tag">WebP</span></div>
+</div>
+<div id="statusArea"></div>
+<div id="workspace" style="display:none;margin-top:24px">
+<div class="tool-workspace tool-workspace--split">
+<div class="settings-panel"><div class="settings-panel__title">⚙️ Settings</div><div id="toolControls"></div>
+<button class="btn btn--primary w-full" id="processBtn" style="margin-top:16px">▶ Apply</button></div>
+<div><div class="preview-panel"><div class="preview-panel__header"><span class="preview-panel__title">Preview</span><span id="sizeInfo" class="text-muted" style="font-size:.85rem"></span></div>
+<div class="preview-panel__body" id="previewBody"><span style="color:var(--clr-text-faint);font-size:.9rem">Preview here</span></div></div>
+<div id="downloadArea" style="display:none;margin-top:16px"><button class="btn btn--primary w-full" id="downloadBtn">⬇️ Download Result</button></div>
+</div></div></div>
+<section class="how-to-section"><h2>How to Use</h2>
+<div class="how-to-steps">
+<div class="step-card"><div class="step-card__num">1</div><h4>Upload Image</h4><p>Drop or select your image. JPG, PNG and WebP supported.</p></div>
+<div class="step-card"><div class="step-card__num">2</div><h4>Adjust Settings</h4><p>Use the controls to configure the effect you want.</p></div>
+<div class="step-card"><div class="step-card__num">3</div><h4>Download</h4><p>Preview your result and click Download. All processing is done in your browser.</p></div>
+</div>
+<div class="faq"><h3 style="margin-bottom:16px">FAQ</h3>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">Are my images uploaded anywhere? <span class="faq__icon">▾</span></button><div class="faq__a">No. Everything runs 100% in your browser using the Canvas API. Your files never leave your device.</div></div>
+<div class="faq__item"><button class="faq__q" aria-expanded="false">What image formats are supported? <span class="faq__icon">▾</span></button><div class="faq__a">JPG, PNG, and WebP are supported as input. You can choose the output format in settings.</div></div>
+</div></section>
+</div></main>
+<footer class="footer"><div class="container"><div class="footer__bottom"><span>© 2024 28tools</span><a class="brand-logo" href="../index.html" aria-label="28tools Home"><span class="brand-number">28</span><span class="brand-name">tools</span></a></div></div></footer>
+<script src="../js/main.js" defer></script><script src="../js/tools/image-blur-sharpen.js" defer></script>
+</body></html>
