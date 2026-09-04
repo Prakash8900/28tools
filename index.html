@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28tools — Free Image &amp; PDF Tools</title>
+  <meta name="description"
+    content="28tools offers 42 free, browser-based image and PDF tools. Compress, resize, convert, crop, blur, compare, merge, split and edit images and PDFs — no upload, no signup, 100% private.">
+  <meta name="keywords"
+    content="image tools, PDF tools, image compressor, PDF merger, image converter, image blur, image compare, passport photo maker, free online tools, browser tools">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourdomain.github.io/28tools/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="28tools - Free Online Image & PDF Tools">
+  <meta property="og:description"
+    content="42 free browser-based tools for images and PDFs. No uploads, no signup, 100% private.">
+  <meta property="og:url" content="https://yourdomain.github.io/28tools/">
+  <meta property="og:image" content="https://yourdomain.github.io/28tools/assets/images/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="28tools - Free Online Image & PDF Tools">
+  <meta name="twitter:description" content="42 free browser-based tools. No uploads, no signup.">
+  <meta name="twitter:image" content="https://yourdomain.github.io/28tools/assets/images/og-image.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "28tools",
+    "url": "https://yourdomain.github.io/28tools/",
+    "description": "Free browser-based image and PDF tools",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://yourdomain.github.io/28tools/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a class="brand-logo" href="index.html" aria-label="28tools Home">
+        <span class="brand-number">28</span><span class="brand-name">tools</span>
+      </a>
+
+      <div class="nav__links" role="menubar">
+        <a href="index.html" class="nav__link active" role="menuitem">🏠 Home</a>
+        <a href="#image-tools" class="nav__link" role="menuitem">🖼️ Image Tools</a>
+        <a href="#pdf-tools" class="nav__link" role="menuitem">📄 PDF Tools</a>
+      </div>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="nav__drawer" id="navDrawer" role="menu" aria-label="Mobile navigation">
+    <a href="index.html" class="nav__drawer-link" role="menuitem">🏠 Home</a>
+    <a href="#image-tools" class="nav__drawer-link" role="menuitem">🖼️ Image Tools</a>
+    <a href="#pdf-tools" class="nav__drawer-link" role="menuitem">📄 PDF Tools</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" role="banner">
+    <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--3" aria-hidden="true"></div>
+
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="hero__badge">✨ 42 Free Tools — No Signup Required</div>
+
+      <h1 class="hero__title">
+        Powerful Image &amp; PDF Tools<br>
+        <span class="gradient-text">Right in Your Browser</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Compress, convert, resize, merge, split and edit images &amp; PDFs — 100% free, 100% private.
+        Your files never leave your device.
+      </p>
+
+      <!-- Search -->
+      <div class="search-wrapper" role="search">
+        <span class="search-wrapper__icon" aria-hidden="true">🔍</span>
+        <input type="search" id="toolSearch" class="search-input" placeholder="Search 42 tools…"
+          aria-label="Search tools" autocomplete="off">
+        <button class="search-clear" id="searchClear" aria-label="Clear search" title="Clear">✕</button>
+      </div>
+
+      <!-- Filter Chips -->
+      <div class="filter-chips" role="group" aria-label="Filter by category">
+        <button class="chip active" data-filter="all">All Tools (42)</button>
+        <button class="chip chip--img" data-filter="image">🖼️ Image Tools (21)</button>
+        <button class="chip chip--pdf" data-filter="pdf">📄 PDF Tools (21)</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-bar" aria-label="Site statistics">
+        <div class="stat"><span class="stat__value">42</span> Free Tools</div>
+        <div class="stat"><span class="stat__value">100%</span> Browser-Based</div>
+        <div class="stat"><span class="stat__value">0</span> Uploads to Servers</div>
+        <div class="stat"><span class="stat__value">∞</span> Files Processed</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+
+    <!-- ===== IMAGE TOOLS SECTION ===== -->
+    <section class="section" id="image-tools" aria-labelledby="img-heading">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-heading__icon section-heading__icon--img" aria-hidden="true">🖼️</div>
+          <div class="section-heading__text">
+            <h2 id="img-heading">Image Tools</h2>
+            <p>21 powerful tools to compress, convert, blur, compare, edit and transform your images</p>
+          </div>
+        </div>
+        <div class="section-divider section-divider--img" aria-hidden="true"></div>
+
+        <div class="tools-grid" id="imgSection" role="list">
+
+          <!-- 1 -->
+          <a href="tools/image-compressor.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Compressor tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 20 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-green)" />
+                <path d="M42 43 L46 47 L50 43" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M42 48 L46 52 L50 48" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Compressor</h3>
+            <p class="tool-card__desc">Reduce image file size without visible quality loss. Supports JPG, PNG, and WebP.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 2 -->
+          <a href="tools/image-resizer.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Resizer tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L20 21 L28 31 L32 25 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="5" y="6" width="6" height="6" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="39" y="6" width="6" height="6" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="5" y="40" width="6" height="6" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <path d="M46 39 L46 53 M39 46 L53 46" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <path d="M43 43 L46 40 L49 43" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M43 49 L46 52 L49 49" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M41 43 L38 46 L41 49" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M51 43 L54 46 L51 49" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Resizer</h3>
+            <p class="tool-card__desc">Resize images to exact pixel dimensions or by percentage. Maintain aspect ratio.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 3 -->
+          <a href="tools/image-converter.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Format Converter tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="9" width="26" height="26" rx="3" fill="var(--icon-frame)" />
+                <rect x="7" y="13" width="18" height="18" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M9 25 L14 18 L19 23 L22 19 L25 25Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="23" cy="16" r="2.5" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="21" y="14" width="26" height="26" rx="3" fill="var(--icon-paper)" />
+                <rect x="25" y="18" width="18" height="18" rx="2" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <path d="M27 32 L32 25 L37 30 L40 26 L43 32Z" fill="var(--icon-fold)" opacity="0.5" />
+                <circle cx="41" cy="22" r="2.5" fill="var(--icon-fold)" opacity="0.4" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <path d="M40 43 C40 40 43 38 46 39 C49 40 51 42 50 45" stroke="white" stroke-width="2"
+                  stroke-linecap="round" fill="none" />
+                <path d="M48 38 L50 41 L47 42" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M52 49 C52 52 49 54 46 53 C43 52 41 50 42 47" stroke="white" stroke-width="2"
+                  stroke-linecap="round" fill="none" />
+                <path d="M44 54 L42 51 L45 50" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Converter</h3>
+            <p class="tool-card__desc">Convert between JPG, PNG, WebP, GIF, and BMP formats instantly.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 4 -->
+          <a href="tools/image-cropper.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Cropper tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L32 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="13" y="14" width="22" height="22" rx="1" stroke="var(--icon-paper-edge)" stroke-width="1.8"
+                  stroke-dasharray="3 2" fill="none" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <path d="M40 42 L40 40 L42 40" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M52 42 L52 40 L50 40" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M40 50 L40 52 L42 52" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M52 50 L52 52 L50 52" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Cropper</h3>
+            <p class="tool-card__desc">Crop images with a drag-to-select region. Preset ratios: 1:1, 16:9, 4:3 and free.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 5 -->
+          <a href="tools/image-rotator.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Rotator Flipper tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M13 32 L20 19 L29 29 L33 23 L41 32Z" fill="var(--icon-paper-edge)" opacity="0.5" />
+                <circle cx="35" cy="16" r="4" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <path d="M38 8 C44 8 47 11 47 17" stroke="var(--icon-paper-edge)" stroke-width="2"
+                  stroke-linecap="round" fill="none" />
+                <path d="M44 14 L47 17 L50 14" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <path d="M46 38 C41 38 37 42 37 48" stroke="white" stroke-width="2" stroke-linecap="round"
+                  fill="none" />
+                <path d="M43 37 L46 40 L49 37" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M46 54 C51 54 55 50 55 44" stroke="white" stroke-width="2" stroke-linecap="round"
+                  fill="none" />
+                <path d="M49 55 L46 52 L43 55" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Rotator &amp; Flipper</h3>
+            <p class="tool-card__desc">Rotate images by any angle and flip horizontally or vertically.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 6 -->
+          <a href="tools/image-to-base64.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image to Base64 Converter tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" /><text x="10" y="30"
+                  fill="var(--icon-paper-edge)" font-size="9" font-family="monospace" font-weight="700"
+                  opacity="0.6">&lt;/&gt;</text>
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" /><text x="46" y="51" fill="white" font-size="11"
+                  font-weight="800" text-anchor="middle" font-family="monospace">64</text>
+              </svg></div>
+            <h3 class="tool-card__title">Image to Base64</h3>
+            <p class="tool-card__desc">Convert any image to a Base64 string for embedding in HTML, CSS or JSON.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 7 -->
+          <a href="tools/image-watermark.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Watermark Adder tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" /><text x="25" y="29"
+                  fill="var(--icon-paper-edge)" font-size="14" font-weight="700" font-family="sans-serif"
+                  text-anchor="middle" opacity="0.35" transform="rotate(-20,25,29)">WM</text>
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <path d="M46 38 C46 38 40 44 40 48 C40 51.5 43 54 46 54 C49 54 52 51.5 52 48 C52 44 46 38 46 38Z"
+                  fill="white" />
+                <path d="M43 49 C43 47 44.5 46 46 46" stroke="var(--icon-purple)" stroke-width="1.5"
+                  stroke-linecap="round" opacity="0.5" />
+              </svg></div>
+            <h3 class="tool-card__title">Watermark Adder</h3>
+            <p class="tool-card__desc">Add text or image watermarks with custom position, opacity, and font settings.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 8 -->
+          <a href="tools/color-picker.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Color Picker tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <circle cx="14" cy="16" r="3" fill="var(--icon-red)" opacity="0.6" />
+                <circle cx="22" cy="14" r="3" fill="var(--icon-green)" opacity="0.6" />
+                <circle cx="30" cy="16" r="3" fill="var(--icon-cyan)" opacity="0.6" />
+                <circle cx="20" cy="28" r="3.5" fill="none" stroke="var(--icon-paper-edge)" stroke-width="1.5" />
+                <path d="M20 23 L20 25 M20 31 L20 33 M15 28 L17 28 M23 28 L25 28" stroke="var(--icon-paper-edge)"
+                  stroke-width="1.2" stroke-linecap="round" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-amber)" />
+                <path d="M42 52 L43 50 L50 43 C51 42 52 42 53 43 C54 44 54 45 53 46 L46 53 Z" fill="white" />
+                <circle cx="42" cy="52" r="1.5" fill="white" />
+              </svg></div>
+            <h3 class="tool-card__title">Color Picker</h3>
+            <p class="tool-card__desc">Click anywhere on an uploaded image to pick colors. Get HEX, RGB, and HSL values.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 9 -->
+          <a href="tools/image-filters.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Filters tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <line x1="9" y1="22" x2="41" y2="22" stroke="var(--icon-paper-edge)" stroke-width="1" opacity="0.25" />
+                <line x1="9" y1="28" x2="41" y2="28" stroke="var(--icon-paper-edge)" stroke-width="1" opacity="0.25" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-amber)" />
+                <line x1="40" y1="42" x2="52" y2="42" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <line x1="40" y1="46" x2="52" y2="46" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <line x1="40" y1="50" x2="52" y2="50" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <circle cx="43" cy="42" r="2" fill="var(--icon-amber)" stroke="white" stroke-width="1.5" />
+                <circle cx="48" cy="46" r="2" fill="var(--icon-amber)" stroke="white" stroke-width="1.5" />
+                <circle cx="44" cy="50" r="2" fill="var(--icon-amber)" stroke="white" stroke-width="1.5" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Filters</h3>
+            <p class="tool-card__desc">Apply grayscale, sepia, blur, brightness, contrast, saturation and more filters.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 10 -->
+          <a href="tools/image-merger.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Merger Collage Maker tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="8" width="26" height="26" rx="3" fill="var(--icon-frame)" />
+                <rect x="7" y="12" width="18" height="18" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M9 26 L14 18 L19 23 L22 19 L25 26Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="23" cy="15" r="2.5" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="21" y="14" width="26" height="26" rx="3" fill="var(--icon-frame)" />
+                <rect x="25" y="18" width="18" height="18" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M27 32 L32 24 L37 29 L40 25 L43 32Z" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <circle cx="41" cy="21" r="2.5" fill="var(--icon-paper-edge)" opacity="0.35" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-green)" />
+                <path d="M46 40 L46 52 M40 46 L52 46" stroke="white" stroke-width="2.8" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Merger</h3>
+            <p class="tool-card__desc">Combine multiple images side by side, top-bottom, or in a grid collage layout.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 11 -->
+          <a href="tools/exif-viewer.html" class="tool-card tool-card--img reveal" data-category="image" role="listitem"
+            aria-label="EXIF Metadata Viewer tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="11" y="13" width="14" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.5" />
+                <rect x="11" y="17" width="10" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <circle cx="44" cy="44" r="5" fill="none" stroke="white" stroke-width="2.2" />
+                <path d="M48 48 L52 52" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="44" cy="44" r="2" fill="white" opacity="0.5" />
+              </svg></div>
+            <h3 class="tool-card__title">EXIF Viewer &amp; Remover</h3>
+            <p class="tool-card__desc">View hidden EXIF metadata (GPS, camera, date) and strip it for privacy.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 12 -->
+          <a href="tools/favicon-generator.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Favicon Generator tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="11" y="11" width="8" height="8" rx="1.5" fill="var(--icon-amber)" opacity="0.4" />
+                <rect x="21" y="11" width="6" height="6" rx="1" fill="var(--icon-amber)" opacity="0.3" />
+                <rect x="29" y="11" width="4" height="4" rx="0.5" fill="var(--icon-amber)" opacity="0.2" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-amber)" />
+                <path
+                  d="M46 38 L47.8 43.5 L53.5 43.5 L48.9 46.9 L50.7 52.4 L46 49 L41.3 52.4 L43.1 46.9 L38.5 43.5 L44.2 43.5 Z"
+                  fill="white" />
+              </svg></div>
+            <h3 class="tool-card__title">Favicon Generator</h3>
+            <p class="tool-card__desc">Generate favicon.ico and PNG icons in all sizes (16, 32, 48, 64, 128, 256px).</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 13 -->
+          <a href="tools/image-splitter.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Splitter tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <line x1="25" y1="10" x2="25" y2="42" stroke="var(--icon-paper-edge)" stroke-width="1.8"
+                  stroke-dasharray="3 2" />
+                <line x1="9" y1="26" x2="41" y2="26" stroke="var(--icon-paper-edge)" stroke-width="1.8"
+                  stroke-dasharray="3 2" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-red)" />
+                <circle cx="41" cy="42" r="2.5" fill="none" stroke="white" stroke-width="1.8" />
+                <circle cx="41" cy="50" r="2.5" fill="none" stroke="white" stroke-width="1.8" />
+                <path d="M43 41 L53 47" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+                <path d="M43 51 L53 45" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Splitter</h3>
+            <p class="tool-card__desc">Split an image into equal grid pieces (2×2, 3×3, custom). Download as ZIP.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 14 -->
+          <a href="tools/bulk-renamer.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Bulk Image Renamer tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="11" y="11" width="18" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.5" />
+                <rect x="11" y="15" width="14" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.35" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <rect x="44" y="37" width="5" height="13" rx="1" transform="rotate(35 44 46)" fill="white" />
+                <path d="M50 51 L53 48 L55 53 Z" fill="white" opacity="0.85" />
+                <path d="M41 54 L50 54" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Bulk Image Renamer</h3>
+            <p class="tool-card__desc">Rename multiple images with a pattern (prefix, suffix, numbering) and download.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 29 -->
+          <a href="tools/image-blur-sharpen.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Blur Sharpen Tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L17 22 L23 30Z" fill="var(--icon-paper-edge)" opacity="0.3" />
+                <path d="M23 30 L29 20 L35 28 L39 23 L41 34 L23 34Z" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <line x1="23" y1="10" x2="23" y2="42" stroke="var(--icon-paper-edge)" stroke-width="1.5"
+                  stroke-dasharray="2 2" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <path d="M39 43 C41 41 43 45 45 43 C47 41 49 45 51 43 C52 42 53 41 53 41" stroke="white"
+                  stroke-width="2.2" stroke-linecap="round" fill="none" />
+                <path d="M39 49 C41 51 43 47 45 49 C47 51 49 47 51 49 C52 50 53 51 53 51" stroke="white"
+                  stroke-width="2.2" stroke-linecap="round" fill="none" />
+              </svg></div>
+            <h3 class="tool-card__title">Blur &amp; Sharpen</h3>
+            <p class="tool-card__desc">Apply Gaussian blur or unsharp-mask sharpening to images with live preview.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 30 -->
+          <a href="tools/image-brightness-contrast.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Brightness Contrast Adjuster">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <rect x="9" y="10" width="16" height="32" rx="0" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <rect x="25" y="10" width="16" height="32" rx="0" fill="var(--icon-frame-inner)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="none" stroke="var(--icon-frame-inner)"
+                  stroke-width="1.5" />
+                <path d="M11 34 L19 22 L27 30 L31 25 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.3" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-amber)" />
+                <circle cx="46" cy="46" r="4" fill="white" />
+                <path d="M46 38 L46 40 M46 52 L46 54 M38 46 L40 46 M52 46 L54 46" stroke="white" stroke-width="2"
+                  stroke-linecap="round" />
+                <path d="M41 41 L42.4 42.4 M49.6 49.6 L51 51 M41 51 L42.4 49.6 M49.6 42.4 L51 41" stroke="white"
+                  stroke-width="1.8" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Brightness &amp; Contrast</h3>
+            <p class="tool-card__desc">Adjust brightness, contrast, exposure and gamma with real-time canvas sliders.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 31 -->
+          <a href="tools/image-flip.html" class="tool-card tool-card--img reveal" data-category="image" role="listitem"
+            aria-label="Image Flip Tool">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L17 22 L23 30 L23 34Z" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <path d="M41 34 L35 22 L29 30 L27 34Z" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <line x1="25" y1="10" x2="25" y2="42" stroke="var(--icon-paper-edge)" stroke-width="2"
+                  stroke-dasharray="2 2" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <path d="M42 46 L38 46 M42 46 L40 43 M42 46 L40 49" stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M50 46 L54 46 M50 46 L52 43 M50 46 L52 49" stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <line x1="46" y1="40" x2="46" y2="52" stroke="white" stroke-width="1.8" stroke-dasharray="2 2" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Flip</h3>
+            <p class="tool-card__desc">Quickly flip images horizontally or vertically. One click, instant download.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 32 -->
+          <a href="tools/passport-photo.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Passport Photo Maker">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <rect x="13" y="12" width="22" height="26" rx="1" fill="none" stroke="var(--icon-paper-edge)"
+                  stroke-width="1.5" stroke-dasharray="3 2" />
+                <circle cx="24" cy="22" r="5" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <path d="M15 35 C15 29 19 27 24 27 C29 27 33 29 33 35" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-green)" />
+                <rect x="39" y="40" width="14" height="12" rx="2" fill="white" />
+                <circle cx="43" cy="44" r="2.5" fill="var(--icon-green)" opacity="0.7" />
+                <rect x="47" y="42" width="5" height="1.5" rx="0.5" fill="var(--icon-green)" opacity="0.6" />
+                <rect x="47" y="45" width="4" height="1.5" rx="0.5" fill="var(--icon-green)" opacity="0.4" />
+                <path d="M40 50 C40 48 41 47 43 47 C45 47 46 48 46 50" fill="var(--icon-green)" opacity="0.6" />
+              </svg></div>
+            <h3 class="tool-card__title">Passport Photo Maker</h3>
+            <p class="tool-card__desc">Create standard passport/ID photos (2×2", 35×45mm, etc.) with plain background.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 33 -->
+          <a href="tools/image-pixelator.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Pixelator Mosaic Effect">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <rect x="9" y="10" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <rect x="17" y="10" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.3" />
+                <rect x="25" y="10" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.5" />
+                <rect x="33" y="10" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.2" />
+                <rect x="9" y="18" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.2" />
+                <rect x="17" y="18" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <rect x="25" y="18" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.3" />
+                <rect x="33" y="18" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.5" />
+                <rect x="9" y="26" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.5" />
+                <rect x="17" y="26" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.2" />
+                <rect x="25" y="26" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <rect x="33" y="26" width="8" height="8" fill="var(--icon-paper-edge)" opacity="0.35" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <rect x="39" y="39" width="6" height="6" rx="1" fill="white" />
+                <rect x="47" y="39" width="6" height="6" rx="1" fill="white" />
+                <rect x="39" y="47" width="6" height="6" rx="1" fill="white" />
+                <rect x="47" y="47" width="6" height="6" rx="1" fill="white" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Pixelator</h3>
+            <p class="tool-card__desc">Apply a mosaic/pixelation effect to images. Adjust block size for more or less
+              effect.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 34 -->
+          <a href="tools/palette-extractor.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Palette Extractor">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="6" width="40" height="40" rx="4" fill="var(--icon-frame)" />
+                <rect x="9" y="10" width="32" height="32" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M11 34 L19 21 L27 30 L31 24 L41 34Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="36" cy="17" r="4" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="9" y="36" width="8" height="6" fill="var(--icon-red)" opacity="0.5" />
+                <rect x="17" y="36" width="8" height="6" fill="var(--icon-amber)" opacity="0.5" />
+                <rect x="25" y="36" width="8" height="6" fill="var(--icon-green)" opacity="0.5" />
+                <rect x="33" y="36" width="8" height="6" fill="var(--icon-cyan)" opacity="0.5" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-amber)" />
+                <circle cx="42" cy="43" r="3.5" fill="white" />
+                <circle cx="50" cy="43" r="3.5" fill="white" opacity="0.75" />
+                <circle cx="46" cy="50" r="3.5" fill="white" opacity="0.9" />
+              </svg></div>
+            <h3 class="tool-card__title">Palette Extractor</h3>
+            <p class="tool-card__desc">Extract dominant colors from any image. Get HEX, RGB values for your color
+              palette.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 35 -->
+          <a href="tools/image-compare.html" class="tool-card tool-card--img reveal" data-category="image"
+            role="listitem" aria-label="Image Compare Before After Slider">
+            <span class="tool-card__badge badge--img">Image</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="6" width="22" height="36" rx="3" fill="var(--icon-frame)" />
+                <rect x="7" y="10" width="14" height="28" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M9 30 L13 20 L17 26 L19 22 L21 30Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="19" cy="14" r="3" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="25" y="10" width="22" height="36" rx="3" fill="var(--icon-frame)" />
+                <rect x="29" y="14" width="14" height="28" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M31 36 L35 24 L39 30 L41 26 L45 36Z" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <circle cx="43" cy="18" r="3" fill="var(--icon-paper-edge)" opacity="0.35" />
+                <rect x="22" y="10" width="6" height="36" rx="2" fill="var(--icon-paper-edge)" opacity="0.5" />
+                <circle cx="25" cy="28" r="3" fill="var(--icon-paper-edge)" opacity="0.8" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <line x1="46" y1="39" x2="46" y2="53" stroke="white" stroke-width="2.2" />
+                <path d="M42 43 L38 46 L42 49" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M50 43 L54 46 L50 49" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image Compare</h3>
+            <p class="tool-card__desc">Compare two images side-by-side with a draggable before/after reveal slider.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+        </div><!-- /tools-grid -->
+      </div>
+    </section>
+
+    <!-- ===== PDF TOOLS SECTION ===== -->
+    <section class="section" id="pdf-tools" aria-labelledby="pdf-heading" style="padding-top:0;">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-heading__icon section-heading__icon--pdf" aria-hidden="true">📄</div>
+          <div class="section-heading__text">
+            <h2 id="pdf-heading">PDF Tools</h2>
+            <p>21 essential tools to merge, split, compress, number, watermark and manipulate PDF files</p>
+          </div>
+        </div>
+        <div class="section-divider section-divider--pdf" aria-hidden="true"></div>
+
+        <div class="tools-grid" id="pdfSection" role="list">
+
+          <!-- 15 -->
+          <a href="tools/image-to-pdf.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="Image to PDF Converter tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="5" width="26" height="26" rx="3" fill="var(--icon-frame)" />
+                <rect x="8" y="9" width="18" height="18" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M10 23 L15 14 L20 20 L22 16 L26 23Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="24" cy="12" r="2.5" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <path d="M32 18 L38 18" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round" />
+                <path d="M36 15 L39 18 L36 21" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <rect x="38" y="5" width="20" height="26" rx="3" fill="var(--icon-paper)" />
+                <path d="M51 5 L58 12 L51 12Z" fill="var(--icon-fold)" />
+                <rect x="41" y="16" width="12" height="2" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="41" y="20" width="9" height="2" rx="1" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <path d="M46 40 L46 52" stroke="white" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M41 45 L46 40 L51 45" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <line x1="41" y1="52" x2="51" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Image to PDF</h3>
+            <p class="tool-card__desc">Convert one or multiple images (JPG, PNG, WebP) to a single PDF document.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 16 -->
+          <a href="tools/pdf-to-image.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF to Image Converter tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="28" height="36" rx="3" fill="var(--icon-paper)" />
+                <path d="M26 4 L34 12 L26 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="16" width="16" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="21" width="13" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="26" width="14" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <path d="M36 22 L42 22" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round" />
+                <path d="M40 19 L43 22 L40 25" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <rect x="42" y="10" width="18" height="18" rx="3" fill="var(--icon-frame)" />
+                <rect x="46" y="14" width="10" height="10" rx="1.5" fill="var(--icon-frame-inner)" />
+                <path d="M47 22 L49 18 L52 21 L53 19 L55 22Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="54" cy="15" r="1.5" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <rect x="39" y="40" width="14" height="12" rx="2" fill="none" stroke="white" stroke-width="2" />
+                <path d="M41 50 L44 44 L47 48 L49 45 L52 50Z" fill="white" opacity="0.85" />
+                <circle cx="51" cy="43" r="1.8" fill="white" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF to Image</h3>
+            <p class="tool-card__desc">Convert PDF pages to high-quality JPG or PNG images. Download as ZIP.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 17 -->
+          <a href="tools/pdf-merger.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Merger tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="8" width="26" height="32" rx="3" fill="var(--icon-paper-edge)" opacity="0.6" />
+                <path d="M22 8 L29 15 L22 15Z" fill="var(--icon-fold)" opacity="0.5" />
+                <rect x="9" y="4" width="26" height="32" rx="3" fill="var(--icon-paper)" />
+                <path d="M27 4 L35 12 L27 12Z" fill="var(--icon-fold)" />
+                <rect x="14" y="16" width="15" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="14" y="21" width="12" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="14" y="26" width="13" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-green)" />
+                <path d="M46 39 L46 53 M39 46 L53 46" stroke="white" stroke-width="3" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Merger</h3>
+            <p class="tool-card__desc">Combine multiple PDF files into one document. Drag to reorder pages.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 18 -->
+          <a href="tools/pdf-splitter.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Splitter tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <line x1="6" y1="30" x2="40" y2="30" stroke="var(--icon-red)" stroke-width="2" stroke-dasharray="3 2"
+                  opacity="0.6" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-red)" />
+                <circle cx="41" cy="42" r="2.5" fill="none" stroke="white" stroke-width="1.8" />
+                <circle cx="41" cy="50" r="2.5" fill="none" stroke="white" stroke-width="1.8" />
+                <path d="M43 41 L54 47" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <path d="M43 51 L54 45" stroke="white" stroke-width="2" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Splitter</h3>
+            <p class="tool-card__desc">Split a PDF into individual pages or custom page ranges. Download as ZIP.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 19 -->
+          <a href="tools/pdf-compressor.html" class="tool-card tool-card--pdf reveal" data-category="pdf"
+            role="listitem" aria-label="PDF Compressor tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <path d="M18 15 L23 10 M28 15 L23 10" stroke="var(--icon-paper-edge)" stroke-width="1.5"
+                  stroke-linecap="round" opacity="0.5" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-green)" />
+                <path d="M41 42 L46 47 L51 42" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M41 47 L46 52 L51 47" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Compressor</h3>
+            <p class="tool-card__desc">Reduce PDF file size by compressing embedded images and removing redundant data.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 20 -->
+          <a href="tools/pdf-rotator.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Page Rotator tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <path d="M34 6 C40 6 44 10 44 16" stroke="var(--icon-paper-edge)" stroke-width="2"
+                  stroke-linecap="round" fill="none" opacity="0.5" />
+                <path d="M41 13 L44 16 L47 13" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" opacity="0.5" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <path d="M46 38 C40 38 36 42 36 48" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  fill="none" />
+                <path d="M43 37 L46 40 L49 37" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M46 54 C52 54 56 50 56 44" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  fill="none" />
+                <path d="M49 55 L46 52 L43 55" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Page Rotator</h3>
+            <p class="tool-card__desc">Rotate individual or all PDF pages by 90°, 180°, or 270°.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 21 -->
+          <a href="tools/pdf-page-remover.html" class="tool-card tool-card--pdf reveal" data-category="pdf"
+            role="listitem" aria-label="PDF Page Remover tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="33" width="22" height="10" rx="2" fill="var(--icon-red)" opacity="0.15" />
+                <path d="M16 36 L30 42 M30 36 L16 42" stroke="var(--icon-red)" stroke-width="1.5" stroke-linecap="round"
+                  opacity="0.5" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-red)" />
+                <path d="M40 42 L52 42" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <path d="M44 42 L44 40 L48 40 L48 42" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <rect x="41" y="43" width="10" height="9" rx="1.5" fill="none" stroke="white" stroke-width="1.8" />
+                <line x1="44" y1="45" x2="44" y2="50" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                <line x1="48" y1="45" x2="48" y2="50" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Page Remover</h3>
+            <p class="tool-card__desc">Select and delete specific pages from a PDF. Preview before download.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 22 -->
+          <a href="tools/pdf-protect.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Password Protector tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <path d="M42 45 L42 42 C42 39 50 39 50 42 L50 45" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" fill="none" />
+                <rect x="40" y="44" width="12" height="9" rx="2" fill="white" />
+                <circle cx="46" cy="49" r="2" fill="var(--icon-purple)" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Password Protect</h3>
+            <p class="tool-card__desc">Encrypt a PDF with a password to restrict viewing, printing, or copying.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 23 -->
+          <a href="tools/pdf-unlock.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Password Remover tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <path d="M42 45 L42 41 C42 38 46 37 48 38 C50 39 51 41 51 41" stroke="white" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                <rect x="40" y="44" width="12" height="9" rx="2" fill="white" />
+                <circle cx="46" cy="49" r="2" fill="var(--icon-purple)" />
+                <line x1="46" y1="49" x2="46" y2="52" stroke="var(--icon-purple)" stroke-width="1.5"
+                  stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Unlock</h3>
+            <p class="tool-card__desc">Remove password protection from PDFs you own. Enter password and unlock.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 24 -->
+          <a href="tools/pdf-text-extractor.html" class="tool-card tool-card--pdf reveal" data-category="pdf"
+            role="listitem" aria-label="PDF Text Extractor tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="11" y="16" width="22" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="11" y="21" width="18" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="11" y="26" width="20" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="11" y="31" width="15" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="11" y="36" width="19" height="2.5" rx="1" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <rect x="39" y="41" width="9" height="2" rx="1" fill="white" />
+                <rect x="39" y="45" width="9" height="2" rx="1" fill="white" />
+                <rect x="39" y="49" width="7" height="2" rx="1" fill="white" />
+                <path d="M51 46 L56 46" stroke="white" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M53 43 L56 46 L53 49" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Text Extractor</h3>
+            <p class="tool-card__desc">Extract all text content from a PDF and copy or download as a .txt file.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 25 -->
+          <a href="tools/pdf-watermark.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Watermark Adder tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" /><text x="23" y="40"
+                  fill="var(--icon-paper-edge)" font-size="8" font-weight="700" font-family="sans-serif"
+                  text-anchor="middle" opacity="0.3" transform="rotate(-25 23 40)">DRAFT</text>
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <path d="M46 37 C46 37 39 44 39 49 C39 53 42 56 46 56 C50 56 53 53 53 49 C53 44 46 37 46 37Z"
+                  fill="white" />
+                <path d="M42 50 C42 48 44 47 46 47" stroke="var(--icon-purple)" stroke-width="1.5"
+                  stroke-linecap="round" opacity="0.45" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Watermark</h3>
+            <p class="tool-card__desc">Add a custom text watermark across all pages of a PDF document.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 26 -->
+          <a href="tools/pdf-reorder.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Page Reorder tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="11" y="16" width="22" height="7" rx="2" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <rect x="11" y="26" width="22" height="7" rx="2" fill="var(--icon-paper-edge)" opacity="0.3" />
+                <rect x="11" y="36" width="22" height="7" rx="2" fill="var(--icon-paper-edge)" opacity="0.2" />
+                <circle cx="15" cy="19.5" r="1.2" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <circle cx="15" cy="29.5" r="1.2" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <circle cx="15" cy="39.5" r="1.2" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <line x1="40" y1="43" x2="52" y2="43" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <line x1="40" y1="46" x2="52" y2="46" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <line x1="40" y1="49" x2="52" y2="49" stroke="white" stroke-width="2" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Page Reorder</h3>
+            <p class="tool-card__desc">Drag and drop to rearrange pages in any order, then save the result.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 27 -->
+          <a href="tools/pdf-metadata.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Metadata Editor tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="11" y="16" width="8" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="16" width="13" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="11" y="22" width="8" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="22" width="10" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="11" y="28" width="8" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="28" width="14" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="11" y="34" width="8" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="34" width="9" height="2.5" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" />
+                <rect x="44" y="37" width="5" height="13" rx="1" transform="rotate(35 44 46)" fill="white" />
+                <path d="M50 51 L53 48 L55 53 Z" fill="white" opacity="0.85" />
+                <path d="M41 54 L50 54" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Metadata Editor</h3>
+            <p class="tool-card__desc">View and edit PDF metadata: title, author, subject, keywords, and creation date.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 28 -->
+          <a href="tools/pdf-viewer.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Page Counter Viewer tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="22" y="38" width="16" height="8" rx="3" fill="var(--icon-cyan)" opacity="0.2" /><text x="30"
+                  y="45" fill="var(--icon-paper-edge)" font-size="7" font-weight="700" font-family="sans-serif"
+                  text-anchor="middle" opacity="0.6">pg 1</text>
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <path d="M36 46 C39 41 43 39 46 39 C49 39 53 41 56 46 C53 51 49 53 46 53 C43 53 39 51 36 46Z"
+                  fill="none" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                <circle cx="46" cy="46" r="3.5" fill="white" />
+                <circle cx="47.5" cy="44.5" r="1" fill="var(--icon-cyan)" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Viewer &amp; Counter</h3>
+            <p class="tool-card__desc">Preview any PDF in the browser and get page count, size, and metadata info.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 36 -->
+          <a href="tools/pdf-page-numbers.html" class="tool-card tool-card--pdf reveal" data-category="pdf"
+            role="listitem" aria-label="PDF Page Numbering Tool">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" /><text x="23" y="45"
+                  fill="var(--icon-paper-edge)" font-size="8" font-weight="700" font-family="sans-serif"
+                  text-anchor="middle" opacity="0.5">— 1 —</text>
+                <circle cx="46" cy="46" r="11" fill="var(--icon-purple)" /><text x="46" y="51" fill="white"
+                  font-size="11" font-weight="800" text-anchor="middle" font-family="sans-serif">123</text>
+              </svg></div>
+            <h3 class="tool-card__title">PDF Page Numbering</h3>
+            <p class="tool-card__desc">Add automatic page numbers to every page of a PDF. Choose position, font, and
+              start number.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 37 -->
+          <a href="tools/pdf-header-footer.html" class="tool-card tool-card--pdf reveal" data-category="pdf"
+            role="listitem" aria-label="PDF Header Footer Adder">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="6" y="4" width="34" height="8" rx="4" fill="var(--icon-cyan)" opacity="0.25" />
+                <rect x="11" y="7" width="18" height="2" rx="1" fill="var(--icon-cyan)" opacity="0.6" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="6" y="40" width="34" height="8" rx="4" fill="var(--icon-cyan)" opacity="0.25" />
+                <rect x="11" y="43" width="15" height="2" rx="1" fill="var(--icon-cyan)" opacity="0.5" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <rect x="39" y="39" width="14" height="3" rx="1.5" fill="white" />
+                <line x1="40" y1="46" x2="52" y2="46" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  opacity="0.6" />
+                <line x1="40" y1="49" x2="50" y2="49" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  opacity="0.4" />
+                <rect x="39" y="52" width="14" height="3" rx="1.5" fill="white" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Header &amp; Footer</h3>
+            <p class="tool-card__desc">Add custom text headers and footers to every page of your PDF document.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 38 -->
+          <a href="tools/pdf-blank-page.html" class="tool-card tool-card--pdf reveal" data-category="pdf"
+            role="listitem" aria-label="PDF Blank Page Inserter">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="8" y="30" width="30" height="14" rx="2" fill="var(--icon-paper)"
+                  stroke="var(--icon-paper-edge)" stroke-width="1.5" stroke-dasharray="3 2" />
+                <path d="M23 28 L23 24 M20 27 L23 24 L26 27" stroke="var(--icon-green)" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" opacity="0.7" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-green)" />
+                <path d="M46 39 L46 52" stroke="white" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M41 44 L46 39 L51 44" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M41 49 L51 49" stroke="white" stroke-width="2" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Blank Page Inserter</h3>
+            <p class="tool-card__desc">Insert blank pages at any position in a PDF. Useful for printing and layout.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 39 -->
+          <a href="tools/pdf-duplicate-remover.html" class="tool-card tool-card--pdf reveal" data-category="pdf"
+            role="listitem" aria-label="PDF Duplicate Page Remover">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="8" width="34" height="40" rx="4" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <path d="M29 8 L36 15 L29 15Z" fill="var(--icon-fold)" opacity="0.35" />
+                <rect x="8" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M34 4 L42 12 L34 12Z" fill="var(--icon-fold)" />
+                <rect x="14" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="14" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="14" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-red)" />
+                <path d="M40 42 L52 42" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <path d="M44 42 L44 40 L48 40 L48 42" stroke="white" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <rect x="41" y="43" width="10" height="9" rx="1.5" fill="none" stroke="white" stroke-width="1.8" />
+                <line x1="44" y1="45" x2="44" y2="50" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                <line x1="48" y1="45" x2="48" y2="50" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Duplicate Page Remover</h3>
+            <p class="tool-card__desc">Detect and remove visually duplicate pages from a PDF automatically.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 40 -->
+          <a href="tools/pdf-grayscale.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF Grayscale Converter">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="6" y="4" width="17" height="44" fill="var(--icon-cyan)" opacity="0.12" />
+                <rect x="23" y="4" width="17" height="44" fill="var(--icon-paper-edge)" opacity="0.12" />
+                <line x1="23" y1="4" x2="23" y2="48" stroke="var(--icon-paper-edge)" stroke-width="1"
+                  stroke-dasharray="2 2" opacity="0.4" />
+                <rect x="12" y="18" width="22" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="25" width="18" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <rect x="12" y="32" width="20" height="3" rx="1.5" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <path d="M46 36 A10 10 0 0 0 46 56 Z" fill="white" />
+                <path d="M46 36 A10 10 0 0 1 46 56 Z" fill="white" opacity="0.35" />
+                <circle cx="46" cy="46" r="10" fill="none" stroke="white" stroke-width="2" />
+                <line x1="46" y1="36" x2="46" y2="56" stroke="white" stroke-width="1.5" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF Grayscale</h3>
+            <p class="tool-card__desc">Convert a color PDF to grayscale. Reduces file size and prepares for black &amp;
+              white printing.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 41 -->
+          <a href="tools/images-to-pdf.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="Multiple Images to PDF">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="10" width="26" height="22" rx="3" fill="var(--icon-frame)" opacity="0.35" />
+                <rect x="6" y="7" width="26" height="22" rx="3" fill="var(--icon-frame)" opacity="0.6" />
+                <rect x="9" y="4" width="26" height="22" rx="3" fill="var(--icon-frame)" />
+                <rect x="13" y="8" width="18" height="14" rx="2" fill="var(--icon-frame-inner)" />
+                <path d="M15 20 L19 13 L23 18 L25 15 L29 20Z" fill="var(--icon-paper-edge)" opacity="0.55" />
+                <circle cx="28" cy="10" r="2.5" fill="var(--icon-paper-edge)" opacity="0.45" />
+                <path d="M37 17 L43 17" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round" />
+                <path d="M41 14 L44 17 L41 20" stroke="var(--icon-paper-edge)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <rect x="43" y="5" width="16" height="22" rx="3" fill="var(--icon-paper)" />
+                <path d="M52 5 L59 12 L52 12Z" fill="var(--icon-fold)" />
+                <rect x="46" y="15" width="10" height="2" rx="1" fill="var(--icon-paper-edge)" />
+                <rect x="46" y="19" width="8" height="2" rx="1" fill="var(--icon-paper-edge)" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-green)" />
+                <line x1="40" y1="52" x2="52" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" />
+                <line x1="41" y1="49" x2="51" y2="49" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  opacity="0.7" />
+                <line x1="42" y1="46" x2="50" y2="46" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                  opacity="0.45" />
+                <path d="M46 43 L46 38" stroke="white" stroke-width="2.2" stroke-linecap="round" />
+                <path d="M42 42 L46 38 L50 42" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg></div>
+            <h3 class="tool-card__title">Images to PDF (Batch)</h3>
+            <p class="tool-card__desc">Batch upload images, drag to reorder, then convert them all into a single PDF.
+            </p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+          <!-- 42 -->
+          <a href="tools/pdf-info.html" class="tool-card tool-card--pdf reveal" data-category="pdf" role="listitem"
+            aria-label="PDF File Info Viewer">
+            <span class="tool-card__badge badge--pdf">PDF</span>
+            <div class="tool-card__icon" aria-hidden="true"><svg class="tool-icon" viewBox="0 0 64 64" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="4" width="34" height="44" rx="4" fill="var(--icon-paper)" />
+                <path d="M32 4 L40 12 L32 12Z" fill="var(--icon-fold)" />
+                <rect x="11" y="16" width="8" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="16" width="13" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="11" y="21" width="8" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="21" width="10" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="11" y="26" width="8" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="26" width="14" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="11" y="31" width="8" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="31" width="9" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <rect x="11" y="36" width="8" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.7" />
+                <rect x="21" y="36" width="11" height="2" rx="1" fill="var(--icon-paper-edge)" opacity="0.4" />
+                <circle cx="46" cy="46" r="11" fill="var(--icon-cyan)" />
+                <circle cx="46" cy="39" r="2" fill="white" />
+                <path d="M44 43 L44 42 L48 42 L48 43 L47 43 L47 52 L48 52 L48 53 L44 53 L44 52 L45 52 L45 43 Z"
+                  fill="white" />
+              </svg></div>
+            <h3 class="tool-card__title">PDF File Info</h3>
+            <p class="tool-card__desc">View detailed PDF info: file size, page count, dimensions, PDF version, and
+              metadata.</p>
+            <div class="tool-card__arrow"><span aria-hidden="true">→</span></div>
+          </a>
+
+        </div><!-- /tools-grid -->
+
+        <!-- No results -->
+        <div class="no-results" id="noResults" role="status" aria-live="polite">
+          <div class="no-results__icon">🔍</div>
+          <h3>No tools found</h3>
+          <p>Try a different search term or clear the filter.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== WHY SECTION ===== -->
+    <section class="section" aria-labelledby="why-heading"
+      style="background:var(--clr-surface);padding-top:var(--sp-16);padding-bottom:var(--sp-16);">
+      <div class="container">
+        <div class="text-center reveal" style="margin-bottom:var(--sp-12);">
+          <h2 id="why-heading">Why Choose <span class="gradient-text">28tools</span>?</h2>
+          <p style="max-width:500px;margin-inline:auto;">Everything you need to process images and PDFs — with zero
+            compromise on privacy.</p>
+        </div>
+        <div style="display:grid;gap:var(--sp-5);grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+          <div class="step-card reveal">
+            <div class="step-card__num" aria-hidden="true">🔒</div>
+            <h4>100% Private</h4>
+            <p>Files are processed entirely in your browser. Nothing is ever uploaded to a server.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-card__num" aria-hidden="true">⚡</div>
+            <h4>Blazing Fast</h4>
+            <p>No server round-trips. Processing happens instantly using your device's power.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-card__num" aria-hidden="true">🆓</div>
+            <h4>Completely Free</h4>
+            <p>All 42 tools are free forever. No signup, no watermarks, no file size traps.</p>
+          </div>
+          <div class="step-card reveal">
+            <div class="step-card__num" aria-hidden="true">📱</div>
+            <h4>Works on Mobile</h4>
+            <p>Fully responsive and touch-friendly. Works perfectly on phones, tablets, and desktops.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a class="brand-logo" href="index.html" aria-label="28tools Home">
+            <span class="brand-number">28</span><span class="brand-name">tools</span>
+          </a>
+          <p>Free browser-based image &amp; PDF tools. No uploads, no signup, 100% private.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Image Tools</h4>
+          <ul>
+            <li><a href="tools/image-compressor.html">Image Compressor</a></li>
+            <li><a href="tools/image-resizer.html">Image Resizer</a></li>
+            <li><a href="tools/image-converter.html">Image Converter</a></li>
+            <li><a href="tools/image-cropper.html">Image Cropper</a></li>
+            <li><a href="tools/image-watermark.html">Watermark Adder</a></li>
+            <li><a href="tools/exif-viewer.html">EXIF Viewer</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>PDF Tools</h4>
+          <ul>
+            <li><a href="tools/pdf-merger.html">PDF Merger</a></li>
+            <li><a href="tools/pdf-splitter.html">PDF Splitter</a></li>
+            <li><a href="tools/pdf-compressor.html">PDF Compressor</a></li>
+            <li><a href="tools/pdf-protect.html">PDF Protect</a></li>
+            <li><a href="tools/pdf-watermark.html">PDF Watermark</a></li>
+            <li><a href="tools/pdf-text-extractor.html">Text Extractor</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2024 28tools. All rights reserved.</span>
+        <span>Built with ❤️ — 100% client-side, zero uploads</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+
+</html>
