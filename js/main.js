@@ -148,7 +148,19 @@ function initSearch() {
 function initReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!els.length) return;
-  els.forEach(el => el.classList.add('visible'));
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => observer.observe(el));
 }
 
 /* ============================================================
@@ -264,6 +276,67 @@ function downloadCanvas(canvas, filename, type = 'image/png', quality = 0.92) {
 }
 
 /* ============================================================
+   ADS — Inject banners on tool pages
+   ============================================================ */
+function initAds() {
+  const isToolPage = document.querySelector('.tool-page');
+  if (!isToolPage) return; // homepage ads are in HTML directly
+
+  // ── Helper: create an ad wrapper block ──────────────────────
+  function makeAdBlock(slotClass, optionsKey, scriptSrc, width, height) {
+    const wrap = document.createElement('div');
+    wrap.className = 'ad-banner-wrap ' + slotClass;
+    wrap.setAttribute('aria-label', 'Advertisement');
+    wrap.setAttribute('role', 'complementary');
+
+    const label = document.createElement('div');
+    label.className = 'ad-label';
+    label.textContent = 'Advertisement';
+    wrap.appendChild(label);
+
+    const slot = document.createElement('div');
+    slot.className = 'ad-slot';
+    wrap.appendChild(slot);
+
+    // atOptions config script
+    const cfgScript = document.createElement('script');
+    cfgScript.textContent = `atOptions = { 'key': '${optionsKey}', 'format': 'iframe', 'height': ${height}, 'width': ${width}, 'params': {} };`;
+    slot.appendChild(cfgScript);
+
+    // invoke script
+    const invScript = document.createElement('script');
+    invScript.src = scriptSrc;
+    slot.appendChild(invScript);
+
+    return wrap;
+  }
+
+  // ── 728x90 Leaderboard — inject after tool title row ────────
+  const titleRow = document.querySelector('.tool-title-row');
+  if (titleRow) {
+    const ad728 = makeAdBlock(
+      'ad-banner-wrap--leaderboard',
+      '62e8260ad2b87bfd6a49f118bdd20c20',
+      'https://www.highrevenueformat.com/62e8260ad2b87bfd6a49f118bdd20c20/invoke.js',
+      728, 90
+    );
+    titleRow.parentNode.insertBefore(ad728, titleRow.nextSibling);
+  }
+
+  // ── 300x250 Rectangle — inject before how-to-use section ────
+  const howTo = document.querySelector('.how-to-section');
+  if (howTo) {
+    const ad300 = makeAdBlock(
+      'ad-banner-wrap--rect',
+      'd43519a99acdb54ea862896eccd220a1',
+      'https://www.highrevenueformat.com/d43519a99acdb54ea862896eccd220a1/invoke.js',
+      300, 250
+    );
+    howTo.parentNode.insertBefore(ad300, howTo);
+  }
+}
+
+/* ============================================================
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -273,6 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initFAQ();
   initLazyLoad();
+  initAds();
 });
 
 // Expose utilities globally for tool scripts
