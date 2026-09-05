@@ -2390,3 +2390,67 @@ p {
 .footer__col a:hover {
   color: var(--clr-primary);
 }
+
+/* ============================================================
+   AD BANNERS
+   ============================================================ */
+
+.ad-banner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--sp-4) var(--sp-4);
+  background: var(--clr-surface);
+  border-top: 1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+}
+
+/* Between sections on homepage - give it some breathing room */
+.ad-banner-wrap--rect {
+  padding: var(--sp-6) var(--sp-4);
+}
+
+.ad-banner-wrap--leaderboard {
+  padding: var(--sp-5) var(--sp-4);
+}
+
+/* On tool pages, the injected ad gets a top margin */
+.tool-page .ad-banner-wrap {
+  margin: var(--sp-5) 0;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--clr-border);
+}
+
+.ad-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--clr-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-2);
+}
+
+.ad-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Make leaderboard responsive on small screens */
+.ad-slot--728 {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.ad-slot--728 iframe,
+.ad-slot--728 > * {
+  max-width: 100%;
+}
+
+/* Hide on very small screens to prevent overflow */
+@media (max-width: 350px) {
+  .ad-banner-wrap {
+    display: none;
+  }
+}
